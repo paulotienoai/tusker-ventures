@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Tusker Ventures | Global Logistics Network</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#1B4332",
+                        "background-light": "#F9FAFB",
+                        "background-dark": "#0B1011",
+                        "accent": "#F7B500"
+                    },
+                    fontFamily: {
+                        sans: ["Poppins", "sans-serif"],
+                        display: ["Poppins", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                        "xl": "1rem",
+                        "2xl": "1.5rem",
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+
+        .map-glow {
+            filter: drop-shadow(0 0 15px rgba(27, 67, 50, 0.3));
+        }
+
+        .step-line::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            width: 2px;
+            height: 100%;
+            background: #e5e7eb;
+            transform: translateX(-50%);
+        }
+
+        .dark .step-line::after {
+            background: #374151;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-300">
+    <nav
+        class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="https://i.imgur.com/YqKH8Zf.png" alt="Tusker Ventures" class="h-12 w-auto" />
+                    <span class="text-2xl font-bold tracking-tight text-primary dark:text-white">TUSKER<span
+                            class="font-light">VENTURES</span></span>
+                </a>
+                <div class="hidden md:flex space-x-6 items-center">
+                    <a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-accent font-medium transition-colors"
+                        href="index.html">Home</a>
+                    <a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-accent font-medium transition-colors"
+                        href="about.html">About</a>
+                    <a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-accent font-medium transition-colors"
+                        href="products.html">Products</a>
+                    <a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-accent font-medium transition-colors"
+                        href="icumsa-45.html">ICUMSA-45</a>
+                    <a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-accent font-medium transition-colors"
+                        href="protection.html">Protection</a>
+                    <a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-accent font-medium transition-colors"
+                        href="markets.html">Africa</a>
+                    <a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-accent font-medium transition-colors"
+                        href="insights.html">Insights</a>
+                    <a class="bg-primary text-white px-6 py-2.5 rounded-full font-semibold hover:bg-opacity-90 transition-all"
+                        href="contact.html">Contact Us</a>
+                    <button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800" id="theme-toggle">
+                        <span class="material-icons-outlined text-slate-600 dark:text-slate-400">dark_mode</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <header class="relative overflow-hidden pt-16 pb-24 md:pt-32 md:pb-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <span
+                        class="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary font-semibold text-sm tracking-wide uppercase">
+                        Reliability at Scale
+                    </span>
+                    <h1 class="text-5xl lg:text-7xl font-bold leading-[1.1] text-slate-900 dark:text-white">
+                        Global Logistics <span class="text-primary">Without Borders</span>
+                    </h1>
+                    <p class="text-lg text-slate-600 dark:text-slate-400 max-w-xl leading-relaxed">
+                        End-to-end supply chain solutions powered by advanced tracking, strategic global hubs, and a
+                        commitment to uncompromising quality control.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <button
+                            class="bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-lg hover:-translate-y-1 transition-all flex items-center gap-2">
+                            View Our Network <span class="material-icons-outlined">arrow_forward</span>
+                        </button>
+                        <button
+                            class="border-2 border-slate-200 dark:border-slate-800 px-8 py-4 rounded-xl font-bold text-lg hover:bg-slate-50 dark:hover:bg-slate-900 transition-all">
+                            How it Works
+                        </button>
+                    </div>
+                    <div class="flex items-center gap-8 pt-4">
+                        <div>
+                            <p class="text-3xl font-bold text-slate-900 dark:text-white">120+</p>
+                            <p class="text-sm text-slate-500 uppercase font-medium">Global Ports</p>
+                        </div>
+                        <div class="w-px h-10 bg-slate-200 dark:bg-slate-800"></div>
+                        <div>
+                            <p class="text-3xl font-bold text-slate-900 dark:text-white">500k</p>
+                            <p class="text-sm text-slate-500 uppercase font-medium">Tons Shipped</p>
+                        </div>
+                        <div class="w-px h-10 bg-slate-200 dark:bg-slate-800"></div>
+                        <div>
+                            <p class="text-3xl font-bold text-slate-900 dark:text-white">99.8%</p>
+                            <p class="text-sm text-slate-500 uppercase font-medium">On-time Delivery</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img alt="Container Ship at Sea" class="rounded-3xl shadow-2xl relative z-20"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPNbcLaHdeuD7zG4N4E1xmFxWp1kDMBlXGAAvLTUipyHA5Y7TDaJeRtOFnPWVyCozXmizsq30kEuNkVyO1u_THsL-gPL90Gjw0X5aCVRYvVyJjB8Lo9HvpeldKR7zMGDg_yGEOw0khiFsKMs1wWKU4Ok-oWO4yFq5ivDhHC5c-2v1Lhj7Mrh5CfurajibkrHHkUe4yMx6c3G4xCNH2IiYEYeqNqwfnahHyLpvX8XMkKACEm-NSjj1E6vkXOl8L6IFui2M25TfK4Js" />
+                    <div class="absolute -top-10 -right-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10"></div>
+                    <div class="absolute -bottom-10 -left-10 w-64 h-64 bg-accent/10 rounded-full blur-3xl -z-10"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="py-24 bg-slate-50 dark:bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4 dark:text-white">A Truly Global Network</h2>
+                <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Connecting major trade corridors across
+                    six continents with real-time visibility.</p>
+            </div>
+            <div
+                class="relative bg-white dark:bg-background-dark rounded-[2.5rem] p-8 shadow-sm border border-slate-100 dark:border-slate-800">
+                <div class="aspect-[16/9] w-full overflow-hidden rounded-2xl relative">
+                    <img alt="Stylized Global Map" class="w-full h-full object-cover opacity-80 dark:opacity-30"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKCkZ6fQKOD-JyFpiv5vt3wukzycYYwI4g-kAdKCSBgtPaSQ63hXbTBGgYOMA3fVL1FEsTRLxnXt9y7KJRcKe1-lJrb_rUwEjXwrHDWgndfZ6Ghw0jEBBC3VXAwGoOVKbh63Hrztd-yosdsnqtHEf7AuyCNydvN4REmbUFAMii_I0R37zWVErJTezsbIwkpbYyBbpu1V7fc2M_gqr2--KDE38qqbBqNnlFZtepy-E5mEXlHc8gI_q5LQm-Tswr0XrN_3wzzBpN3RU" />
+                    <div class="absolute top-1/4 left-1/4 group cursor-pointer">
+                        <div class="w-4 h-4 bg-primary rounded-full animate-ping absolute"></div>
+                        <div class="w-4 h-4 bg-primary rounded-full relative"></div>
+                        <div
+                            class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-white dark:bg-slate-800 px-3 py-1 rounded text-xs font-bold shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                            Rotterdam Hub</div>
+                    </div>
+                    <div class="absolute top-1/2 left-1/2 group cursor-pointer">
+                        <div class="w-4 h-4 bg-primary rounded-full animate-ping absolute"></div>
+                        <div class="w-4 h-4 bg-primary rounded-full relative"></div>
+                        <div
+                            class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-white dark:bg-slate-800 px-3 py-1 rounded text-xs font-bold shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                            Singapore HQ</div>
+                    </div>
+                    <div class="absolute top-2/3 right-1/4 group cursor-pointer">
+                        <div class="w-4 h-4 bg-primary rounded-full animate-ping absolute"></div>
+                        <div class="w-4 h-4 bg-primary rounded-full relative"></div>
+                        <div
+                            class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-white dark:bg-slate-800 px-3 py-1 rounded text-xs font-bold shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                            Mombasa Port</div>
+                    </div>
+                    <div
+                        class="absolute inset-0 flex items-center justify-center bg-black/5 dark:bg-transparent pointer-events-none">
+                        <div
+                            class="text-center p-8 bg-white/90 dark:bg-background-dark/90 backdrop-blur rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 max-w-md pointer-events-auto">
+                            <span class="material-icons-outlined text-4xl text-primary mb-4">public</span>
+                            <h3 class="text-xl font-bold mb-2 dark:text-white">Real-Time Routing</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 mb-6">Our proprietary network
+                                calculates the fastest, most cost-effective trade routes based on live weather and port
+                                congestion data.</p>
+                            <button class="bg-primary text-white w-full py-3 rounded-lg font-bold">Explore Hub
+                                Locations</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+                <div class="max-w-xl">
+                    <h2 class="text-4xl font-bold mb-4 dark:text-white">End-to-End Solutions</h2>
+                    <p class="text-slate-600 dark:text-slate-400">From the farm gate to the final destination, we manage
+                        every complexity of your supply chain.</p>
+                </div>
+                <a class="text-primary font-bold flex items-center gap-1 hover:underline" href="#">See all services
+                    <span class="material-icons-outlined">arrow_forward</span></a>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div
+                    class="group p-8 bg-white dark:bg-slate-900 rounded-3xl border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-all">
+                    <div
+                        class="w-16 h-16 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <span class="material-icons-outlined text-3xl">directions_boat</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 dark:text-white">Ocean Freight</h3>
+                    <p class="text-slate-600 dark:text-slate-400 mb-6">Global FCL and LCL services with guaranteed space
+                        through strategic alliances with major shipping lines.</p>
+                    <ul class="space-y-2 text-sm font-medium text-slate-500 dark:text-slate-500">
+                        <li class="flex items-center gap-2"><span
+                                class="material-icons-outlined text-xs">check_circle</span> Port-to-Port Tracking</li>
+                        <li class="flex items-center gap-2"><span
+                                class="material-icons-outlined text-xs">check_circle</span> Temperature Controlled</li>
+                    </ul>
+                </div>
+                <div
+                    class="group p-8 bg-white dark:bg-slate-900 rounded-3xl border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-all">
+                    <div
+                        class="w-16 h-16 bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <span class="material-icons-outlined text-3xl">warehouse</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 dark:text-white">Smart Warehousing</h3>
+                    <p class="text-slate-600 dark:text-slate-400 mb-6">Automated storage and retrieval systems with
+                        climate-controlled zones for sensitive commodities.</p>
+                    <ul class="space-y-2 text-sm font-medium text-slate-500 dark:text-slate-500">
+                        <li class="flex items-center gap-2"><span
+                                class="material-icons-outlined text-xs">check_circle</span> Real-time Inventory</li>
+                        <li class="flex items-center gap-2"><span
+                                class="material-icons-outlined text-xs">check_circle</span> Bonded Facilities</li>
+                    </ul>
+                </div>
+                <div
+                    class="group p-8 bg-white dark:bg-slate-900 rounded-3xl border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-all">
+                    <div
+                        class="w-16 h-16 bg-amber-50 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <span class="material-icons-outlined text-3xl">verified</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 dark:text-white">Quality Assurance</h3>
+                    <p class="text-slate-600 dark:text-slate-400 mb-6">Pre-shipment inspections and rigorous lab testing
+                        to ensure every batch meets global standards.</p>
+                    <ul class="space-y-2 text-sm font-medium text-slate-500 dark:text-slate-500">
+                        <li class="flex items-center gap-2"><span
+                                class="material-icons-outlined text-xs">check_circle</span> ISO Certified Labs</li>
+                        <li class="flex items-center gap-2"><span
+                                class="material-icons-outlined text-xs">check_circle</span> Batch Traceability</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-24 bg-primary text-white overflow-hidden relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl font-bold mb-4">Our Streamlined Process</h2>
+                <p class="text-primary-foreground/70 max-w-2xl mx-auto opacity-80">How we move your goods from origin to
+                    destination with precision.</p>
+            </div>
+            <div class="grid md:grid-cols-4 gap-8 relative">
+                <div class="text-center group">
+                    <div
+                        class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold border border-white/20 group-hover:bg-white group-hover:text-primary transition-all">
+                        1</div>
+                    <h4 class="text-xl font-bold mb-3">Origin Sourcing</h4>
+                    <p class="text-sm opacity-70">Direct coordination with suppliers and initial quality vetting at
+                        source.</p>
+                </div>
+                <div class="text-center group">
+                    <div
+                        class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold border border-white/20 group-hover:bg-white group-hover:text-primary transition-all">
+                        2</div>
+                    <h4 class="text-xl font-bold mb-3">Quality Control</h4>
+                    <p class="text-sm opacity-70">Rigorous inspection and certification process at our local hubs.</p>
+                </div>
+                <div class="text-center group">
+                    <div
+                        class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold border border-white/20 group-hover:bg-white group-hover:text-primary transition-all">
+                        3</div>
+                    <h4 class="text-xl font-bold mb-3">Freight Transit</h4>
+                    <p class="text-sm opacity-70">Secured transport via our optimized global shipping routes.</p>
+                </div>
+                <div class="text-center group">
+                    <div
+                        class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold border border-white/20 group-hover:bg-white group-hover:text-primary transition-all">
+                        4</div>
+                    <h4 class="text-xl font-bold mb-3">Last-Mile Delivery</h4>
+                    <p class="text-sm opacity-70">Customs clearance and local delivery directly to your facility.</p>
+                </div>
+            </div>
+        </div>
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <svg class="h-full w-full" preserveAspectRatio="none" viewBox="0 0 100 100">
+                <path d="M0 50 Q25 40 50 50 T100 50" fill="none" stroke="white" stroke-width="0.5"></path>
+                <path d="M0 60 Q25 50 50 60 T100 60" fill="none" stroke="white" stroke-width="0.5"></path>
+                <path d="M0 70 Q25 60 50 70 T100 70" fill="none" stroke="white" stroke-width="0.5"></path>
+            </svg>
+        </div>
+    </section>
+    <section class="py-24 bg-background-light dark:bg-background-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4 dark:text-white">Trusted by Global Partners</h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div
+                    class="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-sm">
+                    <div class="flex gap-1 text-accent mb-4">
+                        <span class="material-icons-outlined">star</span>
+                        <span class="material-icons-outlined">star</span>
+                        <span class="material-icons-outlined">star</span>
+                        <span class="material-icons-outlined">star</span>
+                        <span class="material-icons-outlined">star</span>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-400 mb-8 italic">"Tusker Ventures transformed our supply
+                        chain. Their visibility tools are unmatched in the industry."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-slate-200 overflow-hidden">
+                            <img alt="Client Avatar"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGYDb2gdo1BmgXiaS6WPw0Kkynrp5f5YrLr9OE37iKUrbKFVjbw-eaPNA9XNLPKtet4lzfXi3zFx9zLGUuqfo0nrLk0zWDej4888KgBoC43RlOeBoqScmje_tVnTOdsAl1A2ozIPx323yqP5Y5BhriZrzvMhngfUjm2k5Gsd4-AkL1K23d2fnHRPgu302P8p8l9KMWXdRPjyF8MoGd91_cxel70kaYVmhmo47pcj20XkjMvTLps6mEuN118Sb4wlGEX-rBuh3vDEQ" />
+                        </div>
+                        <div>
+                            <p class="font-bold dark:text-white text-sm">Marcus Chen</p>
+                            <p class="text-xs text-slate-500 uppercase">Ops Director, Global Grain Co.</p>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-sm">
+                    <div class="flex gap-1 text-accent mb-4">
+                        <span class="material-icons-outlined">star</span>
+                        <span class="material-icons-outlined">star</span>
+                        <span class="material-icons-outlined">star</span>
+                        <span class="material-icons-outlined">star</span>
+                        <span class="material-icons-outlined">star</span>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-400 mb-8 italic">"The quality control process is where they
+                        really shine. We haven't had a single batch rejected in two years."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-slate-200 overflow-hidden">
+                            <img alt="Client Avatar"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSXXYqdbtDgE_KNwCDuoXS53rQN4PWQb7p5ae85HvdFYjssIz_oPBPXaRAJJcypX-4lDydwrS2HxZ3Fl2Mse6PAqbbP9m8r0-NIZy5nzVXviBHtjwwtDb6aknqatkkVJZyW4dUPa3jNsLzoz_yNOHzJ4VnUYKljlqSTpeVUj2fdQgY0PIg_hF2G98BAx4TzfHiMaVtixK-2hAkLFkwHtitKSJSPdEDkixQFXSRKi0neCVxMT7NnD06Ozi26u5giwCYDvihXziMOWY" />
+                        </div>
+                        <div>
+                            <p class="font-bold dark:text-white text-sm">Elena Rodriguez</p>
+                            <p class="text-xs text-slate-500 uppercase">Head of Procurement, AgroFood</p>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-sm">
+                    <div class="flex gap-1 text-accent mb-4">
+                        <span class="material-icons-outlined">star</span>
+                        <span class="material-icons-outlined">star</span>
+                        <span class="material-icons-outlined">star</span>
+                        <span class="material-icons-outlined">star</span>
+                        <span class="material-icons-outlined">star</span>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-400 mb-8 italic">"Seamless integration between their
+                        maritime routes and inland logistics. Highly recommended."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-slate-200 overflow-hidden">
+                            <img alt="Client Avatar"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDj756b3ov-z-ANiWvt66qwShoGIz4UCPGDSBu4FRTJkueqHzqUWLReJnpLid2ECUTMjgnH0ggwbakxrQuv7ZF71b0eIUspTVMfaccH2n8BZQCRTZ66uWwqBbFa2xlSwEbMXVoVtki94qyjCH3MxJCKjoTYbqIiDIch4bmKBBkl-4U5-tI8NEWosLbfIig_VHMDRZtvy-pp_WyU_8hUxYC0OdaO9PjNtlIVE8Ey90rwRnECMdV9XqcyUxPPotlpyNGg4U7XAQB8aXw" />
+                        </div>
+                        <div>
+                            <p class="font-bold dark:text-white text-sm">David Smith</p>
+                            <p class="text-xs text-slate-500 uppercase">CEO, Portway Logistics</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-24">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-12 text-center dark:text-white">Frequently Asked Questions</h2>
+            <div class="space-y-4">
+                <details
+                    class="group bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 transition-all">
+                    <summary
+                        class="flex justify-between items-center p-6 cursor-pointer font-bold list-none dark:text-white">
+                        How do you ensure cargo safety during long transits?
+                        <span
+                            class="material-icons-outlined group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <div class="px-6 pb-6 text-slate-600 dark:text-slate-400">
+                        We use IoT-enabled smart sensors in our containers to monitor temperature, humidity, and
+                        movement in real-time, coupled with premium insurance coverage.
+                    </div>
+                </details>
+                <details
+                    class="group bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 transition-all">
+                    <summary
+                        class="flex justify-between items-center p-6 cursor-pointer font-bold list-none dark:text-white">
+                        What areas of the world do you cover?
+                        <span
+                            class="material-icons-outlined group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <div class="px-6 pb-6 text-slate-600 dark:text-slate-400">
+                        Our network covers all major global trade hubs across Europe, Asia, Africa, and the Americas,
+                        specializing in emerging market corridors.
+                    </div>
+                </details>
+                <details
+                    class="group bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 transition-all">
+                    <summary
+                        class="flex justify-between items-center p-6 cursor-pointer font-bold list-none dark:text-white">
+                        Can you handle custom clearance?
+                        <span
+                            class="material-icons-outlined group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <div class="px-6 pb-6 text-slate-600 dark:text-slate-400">
+                        Yes, our dedicated in-house customs brokerage team handles all documentation and compliance
+                        requirements at both origin and destination ports.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+    <section class="py-24 px-4">
+        <div
+            class="max-w-7xl mx-auto bg-primary rounded-[3rem] p-12 md:p-24 text-center text-white relative overflow-hidden">
+            <div class="relative z-10">
+                <h2 class="text-4xl md:text-6xl font-bold mb-8">Ready to Scale Your Supply Chain?</h2>
+                <p class="text-xl opacity-80 mb-12 max-w-2xl mx-auto">Join the world's most efficient logistics network
+                    today and experience the difference of quality-first logistics.</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <button
+                        class="bg-white text-primary px-10 py-5 rounded-2xl font-bold text-lg hover:shadow-xl hover:-translate-y-1 transition-all">Talk
+                        to an Expert</button>
+                    <button
+                        class="bg-white/10 backdrop-blur border border-white/20 text-white px-10 py-5 rounded-2xl font-bold text-lg hover:bg-white/20 transition-all">Request
+                        Case Study</button>
+                </div>
+            </div>
+            <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-white/5 rounded-full"></div>
+            <div class="absolute -top-24 -left-24 w-96 h-96 bg-white/5 rounded-full"></div>
+        </div>
+    </section>
+    <footer class="bg-slate-900 text-slate-400 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="w-8 h-8 bg-primary flex items-center justify-center rounded-lg">
+                            <span class="material-icons-outlined text-white text-sm">local_shipping</span>
+                        </div>
+                        <span class="text-xl font-bold text-white tracking-tight">TUSKER<span
+                                class="font-light">VENTURES</span></span>
+                    </div>
+                    <p class="max-w-xs leading-relaxed">Redefining global logistics through innovation, transparency,
+                        and a relentless focus on quality control and reliability.</p>
+                </div>
+                <div>
+                    <h5 class="text-white font-bold mb-6">Network</h5>
+                    <ul class="space-y-4">
+                        <li><a class="hover:text-primary transition-colors" href="#">Port Locations</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Trade Routes</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Real-time Map</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Vessel Tracking</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white font-bold mb-6">Company</h5>
+                    <ul class="space-y-4">
+                        <li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Sustainability</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-slate-800 flex flex-col md:row justify-between items-center gap-4">
+                <p class="text-sm">© 2024 Tusker Ventures. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+                    <a class="hover:text-white transition-colors" href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        themeToggle.addEventListener('click', () => {
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                themeToggle.innerHTML = '<span class="material-icons-outlined text-slate-600">dark_mode</span>';
+            } else {
+                html.classList.add('dark');
+                themeToggle.innerHTML = '<span class="material-icons-outlined text-slate-400">light_mode</span>';
+            }
+        });
+        // Initialize theme based on preference or system
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            html.classList.add('dark');
+            themeToggle.innerHTML = '<span class="material-icons-outlined text-slate-400">light_mode</span>';
+        }
+    </script>
+
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 50
+        });
+    </script>
+</body>
+
+</html>
