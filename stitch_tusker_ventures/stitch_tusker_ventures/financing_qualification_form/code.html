@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tusker Ventures - Financing Qualification</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#064e3b", // Deep Emerald Green
+                        "background-light": "#f9fafb",
+                        "background-dark": "#0f172a",
+                        accent: "#fbbf24" // Amber/Gold
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        .step-transition {
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .hidden-step {
+            display: none;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        .active-step {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<header class="w-full py-6 px-8 flex flex-col items-center">
+<div class="w-full max-w-4xl flex justify-between items-center mb-8">
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-icons text-white">account_balance</span>
+</div>
+<span class="text-xl font-bold tracking-tight text-primary dark:text-emerald-400">TUSKER VENTURES</span>
+</div>
+<div class="text-sm font-medium text-slate-500 dark:text-slate-400">
+                Financing Qualification
+            </div>
+</div>
+<div class="w-full max-w-xl bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full transition-all duration-500 ease-out" id="progress-bar" style="width: 20%;"></div>
+</div>
+</header>
+<main class="flex-grow flex items-center justify-center px-6">
+<div class="w-full max-w-2xl">
+<form id="qualification-form" onsubmit="event.preventDefault();">
+<div class="step-transition active-step" id="step-1">
+<div class="mb-8">
+<span class="text-primary dark:text-emerald-400 font-semibold mb-2 block">01 →</span>
+<h1 class="text-3xl md:text-4xl font-bold mb-4">What is the legal name of your company?</h1>
+<p class="text-slate-500 dark:text-slate-400 text-lg">We'll use this to start your application profile.</p>
+</div>
+<div class="relative">
+<input class="w-full bg-transparent border-b-2 border-slate-300 dark:border-slate-700 focus:border-primary dark:focus:border-emerald-500 outline-none py-4 text-2xl transition-colors placeholder:text-slate-300 dark:placeholder:text-slate-600" id="company-name" placeholder="Type your answer here..." type="text"/>
+</div>
+</div>
+<div class="step-transition hidden-step" id="step-2">
+<div class="mb-8">
+<span class="text-primary dark:text-emerald-400 font-semibold mb-2 block">02 →</span>
+<h1 class="text-3xl md:text-4xl font-bold mb-4">What is your estimated annual revenue?</h1>
+<p class="text-slate-500 dark:text-slate-400 text-lg">Select the range that best fits your last fiscal year.</p>
+</div>
+<div class="grid grid-cols-1 gap-3">
+<button class="flex items-center justify-between p-4 border-2 border-slate-200 dark:border-slate-800 rounded-xl hover:border-primary dark:hover:border-emerald-500 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-all group" onclick="nextStep()" type="button">
+<span class="text-lg font-medium">Under $500,000</span>
+<span class="px-3 py-1 rounded border border-slate-200 dark:border-slate-700 text-xs font-bold group-hover:bg-primary group-hover:text-white transition-colors">A</span>
+</button>
+<button class="flex items-center justify-between p-4 border-2 border-slate-200 dark:border-slate-800 rounded-xl hover:border-primary dark:hover:border-emerald-500 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-all group" onclick="nextStep()" type="button">
+<span class="text-lg font-medium">$500,000 - $2,000,000</span>
+<span class="px-3 py-1 rounded border border-slate-200 dark:border-slate-700 text-xs font-bold group-hover:bg-primary group-hover:text-white transition-colors">B</span>
+</button>
+<button class="flex items-center justify-between p-4 border-2 border-slate-200 dark:border-slate-800 rounded-xl hover:border-primary dark:hover:border-emerald-500 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-all group" onclick="nextStep()" type="button">
+<span class="text-lg font-medium">$2,000,000 - $10,000,000</span>
+<span class="px-3 py-1 rounded border border-slate-200 dark:border-slate-700 text-xs font-bold group-hover:bg-primary group-hover:text-white transition-colors">C</span>
+</button>
+<button class="flex items-center justify-between p-4 border-2 border-slate-200 dark:border-slate-800 rounded-xl hover:border-primary dark:hover:border-emerald-500 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-all group" onclick="nextStep()" type="button">
+<span class="text-lg font-medium">$10,000,000+</span>
+<span class="px-3 py-1 rounded border border-slate-200 dark:border-slate-700 text-xs font-bold group-hover:bg-primary group-hover:text-white transition-colors">D</span>
+</button>
+</div>
+</div>
+<div class="step-transition hidden-step" id="step-3">
+<div class="mb-8">
+<span class="text-primary dark:text-emerald-400 font-semibold mb-2 block">03 →</span>
+<h1 class="text-3xl md:text-4xl font-bold mb-4">How much financing are you looking for?</h1>
+<p class="text-slate-500 dark:text-slate-400 text-lg">Enter the approximate amount in USD.</p>
+</div>
+<div class="relative flex items-center">
+<span class="text-4xl font-light text-slate-400 absolute left-0">$</span>
+<input class="w-full bg-transparent border-b-2 border-slate-300 dark:border-slate-700 focus:border-primary dark:focus:border-emerald-500 outline-none py-4 pl-8 text-4xl font-light transition-colors placeholder:text-slate-200 dark:placeholder:text-slate-800" id="loan-amount" placeholder="0.00" type="number"/>
+</div>
+</div>
+<div class="step-transition hidden-step" id="step-4">
+<div class="mb-8">
+<span class="text-primary dark:text-emerald-400 font-semibold mb-2 block">04 →</span>
+<h1 class="text-3xl md:text-4xl font-bold mb-4">How many years has your business been operating?</h1>
+<p class="text-slate-500 dark:text-slate-400 text-lg">We typically work with businesses that have at least 2 years of history.</p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<button class="p-6 border-2 border-slate-200 dark:border-slate-800 rounded-xl hover:border-primary dark:hover:border-emerald-500 text-center transition-all group" onclick="nextStep()" type="button">
+<div class="text-3xl font-bold mb-1">0 - 1</div>
+<div class="text-sm text-slate-500">Years</div>
+</button>
+<button class="p-6 border-2 border-slate-200 dark:border-slate-800 rounded-xl hover:border-primary dark:hover:border-emerald-500 text-center transition-all group" onclick="nextStep()" type="button">
+<div class="text-3xl font-bold mb-1">2 - 5</div>
+<div class="text-sm text-slate-500">Years</div>
+</button>
+<button class="p-6 border-2 border-slate-200 dark:border-slate-800 rounded-xl hover:border-primary dark:hover:border-emerald-500 text-center transition-all group" onclick="nextStep()" type="button">
+<div class="text-3xl font-bold mb-1">5 - 10</div>
+<div class="text-sm text-slate-500">Years</div>
+</button>
+<button class="p-6 border-2 border-slate-200 dark:border-slate-800 rounded-xl hover:border-primary dark:hover:border-emerald-500 text-center transition-all group" onclick="nextStep()" type="button">
+<div class="text-3xl font-bold mb-1">10+</div>
+<div class="text-sm text-slate-500">Years</div>
+</button>
+</div>
+</div>
+<div class="step-transition hidden-step text-center" id="step-5">
+<div class="mb-8 flex flex-col items-center">
+<div class="w-20 h-20 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 rounded-full flex items-center justify-center mb-6">
+<span class="material-icons text-5xl">check_circle</span>
+</div>
+<h1 class="text-3xl md:text-4xl font-bold mb-4">You're Qualified!</h1>
+<p class="text-slate-500 dark:text-slate-400 text-lg max-w-md mx-auto">Based on your answers, you're eligible for our premium agricultural financing programs. Let's finish your full application.</p>
+</div>
+<button class="bg-primary text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-emerald-800 transition-colors shadow-lg shadow-emerald-900/20" type="button" onclick="window.location.href='../commodity_financing_options/code.html'">
+                        View Financing Packages
+                    </button>
+</div>
+<div class="mt-12 flex items-center gap-4" id="nav-controls">
+<button class="flex items-center gap-2 bg-primary text-white px-8 py-3 rounded-lg font-bold hover:bg-emerald-800 transition-all" id="next-btn" onclick="nextStep()" type="button">
+                        OK <span class="material-icons text-sm">check</span>
+</button>
+<span class="text-xs text-slate-400 hidden md:block">press <strong>ENTER</strong></span>
+<div class="ml-auto flex gap-1">
+<button class="p-2 rounded hover:bg-slate-200 dark:hover:bg-slate-800 disabled:opacity-30 disabled:cursor-not-allowed" id="prev-btn-icon" onclick="prevStep()" type="button">
+<span class="material-icons">expand_less</span>
+</button>
+<button class="p-2 rounded hover:bg-slate-200 dark:hover:bg-slate-800 disabled:opacity-30 disabled:cursor-not-allowed" id="next-btn-icon" onclick="nextStep()" type="button">
+<span class="material-icons">expand_more</span>
+</button>
+</div>
+</div>
+</form>
+</div>
+</main>
+<footer class="w-full py-8 px-8 flex justify-between items-center text-slate-400 text-xs">
+<div>© 2024 Tusker Ventures Financing</div>
+<div class="flex gap-4">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+</div>
+</footer>
+<script>
+        let currentStep = 1;
+        const totalSteps = 5;
+        function updateUI() {
+            // Update steps visibility
+            for (let i = 1; i <= totalSteps; i++) {
+                const stepEl = document.getElementById(`step-${i}`);
+                if (i === currentStep) {
+                    stepEl.classList.remove('hidden-step');
+                    stepEl.classList.add('active-step');
+                } else {
+                    stepEl.classList.add('hidden-step');
+                    stepEl.classList.remove('active-step');
+                }
+            }
+            // Update Progress Bar
+            const progress = (currentStep / totalSteps) * 100;
+            document.getElementById('progress-bar').style.width = `${progress}%`;
+            // Control Navigation visibility
+            const navControls = document.getElementById('nav-controls');
+            const nextBtn = document.getElementById('next-btn');
+            const prevIcon = document.getElementById('prev-btn-icon');
+            const nextIcon = document.getElementById('next-btn-icon');
+            if (currentStep === totalSteps) {
+                navControls.classList.add('opacity-0', 'pointer-events-none');
+            } else {
+                navControls.classList.remove('opacity-0', 'pointer-events-none');
+            }
+            // Disable icons if at bounds
+            prevIcon.disabled = (currentStep === 1);
+            nextIcon.disabled = (currentStep === totalSteps);
+            // Hide/Show Big OK button on selection-only steps (Step 2, 4)
+            if (currentStep === 2 || currentStep === 4) {
+                nextBtn.classList.add('hidden');
+            } else {
+                nextBtn.classList.remove('hidden');
+            }
+        }
+        function nextStep() {
+            if (currentStep < totalSteps) {
+                currentStep++;
+                updateUI();
+                // Focus input if it's a text/number step
+                setTimeout(() => {
+                    if (currentStep === 1) document.getElementById('company-name').focus();
+                    if (currentStep === 3) document.getElementById('loan-amount').focus();
+                }, 400);
+            }
+        }
+        function prevStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                updateUI();
+            }
+        }
+        // Listen for Enter key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && currentStep !== 2 && currentStep !== 4 && currentStep !== 5) {
+                e.preventDefault();
+                nextStep();
+            }
+        });
+        // Initialize UI
+        updateUI();
+    </script>
+
+</body></html>
