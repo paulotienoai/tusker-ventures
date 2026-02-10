@@ -179,150 +179,115 @@
     <section class="py-24 bg-earthy-gray dark:bg-slate-900/50" id="market">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl font-display font-bold mb-4">Sugar Market Dashboard</h2>
-                <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Live updates from ICE and global exchanges. Track the pulse of the sugar market in real-time.</p>
+                <span class="inline-block px-4 py-1.5 mb-4 text-sm font-semibold tracking-wider text-primary uppercase bg-primary/10 rounded-full">Live Market Data</span>
+                <h2 class="text-4xl font-display font-bold mb-4">Sugar Market Dashboard</h2>
+                <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Track global sugar prices in real-time. Data sourced from Trading Economics and international commodity exchanges.</p>
             </div>
 
-            <!-- TradingView Advanced Real-Time Charts -->
-            <div class="grid md:grid-cols-3 gap-6 mb-8">
-                <!-- Raw Sugar No. 11 -->
-                <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700 overflow-hidden" data-aos="fade-up" data-aos-delay="0">
-                    <div class="tradingview-widget-container" style="height: 400px;">
-                        <div id="tradingview_sugar11" style="height: 100%;"></div>
+            <!-- Trading Economics Live Charts -->
+            <div class="grid lg:grid-cols-2 gap-8 mb-10">
+                <!-- Main Sugar Chart - Full Width on mobile -->
+                <div class="lg:col-span-2 bg-white dark:bg-slate-800 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-700 overflow-hidden" data-aos="fade-up">
+                    <div class="p-6 border-b border-slate-100 dark:border-slate-700 flex items-center justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Sugar #11 Futures (ICE)</h3>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Raw Sugar - Global Benchmark Price</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="flex h-3 w-3">
+                                <span class="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-green-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                            </span>
+                            <span class="text-xs font-medium text-green-600 dark:text-green-400">LIVE</span>
+                        </div>
+                    </div>
+                    <div class="relative" style="height: 450px;">
+                        <iframe src="https://tradingeconomics.com/embed/?s=sugar&v=202502111813V20230601&h=400&w=100%25&ref=/commodity/sugar" height="450" width="100%" frameborder="0" scrolling="no" style="border:0;"></iframe>
                     </div>
                 </div>
 
-                <!-- White Sugar -->
-                <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-                    <div class="tradingview-widget-container" style="height: 400px;">
-                        <div id="tradingview_whiteSugar" style="height: 100%;"></div>
+                <!-- White Sugar Chart -->
+                <div class="bg-white dark:bg-slate-800 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-700 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-5 border-b border-slate-100 dark:border-slate-700">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">White Sugar (London)</h3>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">Refined Sugar - EU Benchmark</p>
+                            </div>
+                            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs font-semibold rounded-full">ICE EU</span>
+                        </div>
+                    </div>
+                    <div class="relative" style="height: 350px;">
+                        <iframe src="https://tradingeconomics.com/embed/?s=qw1%3Acom&v=202502111813V20230601&h=350&w=100%25&ref=/commodity/sugar" height="350" width="100%" frameborder="0" scrolling="no" style="border:0;"></iframe>
                     </div>
                 </div>
 
-                <!-- Sugar Commodity Index -->
-                <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700 overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-                    <div class="tradingview-widget-container" style="height: 400px;">
-                        <div id="tradingview_sugarIndex" style="height: 100%;"></div>
+                <!-- Sugar ETN/Index Chart -->
+                <div class="bg-white dark:bg-slate-800 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-700 overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="p-5 border-b border-slate-100 dark:border-slate-700">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Cocoa Futures</h3>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">Related Soft Commodity</p>
+                            </div>
+                            <span class="px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 text-xs font-semibold rounded-full">ICE US</span>
+                        </div>
+                    </div>
+                    <div class="relative" style="height: 350px;">
+                        <iframe src="https://tradingeconomics.com/embed/?s=cc1%3Acom&v=202502111813V20230601&h=350&w=100%25&ref=/commodity/cocoa" height="350" width="100%" frameborder="0" scrolling="no" style="border:0;"></iframe>
                     </div>
                 </div>
             </div>
 
-            <!-- Live Market Ticker -->
-            <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700 overflow-hidden" data-aos="fade-up" data-aos-delay="300">
-                <div class="tradingview-widget-container">
-                    <div class="tradingview-widget-container__widget"></div>
-                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-                    {
-                        "symbols": [
-                            {"proName": "ICEUS:SB1!", "title": "Sugar #11"},
-                            {"proName": "ICEEUR:SF1!", "title": "White Sugar"},
-                            {"proName": "TVC:SUGAR", "title": "Sugar Index"},
-                            {"proName": "TVC:COCOA", "title": "Cocoa"},
-                            {"proName": "TVC:COFFEE", "title": "Coffee"}
-                        ],
-                        "showSymbolLogo": true,
-                        "isTransparent": false,
-                        "displayMode": "adaptive",
-                        "colorTheme": "light",
-                        "locale": "en"
-                    }
-                    </script>
+            <!-- Market Stats Cards -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10" data-aos="fade-up" data-aos-delay="300">
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-slate-100 dark:border-slate-700 text-center">
+                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-3">
+                        <span class="material-symbols-outlined text-primary text-2xl">show_chart</span>
+                    </div>
+                    <p class="text-2xl font-bold text-slate-900 dark:text-white">ICE</p>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Primary Exchange</p>
+                </div>
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-slate-100 dark:border-slate-700 text-center">
+                    <div class="w-12 h-12 bg-accent/20 rounded-xl flex items-center justify-center mx-auto mb-3">
+                        <span class="material-symbols-outlined text-accent text-2xl">public</span>
+                    </div>
+                    <p class="text-2xl font-bold text-slate-900 dark:text-white">180M+</p>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Tonnes/Year Global</p>
+                </div>
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-slate-100 dark:border-slate-700 text-center">
+                    <div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center mx-auto mb-3">
+                        <span class="material-symbols-outlined text-green-600 dark:text-green-400 text-2xl">trending_up</span>
+                    </div>
+                    <p class="text-2xl font-bold text-slate-900 dark:text-white">45</p>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">ICUMSA Grade</p>
+                </div>
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-slate-100 dark:border-slate-700 text-center">
+                    <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mx-auto mb-3">
+                        <span class="material-symbols-outlined text-blue-600 dark:text-blue-400 text-2xl">schedule</span>
+                    </div>
+                    <p class="text-2xl font-bold text-slate-900 dark:text-white">24/5</p>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Market Hours</p>
+                </div>
+            </div>
+
+            <!-- Market Insights Banner -->
+            <div class="bg-gradient-to-r from-primary to-emerald-700 rounded-3xl p-8 text-white relative overflow-hidden" data-aos="fade-up" data-aos-delay="400">
+                <div class="absolute right-0 top-0 opacity-10">
+                    <span class="material-symbols-outlined text-[15rem]">monitoring</span>
+                </div>
+                <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-2">Need Market Analysis?</h3>
+                        <p class="text-white/80 max-w-lg">Our team provides daily market insights and price forecasts for African sugar importers. Stay ahead of market movements.</p>
+                    </div>
+                    <a href="insights.html" class="px-8 py-4 bg-white text-primary font-bold rounded-xl hover:bg-slate-100 transition-colors whitespace-nowrap shadow-lg">
+                        View Market Insights
+                    </a>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- TradingView Widget Scripts -->
-    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-    <script type="text/javascript">
-        // Initialize TradingView Advanced Charts
-        function initTradingViewCharts() {
-            // Raw Sugar No. 11 Chart
-            new TradingView.widget({
-                "autosize": true,
-                "symbol": "ICEUS:SB1!",
-                "interval": "D",
-                "timezone": "Etc/UTC",
-                "theme": "light",
-                "style": "1",
-                "locale": "en",
-                "toolbar_bg": "#f1f3f6",
-                "enable_publishing": false,
-                "hide_top_toolbar": false,
-                "hide_legend": false,
-                "save_image": false,
-                "container_id": "tradingview_sugar11",
-                "hide_side_toolbar": true,
-                "allow_symbol_change": false,
-                "details": true,
-                "hotlist": false,
-                "calendar": false,
-                "studies": ["RSI@tv-basicstudies"],
-                "show_popup_button": true,
-                "popup_width": "1000",
-                "popup_height": "650"
-            });
-
-            // White Sugar Chart
-            new TradingView.widget({
-                "autosize": true,
-                "symbol": "ICEEUR:SF1!",
-                "interval": "D",
-                "timezone": "Etc/UTC",
-                "theme": "light",
-                "style": "1",
-                "locale": "en",
-                "toolbar_bg": "#f1f3f6",
-                "enable_publishing": false,
-                "hide_top_toolbar": false,
-                "hide_legend": false,
-                "save_image": false,
-                "container_id": "tradingview_whiteSugar",
-                "hide_side_toolbar": true,
-                "allow_symbol_change": false,
-                "details": true,
-                "hotlist": false,
-                "calendar": false,
-                "studies": ["RSI@tv-basicstudies"],
-                "show_popup_button": true,
-                "popup_width": "1000",
-                "popup_height": "650"
-            });
-
-            // Sugar Index Chart
-            new TradingView.widget({
-                "autosize": true,
-                "symbol": "TVC:SUGAR",
-                "interval": "D",
-                "timezone": "Etc/UTC",
-                "theme": "light",
-                "style": "1",
-                "locale": "en",
-                "toolbar_bg": "#f1f3f6",
-                "enable_publishing": false,
-                "hide_top_toolbar": false,
-                "hide_legend": false,
-                "save_image": false,
-                "container_id": "tradingview_sugarIndex",
-                "hide_side_toolbar": true,
-                "allow_symbol_change": false,
-                "details": true,
-                "hotlist": false,
-                "calendar": false,
-                "studies": ["RSI@tv-basicstudies"],
-                "show_popup_button": true,
-                "popup_width": "1000",
-                "popup_height": "650"
-            });
-        }
-
-        // Initialize charts when DOM is ready
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initTradingViewCharts);
-        } else {
-            initTradingViewCharts();
-        }
-    </script>
 
     <!-- Trust Gap Section -->
     <section class="py-24 bg-slate-900 text-white">
