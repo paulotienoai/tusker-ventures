@@ -53,7 +53,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-20">
         <a href="index.html" class="flex items-center gap-3">
-          <img src="https://i.imgur.com/YqKH8Zf.png" alt="Tusker Ventures" class="h-12 w-auto" />
+          <img src="logo.jpg" alt="Tusker Ventures" class="h-12 w-auto" />
           <span class="text-xl font-bold tracking-tight text-primary">TUSKER VENTURES</span>
         </a>
         <div class="hidden md:flex items-center space-x-6">
@@ -175,7 +175,7 @@
               </li>
             </ul>
             <button
-              class="w-full bg-primary text-white py-3 rounded-xl font-bold hover:bg-emerald-800 transition-colors">Request
+              class="w-full bg-primary text-white py-3 rounded-xl font-bold hover:bg-emerald-800 transition-colors" onclick="openQuoteModal()">Request
               Quote</button>
           </div>
         </div>
@@ -208,7 +208,7 @@
               </li>
             </ul>
             <button
-              class="w-full bg-primary text-white py-3 rounded-xl font-bold hover:bg-emerald-800 transition-colors">Request
+              class="w-full bg-primary text-white py-3 rounded-xl font-bold hover:bg-emerald-800 transition-colors" onclick="openQuoteModal()">Request
               Quote</button>
           </div>
         </div>
@@ -240,7 +240,7 @@
               </li>
             </ul>
             <button
-              class="w-full bg-primary text-white py-3 rounded-xl font-bold hover:bg-emerald-800 transition-colors">Request
+              class="w-full bg-primary text-white py-3 rounded-xl font-bold hover:bg-emerald-800 transition-colors" onclick="openQuoteModal()">Request
               Quote</button>
           </div>
         </div>
@@ -455,6 +455,105 @@
     <span class="material-symbols-outlined text-2xl">dark_mode</span>
   </button>
 
+  <!-- Quote Request Modal -->
+  <div id="quoteModal" class="fixed inset-0 z-[100] hidden">
+    <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeQuoteModal()"></div>
+    <div class="absolute inset-0 flex items-center justify-center p-4">
+      <div class="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto relative">
+        <button onclick="closeQuoteModal()" class="absolute top-4 right-4 p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+        <div class="p-8">
+          <div class="text-center mb-8">
+            <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4">Request a Quote</span>
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Sugar Commodity Inquiry</h3>
+            <p class="text-slate-500 dark:text-slate-400 mt-2">Complete the form below and our team will respond within 24 hours.</p>
+          </div>
+          <form id="quoteForm" class="space-y-6">
+            <div class="grid md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Company Name *</label>
+                <input type="text" required class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Your company name">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Contact Name *</label>
+                <input type="text" required class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Your full name">
+              </div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Email Address *</label>
+                <input type="email" required class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="email@company.com">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Phone Number</label>
+                <input type="tel" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="+1 234 567 8900">
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Sugar Type *</label>
+              <select required class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent">
+                <option value="">Select sugar type...</option>
+                <option value="icumsa-45">ICUMSA 45 - Refined White Sugar</option>
+                <option value="icumsa-100">ICUMSA 100 - Premium White Sugar</option>
+                <option value="icumsa-150">ICUMSA 150 - White Sugar</option>
+                <option value="vhp">VHP Raw Sugar (ICUMSA 600-1200)</option>
+                <option value="brown">Brown Cane Sugar</option>
+                <option value="other">Other (specify in notes)</option>
+              </select>
+            </div>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Quantity Required *</label>
+                <select required class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent">
+                  <option value="">Select quantity...</option>
+                  <option value="12500">12,500 MT (1 Vessel)</option>
+                  <option value="25000">25,000 MT (2 Vessels)</option>
+                  <option value="50000">50,000 MT (Panamax)</option>
+                  <option value="custom">Custom Quantity</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Delivery Terms</label>
+                <select class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent">
+                  <option value="">Select terms...</option>
+                  <option value="fob">FOB (Free on Board)</option>
+                  <option value="cif">CIF (Cost, Insurance, Freight)</option>
+                  <option value="cfr">CFR (Cost and Freight)</option>
+                  <option value="dap">DAP (Delivered at Place)</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Destination Port/Country *</label>
+              <input type="text" required class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="e.g., Lagos, Nigeria or Mombasa, Kenya">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Payment Method</label>
+              <select class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent">
+                <option value="">Select payment method...</option>
+                <option value="lc">Irrevocable Letter of Credit (L/C)</option>
+                <option value="sblc">Standby Letter of Credit (SBLC)</option>
+                <option value="tt">Bank Wire Transfer (T/T)</option>
+                <option value="other">Other (discuss with team)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Additional Requirements or Notes</label>
+              <textarea rows="3" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent resize-none" placeholder="Any specific requirements, certifications needed (SGS, ISO), packaging preferences, or questions..."></textarea>
+            </div>
+            <div class="pt-4">
+              <button type="submit" class="w-full bg-primary hover:bg-emerald-800 text-white py-4 rounded-xl font-bold text-lg transition-colors flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined">send</span>
+                Submit Quote Request
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- AOS Animation Library -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
@@ -463,6 +562,30 @@
       easing: 'ease-out-cubic',
       once: true,
       offset: 50
+    });
+
+    // Quote Modal Functions
+    function openQuoteModal() {
+      document.getElementById('quoteModal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeQuoteModal() {
+      document.getElementById('quoteModal').classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    // Handle form submission
+    document.getElementById('quoteForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for your inquiry! Our team will contact you within 24 hours.');
+      closeQuoteModal();
+      this.reset();
+    });
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeQuoteModal();
     });
   </script>
 </body>

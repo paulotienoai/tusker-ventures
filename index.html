@@ -72,7 +72,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <a href="index.html" class="flex items-center gap-3">
-                    <img src="https://i.imgur.com/YqKH8Zf.png" alt="Tusker Ventures" class="h-12 w-auto" />
+                    <img src="logo.jpg" alt="Tusker Ventures" class="h-12 w-auto" />
                     <span
                         class="text-2xl font-display font-bold text-primary dark:text-white tracking-tight">Tusker<span
                             class="text-accent">Ventures</span></span>
@@ -85,6 +85,7 @@
                     <a class="font-medium hover:text-primary dark:hover:text-accent transition-colors" href="protection.html">Protection</a>
                     <a class="font-medium hover:text-primary dark:hover:text-accent transition-colors" href="markets.html">Africa</a>
                     <a class="font-medium hover:text-primary dark:hover:text-accent transition-colors" href="insights.html">Insights</a>
+                    <a class="font-medium hover:text-primary dark:hover:text-accent transition-colors" href="financing-form.html">Capital</a>
                     <a class="px-5 py-2.5 bg-primary text-white font-semibold rounded-full hover:brightness-110 transition-all shadow-sm"
                         href="contact.html">Contact Us</a>
                 </div>
@@ -170,78 +171,90 @@
 
             <!-- TradingView Live Market Widgets -->
             <div class="grid md:grid-cols-3 gap-6 mb-8">
+                <!-- Raw Sugar No. 11 -->
                 <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700 overflow-hidden" data-aos="fade-up" data-aos-delay="0">
                     <div class="p-4 border-b border-slate-100 dark:border-slate-700">
-                        <p class="text-sm font-semibold text-slate-400 uppercase tracking-wider">Raw Sugar No. 11</p>
+                        <p class="text-sm font-semibold text-primary dark:text-accent uppercase tracking-wider">Raw Sugar No. 11</p>
                         <p class="text-xs text-slate-500">ICE Futures - Live</p>
                     </div>
-                    <div class="tradingview-widget-container" style="height: 300px;">
-                        <div class="tradingview-widget-container__widget" style="height: 100%; width: 100%;"></div>
-                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-                        {
-                            "symbol": "ICEUS:SB1!",
-                            "width": "100%",
-                            "height": "100%",
-                            "locale": "en",
-                            "dateRange": "12M",
-                            "colorTheme": "light",
-                            "isTransparent": true,
+                    <div class="tradingview-widget-container" style="height: 320px;">
+                        <div id="tradingview_sugar11"></div>
+                        <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                        <script type="text/javascript">
+                        new TradingView.widget({
                             "autosize": true,
-                            "largeChartUrl": ""
-                        }
+                            "symbol": "ICEUS:SB1!",
+                            "interval": "D",
+                            "timezone": "Etc/UTC",
+                            "theme": "light",
+                            "style": "3",
+                            "locale": "en",
+                            "enable_publishing": false,
+                            "hide_top_toolbar": true,
+                            "hide_legend": false,
+                            "save_image": false,
+                            "container_id": "tradingview_sugar11",
+                            "hide_volume": true
+                        });
                         </script>
                     </div>
                 </div>
 
+                <!-- White Sugar No. 5 -->
                 <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
                     <div class="p-4 border-b border-slate-100 dark:border-slate-700">
-                        <p class="text-sm font-semibold text-slate-400 uppercase tracking-wider">White Sugar No. 5</p>
+                        <p class="text-sm font-semibold text-primary dark:text-accent uppercase tracking-wider">White Sugar No. 5</p>
                         <p class="text-xs text-slate-500">ICE Futures Europe - Live</p>
                     </div>
-                    <div class="tradingview-widget-container" style="height: 300px;">
-                        <div class="tradingview-widget-container__widget" style="height: 100%; width: 100%;"></div>
-                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-                        {
-                            "symbol": "ICEEUR:W1!",
-                            "width": "100%",
-                            "height": "100%",
-                            "locale": "en",
-                            "dateRange": "12M",
-                            "colorTheme": "light",
-                            "isTransparent": true,
+                    <div class="tradingview-widget-container" style="height: 320px;">
+                        <div id="tradingview_sugar5"></div>
+                        <script type="text/javascript">
+                        new TradingView.widget({
                             "autosize": true,
-                            "largeChartUrl": ""
-                        }
+                            "symbol": "ICEEUR:SF1!",
+                            "interval": "D",
+                            "timezone": "Etc/UTC",
+                            "theme": "light",
+                            "style": "3",
+                            "locale": "en",
+                            "enable_publishing": false,
+                            "hide_top_toolbar": true,
+                            "hide_legend": false,
+                            "save_image": false,
+                            "container_id": "tradingview_sugar5",
+                            "hide_volume": true
+                        });
                         </script>
                     </div>
                 </div>
 
+                <!-- Brazilian Sugar -->
                 <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700 overflow-hidden" data-aos="fade-up" data-aos-delay="200">
                     <div class="p-4 border-b border-slate-100 dark:border-slate-700">
-                        <p class="text-sm font-semibold text-slate-400 uppercase tracking-wider">Cocoa Futures</p>
-                        <p class="text-xs text-slate-500">ICE Futures - Live</p>
+                        <p class="text-sm font-semibold text-primary dark:text-accent uppercase tracking-wider">Brazilian Sugar Index</p>
+                        <p class="text-xs text-slate-500">CEPEA Sugar - Live</p>
                     </div>
-                    <div class="tradingview-widget-container" style="height: 300px;">
-                        <div class="tradingview-widget-container__widget" style="height: 100%; width: 100%;"></div>
-                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-                        {
-                            "symbol": "ICEUS:CC1!",
-                            "width": "100%",
-                            "height": "100%",
-                            "locale": "en",
-                            "dateRange": "12M",
-                            "colorTheme": "light",
-                            "isTransparent": true,
+                    <div class="tradingview-widget-container" style="height: 320px;">
+                        <div id="tradingview_brazil"></div>
+                        <script type="text/javascript">
+                        new TradingView.widget({
                             "autosize": true,
-                            "largeChartUrl": ""
-                        }
+                            "symbol": "TVC:SUGAR",
+                            "interval": "D",
+                            "timezone": "Etc/UTC",
+                            "theme": "light",
+                            "style": "3",
+                            "locale": "en",
+                            "enable_publishing": false,
+                            "hide_top_toolbar": true,
+                            "hide_legend": false,
+                            "save_image": false,
+                            "container_id": "tradingview_brazil",
+                            "hide_volume": true
+                        });
                         </script>
                     </div>
                 </div>
-            </div>
-
-            <div class="text-center text-xs text-slate-400 mt-4">
-                <p>Market data provided by <a href="https://www.tradingview.com/" target="_blank" class="text-primary hover:underline">TradingView</a> - Real-time prices may be delayed</p>
             </div>
         </div>
     </section>
@@ -402,7 +415,7 @@
                         </li>
                     </ul>
                     <a class="text-primary font-bold flex items-center gap-2 group-hover:gap-3 transition-all"
-                        href="financing.html">Learn More <span
+                        href="financing-form.html">Learn More <span
                             class="material-symbols-outlined">arrow_forward</span></a>
                 </div>
                 <div
@@ -590,7 +603,7 @@
                     </p>
                     <div class="flex flex-col sm:flex-row justify-center gap-4">
                         <a class="px-10 py-5 bg-primary text-white rounded-2xl font-bold text-lg hover:brightness-110 transition-all shadow-xl"
-                            href="mailto:contact@tuskerventures.com">Contact Our Desk</a>
+                            href="mailto:info@tuskerventures.org">Contact Our Desk</a>
                         <a class="px-10 py-5 bg-white text-primary rounded-2xl font-bold text-lg hover:bg-slate-50 transition-colors shadow-xl"
                             href="#">Request a Quote</a>
                     </div>
@@ -603,7 +616,7 @@
             <div class="grid lg:grid-cols-4 gap-12 mb-16">
                 <div class="col-span-1 lg:col-span-1">
                     <a href="index.html" class="flex items-center gap-3 mb-6">
-                        <img src="https://i.imgur.com/YqKH8Zf.png" alt="Tusker Ventures" class="h-10 w-auto brightness-0 invert" />
+                        <img src="logo.jpg" alt="Tusker Ventures" class="h-10 w-auto brightness-0 invert" />
                         <span class="text-2xl font-display font-bold text-white tracking-tight">Tusker<span
                                 class="text-accent">Ventures</span></span>
                     </a>
@@ -628,19 +641,19 @@
                 <div>
                     <h6 class="font-bold text-lg mb-6">Services</h6>
                     <ul class="space-y-4 text-slate-400">
-                        <li><a class="hover:text-accent transition-colors" href="#">Physical Trading</a></li>
-                        <li><a class="hover:text-accent transition-colors" href="#">Trade Financing</a></li>
-                        <li><a class="hover:text-accent transition-colors" href="#">Risk Management</a></li>
-                        <li><a class="hover:text-accent transition-colors" href="#">Logistics &amp; Storage</a></li>
+                        <li><a class="hover:text-accent transition-colors" href="products.html">Physical Trading</a></li>
+                        <li><a class="hover:text-accent transition-colors" href="financing-form.html">Trade Financing</a></li>
+                        <li><a class="hover:text-accent transition-colors" href="protection.html">Risk Management</a></li>
+                        <li><a class="hover:text-accent transition-colors" href="logistics.html">Logistics &amp; Storage</a></li>
                     </ul>
                 </div>
                 <div>
                     <h6 class="font-bold text-lg mb-6">Company</h6>
                     <ul class="space-y-4 text-slate-400">
-                        <li><a class="hover:text-accent transition-colors" href="#">About Us</a></li>
-                        <li><a class="hover:text-accent transition-colors" href="#">Market Insights</a></li>
-                        <li><a class="hover:text-accent transition-colors" href="#">Compliance</a></li>
-                        <li><a class="hover:text-accent transition-colors" href="#">Contact</a></li>
+                        <li><a class="hover:text-accent transition-colors" href="about.html">About Us</a></li>
+                        <li><a class="hover:text-accent transition-colors" href="insights.html">Market Insights</a></li>
+                        <li><a class="hover:text-accent transition-colors" href="compliance.html">Compliance</a></li>
+                        <li><a class="hover:text-accent transition-colors" href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div>
@@ -660,9 +673,9 @@
                 class="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
                 <p>© 2024 Tusker Ventures Ltd. All rights reserved.</p>
                 <div class="flex gap-8">
-                    <a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
-                    <a class="hover:text-white transition-colors" href="#">Terms of Trade</a>
-                    <a class="hover:text-white transition-colors" href="#">Cookie Policy</a>
+                    <a class="hover:text-white transition-colors" href="compliance.html">Privacy Policy</a>
+                    <a class="hover:text-white transition-colors" href="compliance.html">Terms of Trade</a>
+                    <a class="hover:text-white transition-colors" href="compliance.html">Cookie Policy</a>
                 </div>
             </div>
         </div>

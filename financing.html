@@ -4,31 +4,26 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Commodity Financing Options | Tusker Ventures</title>
+    <title>Capital & Trade Finance | Tusker Ventures</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <script>
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
                     colors: {
-                        primary: "#1A4D2E", // Deep Forest Green
-                        secondary: "#D4AF37", // Premium Gold accent
+                        primary: "#1B4332",
+                        secondary: "#2D6A4F",
+                        accent: "#D4A373",
                         "background-light": "#F9FAFB",
                         "background-dark": "#0F172A",
                     },
                     fontFamily: {
                         sans: ["Poppins", "sans-serif"],
                         display: ["Poppins", "sans-serif"],
-                        body: ["Poppins", "sans-serif"],
-                    },
-                    borderRadius: {
-                        DEFAULT: "0.75rem",
                     },
                 },
             },
@@ -37,440 +32,533 @@
     <style>
         .glass-effect {
             backdrop-filter: blur(12px);
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(255, 255, 255, 0.9);
         }
-
         .dark .glass-effect {
-            background-color: rgba(15, 23, 42, 0.8);
+            background-color: rgba(15, 23, 42, 0.9);
         }
-
-        .premium-gradient {
-            background: linear-gradient(135deg, #1A4D2E 0%, #064E3B 100%);
+        .gradient-text {
+            background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 50%, #D4A373 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
     </style>
 </head>
 
-<body
-    class="font-body bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-300">
+<body class="font-sans bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-300">
+    <!-- Navigation -->
     <nav class="sticky top-0 z-50 glass-effect border-b border-slate-200 dark:border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <a href="index.html" class="flex items-center gap-3">
-                    <img src="https://i.imgur.com/YqKH8Zf.png" alt="Tusker Ventures" class="h-12 w-auto" />
+                    <img src="logo.jpg" alt="Tusker Ventures" class="h-12 w-auto" />
                     <span class="font-display text-2xl font-bold tracking-tight text-primary dark:text-white">TUSKER
-                        <span class="text-secondary">VENTURES</span></span>
+                        <span class="text-accent">VENTURES</span></span>
                 </a>
                 <div class="hidden md:flex items-center space-x-6">
-                    <a class="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors"
-                        href="index.html">Home</a>
-                    <a class="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors"
-                        href="about.html">About</a>
-                    <a class="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors"
-                        href="products.html">Products</a>
-                    <a class="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors"
-                        href="icumsa-45.html">ICUMSA-45</a>
-                    <a class="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors"
-                        href="protection.html">Protection</a>
-                    <a class="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors"
-                        href="markets.html">Africa</a>
-                    <a class="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors"
-                        href="insights.html">Insights</a>
-                    <a class="bg-primary text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:opacity-90 transition-all"
-                        href="contact.html">Contact Us</a>
+                    <a class="text-sm font-medium hover:text-primary dark:hover:text-accent transition-colors" href="index.html">Home</a>
+                    <a class="text-sm font-medium hover:text-primary dark:hover:text-accent transition-colors" href="about.html">About</a>
+                    <a class="text-sm font-medium hover:text-primary dark:hover:text-accent transition-colors" href="products.html">Products</a>
+                    <a class="text-sm font-medium hover:text-primary dark:hover:text-accent transition-colors" href="protection.html">Protection</a>
+                    <a class="text-sm font-medium hover:text-primary dark:hover:text-accent transition-colors" href="markets.html">Africa</a>
+                    <a class="text-sm font-medium text-primary dark:text-accent font-semibold" href="financing.html">Capital</a>
+                    <a class="bg-primary text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-secondary transition-all" href="contact.html">Contact Us</a>
                 </div>
             </div>
         </div>
     </nav>
-    <header class="relative py-16 lg:py-24 overflow-hidden border-b border-slate-200 dark:border-slate-800">
+
+    <!-- Hero Section -->
+    <header class="relative py-20 lg:py-28 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="flex flex-col md:flex-row items-center gap-12">
-                <div class="md:w-3/5">
-                    <div
-                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 text-xs font-bold uppercase tracking-wider mb-6">
-                        <span class="material-symbols-outlined text-sm">verified</span>
-                        Qualified Partner Access
-                    </div>
-                    <h1
-                        class="font-display text-4xl md:text-6xl font-bold text-slate-900 dark:text-white leading-tight mb-6">
-                        Commodity Financing <br /><span class="text-primary dark:text-emerald-400">Options</span>
-                    </h1>
-                    <p class="text-lg text-slate-600 dark:text-slate-400 max-w-xl mb-8">
-                        Bespoke financial instruments designed to optimize your supply chain liquidity and mitigate
-                        transactional risks across global commodity markets.
-                    </p>
-                    <div class="flex flex-wrap gap-4">
-                        <button
-                            class="bg-primary text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg hover:shadow-primary/20 transition-all">Request
-                            Line of Credit</button>
-                        <button
-                            class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-8 py-4 rounded-xl font-bold hover:bg-slate-50 dark:hover:bg-slate-700 transition-all">Download
-                            Rate Card</button>
-                    </div>
+            <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 dark:bg-primary/20 text-primary dark:text-accent text-sm font-semibold mb-8">
+                    <span class="material-icons text-sm">verified_user</span>
+                    Pre-Qualified Access Only
                 </div>
-                <div class="md:w-2/5 grid grid-cols-2 gap-4">
-                    <div
-                        class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
-                        <span class="material-symbols-outlined text-primary dark:text-emerald-400 mb-2">payments</span>
-                        <div class="text-2xl font-bold">$250M+</div>
-                        <div class="text-xs text-slate-500 uppercase font-semibold">Total Liquidity Pool</div>
-                    </div>
-                    <div
-                        class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
-                        <span class="material-symbols-outlined text-primary dark:text-emerald-400 mb-2">speed</span>
-                        <div class="text-2xl font-bold">48 Hrs</div>
-                        <div class="text-xs text-slate-500 uppercase font-semibold">Avg Approval Time</div>
-                    </div>
-                    <div
-                        class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
-                        <span class="material-symbols-outlined text-primary dark:text-emerald-400 mb-2">public</span>
-                        <div class="text-2xl font-bold">45+</div>
-                        <div class="text-xs text-slate-500 uppercase font-semibold">Supported Countries</div>
-                    </div>
-                    <div
-                        class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
-                        <span class="material-symbols-outlined text-primary dark:text-emerald-400 mb-2">security</span>
-                        <div class="text-2xl font-bold">AAA</div>
-                        <div class="text-xs text-slate-500 uppercase font-semibold">Risk Rating</div>
-                    </div>
+                <h1 class="font-display text-4xl md:text-6xl font-bold text-slate-900 dark:text-white leading-tight mb-6">
+                    Capital & <span class="gradient-text">Trade Finance</span>
+                </h1>
+                <p class="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto mb-10">
+                    Purpose-driven capital for values-aligned partnerships. We don't just finance deals —
+                    we steward resources with intention, building relationships that honor integrity and serve people.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="financing-form.html" class="bg-primary text-white px-8 py-4 rounded-xl font-bold hover:bg-secondary hover:shadow-xl transition-all inline-flex items-center gap-2">
+                        <span class="material-icons">assignment</span>
+                        Start Pre-Qualification
+                    </a>
+                    <a href="contact.html" class="border-2 border-primary text-primary dark:text-white dark:border-white px-8 py-4 rounded-xl font-bold hover:bg-primary hover:text-white dark:hover:bg-white dark:hover:text-primary transition-all">
+                        Schedule a Consultation
+                    </a>
                 </div>
             </div>
-        </div>
-        <div class="absolute top-0 right-0 w-1/3 h-full opacity-10 pointer-events-none">
-            <img alt="Abstract Pattern" class="object-cover h-full w-full"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRgP642Upoz5bjt2QC5_MYS09z2WoROF-7fluL9FQSRUp_nH_dKVje_pqLAtae2bq15maI5WqCSWv2s98iYVC_oq8sVfcKLMsNhnIIKIjHHkBHFAJWu2DjMzqpQ2cLfgjooyhY_N-as8BsCCDF5uHVCjg4BskRWOdwgPHo-QIU5wPHRbil86Z3thgOjyoEwolwxqPMfO38evSMzp1R_U0yLmLOWf0CSf206LDjLiwqS_ABVkKhXAI9PFVjBYvn06Awl81BKDLbYYY" />
         </div>
     </header>
-    <section class="py-20 bg-slate-50 dark:bg-slate-900/50">
+
+    <!-- Kingdom at the Core Section -->
+    <section class="py-20 bg-white dark:bg-slate-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="font-display text-3xl font-bold mb-4">Core Financing Solutions</h2>
-                <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Select the financing instrument that
-                    best aligns with your trade cycle and collateral availability.</p>
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right">
+                    <span class="text-accent font-semibold text-sm uppercase tracking-wider">Our Foundation</span>
+                    <h2 class="text-4xl font-bold text-slate-900 dark:text-white mt-2 mb-6">
+                        Kingdom at the Core
+                    </h2>
+                    <p class="text-lg text-slate-600 dark:text-slate-300 mb-6">
+                        At Tusker Ventures, we believe capital is a tool for kingdom building — not just wealth accumulation.
+                        Our approach to trade finance is rooted in biblical principles of stewardship, integrity, and
+                        long-term relationship building.
+                    </p>
+                    <p class="text-lg text-slate-600 dark:text-slate-300 mb-8">
+                        We're not looking for quick transactions. We're seeking partners who share our commitment to
+                        doing business with excellence, transparency, and a genuine concern for all stakeholders involved.
+                    </p>
+                    <div class="bg-primary/5 dark:bg-primary/10 border-l-4 border-primary rounded-r-xl p-6">
+                        <p class="text-slate-700 dark:text-slate-200 italic text-lg">
+                            "The plans of the diligent lead surely to abundance, but everyone who is hasty comes only to poverty."
+                        </p>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">— Proverbs 21:5</p>
+                    </div>
+                </div>
+                <div data-aos="fade-left" class="grid grid-cols-2 gap-6">
+                    <div class="bg-gradient-to-br from-primary to-secondary text-white p-8 rounded-2xl">
+                        <span class="material-icons text-4xl mb-4">account_balance</span>
+                        <h3 class="text-xl font-bold mb-2">Stewardship</h3>
+                        <p class="text-emerald-100 text-sm">Managing resources as caretakers, not owners — with wisdom and accountability.</p>
+                    </div>
+                    <div class="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700">
+                        <span class="material-icons text-4xl text-primary dark:text-accent mb-4">handshake</span>
+                        <h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-white">Integrity</h3>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm">Our word is our bond. We operate with complete transparency.</p>
+                    </div>
+                    <div class="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700">
+                        <span class="material-icons text-4xl text-primary dark:text-accent mb-4">groups</span>
+                        <h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-white">Relationship</h3>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm">Long-term partnerships over transactional dealings.</p>
+                    </div>
+                    <div class="bg-accent/20 p-8 rounded-2xl">
+                        <span class="material-icons text-4xl text-accent mb-4">shield</span>
+                        <h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-white">Discipline</h3>
+                        <p class="text-slate-700 dark:text-slate-300 text-sm">Capital preservation through prudent, structured decisions.</p>
+                    </div>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Capital Philosophy Section -->
+    <section class="py-20 bg-slate-50 dark:bg-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-accent font-semibold text-sm uppercase tracking-wider">Our Philosophy</span>
+                <h2 class="text-4xl font-bold text-slate-900 dark:text-white mt-2 mb-4">
+                    Stewardship, Not Speculation
+                </h2>
+                <p class="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
+                    We approach every capital decision with the mindset of stewards — entrusted with resources
+                    that must be deployed wisely, protected diligently, and returned with honor.
+                </p>
+            </div>
+
             <div class="grid md:grid-cols-3 gap-8">
-                <div
-                    class="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col hover:border-primary dark:hover:border-emerald-500 transition-all group">
-                    <div
-                        class="w-14 h-14 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl flex items-center justify-center text-primary dark:text-emerald-400 mb-6 group-hover:scale-110 transition-transform">
-                        <span class="material-symbols-outlined text-3xl">contract_edit</span>
+                <div data-aos="fade-up" data-aos-delay="100" class="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-lg border border-slate-100 dark:border-slate-700">
+                    <div class="w-16 h-16 bg-primary/10 dark:bg-primary/20 rounded-2xl flex items-center justify-center text-primary dark:text-accent mb-6">
+                        <span class="material-icons text-3xl">security</span>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Trade Credit</h3>
-                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
-                        Flexible payment terms for procurement. Designed for established partners to manage cash flow
-                        gaps between purchase and sale.
+                    <h3 class="text-xl font-bold mb-4 text-slate-900 dark:text-white">Capital Preservation</h3>
+                    <p class="text-slate-600 dark:text-slate-300 mb-4">
+                        Our first priority is protecting the capital entrusted to us. We structure every deal with
+                        multiple layers of protection and clear exit strategies.
                     </p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center gap-2 text-sm">
-                            <span class="material-symbols-outlined text-emerald-500 text-lg">check_circle</span>
-                            Up to 120-day credit window
+                    <ul class="space-y-2 text-sm text-slate-500 dark:text-slate-400">
+                        <li class="flex items-center gap-2">
+                            <span class="material-icons text-primary dark:text-accent text-sm">check</span>
+                            Collateralized structures
                         </li>
-                        <li class="flex items-center gap-2 text-sm">
-                            <span class="material-symbols-outlined text-emerald-500 text-lg">check_circle</span>
-                            Unsecured options available
+                        <li class="flex items-center gap-2">
+                            <span class="material-icons text-primary dark:text-accent text-sm">check</span>
+                            Insurance-backed facilities
                         </li>
-                        <li class="flex items-center gap-2 text-sm">
-                            <span class="material-symbols-outlined text-emerald-500 text-lg">check_circle</span>
-                            Competitive floating rates
+                        <li class="flex items-center gap-2">
+                            <span class="material-icons text-primary dark:text-accent text-sm">check</span>
+                            Bank-verified counterparties
                         </li>
                     </ul>
-                    <button
-                        class="w-full py-3 rounded-lg border border-primary text-primary font-semibold hover:bg-primary hover:text-white transition-all">Select
-                        Program</button>
                 </div>
-                <div
-                    class="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-sm border-2 border-primary dark:border-emerald-600 relative flex flex-col">
-                    <div
-                        class="absolute -top-4 right-8 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase">
-                        Most Popular</div>
-                    <div
-                        class="w-14 h-14 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl flex items-center justify-center text-primary dark:text-emerald-400 mb-6">
-                        <span class="material-symbols-outlined text-3xl">inventory_2</span>
+
+                <div data-aos="fade-up" data-aos-delay="200" class="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-lg border border-slate-100 dark:border-slate-700">
+                    <div class="w-16 h-16 bg-primary/10 dark:bg-primary/20 rounded-2xl flex items-center justify-center text-primary dark:text-accent mb-6">
+                        <span class="material-icons text-3xl">account_balance</span>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Inventory Financing</h3>
-                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
-                        Unlock liquidity from your warehouse assets. Use your stored commodities as collateral for
-                        immediate working capital.
+                    <h3 class="text-xl font-bold mb-4 text-slate-900 dark:text-white">Bank-Aligned Structures</h3>
+                    <p class="text-slate-600 dark:text-slate-300 mb-4">
+                        We work within established banking frameworks, not around them. Our financing complements
+                        traditional banking relationships rather than replacing them.
                     </p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center gap-2 text-sm">
-                            <span class="material-symbols-outlined text-emerald-500 text-lg">check_circle</span>
-                            80% Loan-to-Value (LTV)
+                    <ul class="space-y-2 text-sm text-slate-500 dark:text-slate-400">
+                        <li class="flex items-center gap-2">
+                            <span class="material-icons text-primary dark:text-accent text-sm">check</span>
+                            Letter of Credit facilities
                         </li>
-                        <li class="flex items-center gap-2 text-sm">
-                            <span class="material-symbols-outlined text-emerald-500 text-lg">check_circle</span>
-                            Global warehouse network
+                        <li class="flex items-center gap-2">
+                            <span class="material-icons text-primary dark:text-accent text-sm">check</span>
+                            Trade finance instruments
                         </li>
-                        <li class="flex items-center gap-2 text-sm">
-                            <span class="material-symbols-outlined text-emerald-500 text-lg">check_circle</span>
-                            Dynamic pricing models
+                        <li class="flex items-center gap-2">
+                            <span class="material-icons text-primary dark:text-accent text-sm">check</span>
+                            Correspondent banking
                         </li>
                     </ul>
-                    <button
-                        class="w-full py-3 rounded-lg bg-primary text-white font-semibold hover:opacity-90 transition-all">Select
-                        Program</button>
                 </div>
-                <div
-                    class="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col hover:border-primary dark:hover:border-emerald-500 transition-all group">
-                    <div
-                        class="w-14 h-14 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl flex items-center justify-center text-primary dark:text-emerald-400 mb-6 group-hover:scale-110 transition-transform">
-                        <span class="material-symbols-outlined text-3xl">account_tree</span>
+
+                <div data-aos="fade-up" data-aos-delay="300" class="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-lg border border-slate-100 dark:border-slate-700">
+                    <div class="w-16 h-16 bg-primary/10 dark:bg-primary/20 rounded-2xl flex items-center justify-center text-primary dark:text-accent mb-6">
+                        <span class="material-icons text-3xl">trending_up</span>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Structured Finance</h3>
-                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
-                        Complex solutions for cross-border transactions. Multi-currency facilities with embedded risk
-                        mitigation and insurance.
+                    <h3 class="text-xl font-bold mb-4 text-slate-900 dark:text-white">Sustainable Returns</h3>
+                    <p class="text-slate-600 dark:text-slate-300 mb-4">
+                        We seek consistent, sustainable returns over speculative gains. Our focus is on
+                        building long-term value through disciplined capital deployment.
                     </p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center gap-2 text-sm">
-                            <span class="material-symbols-outlined text-emerald-500 text-lg">check_circle</span>
-                            Customized repayment logic
+                    <ul class="space-y-2 text-sm text-slate-500 dark:text-slate-400">
+                        <li class="flex items-center gap-2">
+                            <span class="material-icons text-primary dark:text-accent text-sm">check</span>
+                            Risk-adjusted returns
                         </li>
-                        <li class="flex items-center gap-2 text-sm">
-                            <span class="material-symbols-outlined text-emerald-500 text-lg">check_circle</span>
-                            Political risk insurance
+                        <li class="flex items-center gap-2">
+                            <span class="material-icons text-primary dark:text-accent text-sm">check</span>
+                            Transparent fee structures
                         </li>
-                        <li class="flex items-center gap-2 text-sm">
-                            <span class="material-symbols-outlined text-emerald-500 text-lg">check_circle</span>
-                            Multi-commodity support
+                        <li class="flex items-center gap-2">
+                            <span class="material-icons text-primary dark:text-accent text-sm">check</span>
+                            Long-term partnerships
                         </li>
                     </ul>
-                    <button
-                        class="w-full py-3 rounded-lg border border-primary text-primary font-semibold hover:bg-primary hover:text-white transition-all">Select
-                        Program</button>
                 </div>
             </div>
         </div>
     </section>
-    <section class="py-20">
+
+    <!-- Financing Solutions Section -->
+    <section class="py-20 bg-white dark:bg-slate-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="font-display text-3xl font-bold mb-4">Compare Terms</h2>
-                <p class="text-slate-600 dark:text-slate-400">Detailed data for informed financial decision-making.</p>
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-accent font-semibold text-sm uppercase tracking-wider">Solutions</span>
+                <h2 class="text-4xl font-bold text-slate-900 dark:text-white mt-2 mb-4">
+                    Trade Finance Instruments
+                </h2>
+                <p class="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
+                    Structured financing solutions designed for commodity trade flows,
+                    backed by proven instruments and established banking relationships.
+                </p>
             </div>
-            <div
-                class="overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm bg-white dark:bg-slate-800">
-                <table class="w-full text-left border-collapse">
-                    <thead>
-                        <tr class="bg-slate-50 dark:bg-slate-900/50">
-                            <th class="p-6 font-display font-semibold text-slate-900 dark:text-white">Feature</th>
-                            <th class="p-6 font-display font-semibold text-slate-900 dark:text-white">Trade Credit</th>
-                            <th class="p-6 font-display font-semibold text-slate-900 dark:text-white">Inventory
-                                Financing</th>
-                            <th class="p-6 font-display font-semibold text-slate-900 dark:text-white">Structured Finance
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-slate-100 dark:divide-slate-700">
-                        <tr>
-                            <td class="p-6 font-medium text-slate-500 dark:text-slate-400">Facility Size</td>
-                            <td class="p-6">$50k – $2M</td>
-                            <td class="p-6">$500k – $25M</td>
-                            <td class="p-6">$5M – $100M+</td>
-                        </tr>
-                        <tr>
-                            <td class="p-6 font-medium text-slate-500 dark:text-slate-400">Typical APR</td>
-                            <td class="p-6">4.5% - 7.2%</td>
-                            <td class="p-6">3.8% - 5.5%</td>
-                            <td class="p-6">LIBOR + 2.5% - 4.0%</td>
-                        </tr>
-                        <tr>
-                            <td class="p-6 font-medium text-slate-500 dark:text-slate-400">Tenure</td>
-                            <td class="p-6">30 - 120 Days</td>
-                            <td class="p-6">up to 270 Days</td>
-                            <td class="p-6">up to 3 Years</td>
-                        </tr>
-                        <tr>
-                            <td class="p-6 font-medium text-slate-500 dark:text-slate-400">Collateral Required</td>
-                            <td class="p-6">None / Soft Gtees</td>
-                            <td class="p-6">Warehouse Receipts</td>
-                            <td class="p-6">Receivables / Off-take</td>
-                        </tr>
-                        <tr>
-                            <td class="p-6 font-medium text-slate-500 dark:text-slate-400">Reporting</td>
-                            <td class="p-6">Monthly Financials</td>
-                            <td class="p-6">Weekly Inventory Audits</td>
-                            <td class="p-6">Transactional / Real-time</td>
-                        </tr>
-                    </tbody>
-                </table>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Trade Credit -->
+                <div data-aos="fade-up" data-aos-delay="100" class="bg-slate-50 dark:bg-slate-800 rounded-2xl p-8 hover:shadow-xl transition-shadow">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center text-white">
+                            <span class="material-icons">receipt_long</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Trade Credit</h3>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-300 mb-6">
+                        Flexible payment terms for established partners to manage cash flow between purchase and sale cycles.
+                    </p>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-slate-500">Facility Size</span>
+                            <span class="font-semibold text-slate-900 dark:text-white">$50K - $2M</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-500">Tenure</span>
+                            <span class="font-semibold text-slate-900 dark:text-white">30 - 120 Days</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-500">Collateral</span>
+                            <span class="font-semibold text-slate-900 dark:text-white">Soft Guarantees</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Letter of Credit -->
+                <div data-aos="fade-up" data-aos-delay="200" class="bg-slate-50 dark:bg-slate-800 rounded-2xl p-8 hover:shadow-xl transition-shadow border-2 border-primary">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center text-white">
+                            <span class="material-icons">verified</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Letter of Credit</h3>
+                            <span class="text-xs text-primary font-semibold">PREFERRED</span>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-300 mb-6">
+                        Bank-backed letters of credit for international commodity transactions with full payment security.
+                    </p>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-slate-500">Facility Size</span>
+                            <span class="font-semibold text-slate-900 dark:text-white">$500K - $25M</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-500">Tenure</span>
+                            <span class="font-semibold text-slate-900 dark:text-white">Up to 180 Days</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-500">Collateral</span>
+                            <span class="font-semibold text-slate-900 dark:text-white">Bank Guarantee</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Inventory Finance -->
+                <div data-aos="fade-up" data-aos-delay="300" class="bg-slate-50 dark:bg-slate-800 rounded-2xl p-8 hover:shadow-xl transition-shadow">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center text-white">
+                            <span class="material-icons">inventory_2</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Inventory Finance</h3>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-300 mb-6">
+                        Unlock liquidity from stored commodities with warehouse receipt-backed financing facilities.
+                    </p>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-slate-500">Facility Size</span>
+                            <span class="font-semibold text-slate-900 dark:text-white">$500K - $25M</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-500">LTV Ratio</span>
+                            <span class="font-semibold text-slate-900 dark:text-white">Up to 80%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-500">Collateral</span>
+                            <span class="font-semibold text-slate-900 dark:text-white">Warehouse Receipts</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-    <section class="py-20 bg-slate-50 dark:bg-slate-900/50 overflow-hidden relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="bg-primary rounded-3xl p-8 md:p-16 text-white flex flex-col md:flex-row items-center gap-12">
-                <div class="md:w-1/2">
-                    <h2 class="font-display text-3xl md:text-4xl font-bold mb-6">Dedicated Account Support</h2>
-                    <p class="text-emerald-100/80 mb-8 text-lg">
-                        Our premium partners receive a dedicated financing advisor to structure custom deals and ensure
-                        rapid disbursement. Need a tailored solution?
+
+    <!-- Selective Partnership Section -->
+    <section class="py-20 bg-gradient-to-br from-primary to-secondary text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right">
+                    <span class="text-accent font-semibold text-sm uppercase tracking-wider">Our Approach</span>
+                    <h2 class="text-4xl font-bold mt-2 mb-6">
+                        We're Selective About Partnerships
+                    </h2>
+                    <p class="text-lg text-emerald-100 mb-6">
+                        Not every opportunity is the right fit. We carefully evaluate potential partnerships based on
+                        alignment with our values, the soundness of the business model, and the character of the
+                        people involved.
                     </p>
-                    <div class="flex items-center gap-6 mb-8">
-                        <img alt="Account Manager"
-                            class="w-20 h-20 rounded-full border-4 border-emerald-800 object-cover shadow-xl"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEMbNVOrcz64QFYKdawGKdRpKuSWxHZYDW8JJW7dWEcpqfDQE0eEtsAgWttZe3RhN38iyxhloELl__huUr3A8CSpqMaco4rwVLnn2Tg3tE_Yi84SCCL_6YymixmRn99qwYFystQ7X_VPd7HZEdPK2y8SL_cQzS2TUbfWf00VNaqsLO-u7JyOXOrWDMHw7uM9PvCXWeXcyBTNGr-j-38UODpMXr3_lNQmWgNQEq1bwou1vRhcXfhtIEp_uD8T0giR7IovD4nriZr54" />
-                        <div>
-                            <div class="text-xl font-bold">Marcus Chen</div>
-                            <div class="text-emerald-300">Sr. Investment Manager</div>
-                            <div class="flex gap-2 mt-2">
-                                <span class="material-symbols-outlined text-sm">star</span>
-                                <span class="material-symbols-outlined text-sm">star</span>
-                                <span class="material-symbols-outlined text-sm">star</span>
-                                <span class="material-symbols-outlined text-sm">star</span>
-                                <span class="material-symbols-outlined text-sm">star</span>
+                    <p class="text-lg text-emerald-100 mb-8">
+                        Our pre-qualification process isn't about creating barriers — it's about ensuring mutual fit.
+                        We want partners who will grow with us, challenge us, and hold us accountable to our own standards.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                                <span class="material-icons text-accent">favorite</span>
+                            </div>
+                            <span class="font-medium">Values-aligned businesses only</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                                <span class="material-icons text-accent">history</span>
+                            </div>
+                            <span class="font-medium">Proven track record required</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                                <span class="material-icons text-accent">people</span>
+                            </div>
+                            <span class="font-medium">Relationship-first approach</span>
+                        </div>
+                    </div>
+                </div>
+                <div data-aos="fade-left" class="bg-white/10 backdrop-blur-sm rounded-3xl p-8">
+                    <h3 class="text-2xl font-bold mb-6">Pre-Qualification Criteria</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <span class="material-icons text-accent mt-1">check_circle</span>
+                            <div>
+                                <h4 class="font-semibold">Established Business (2+ Years)</h4>
+                                <p class="text-emerald-200 text-sm">Demonstrated operational history and market presence</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <span class="material-icons text-accent mt-1">check_circle</span>
+                            <div>
+                                <h4 class="font-semibold">Revenue Threshold ($500K+)</h4>
+                                <p class="text-emerald-200 text-sm">Minimum annual revenue for financing consideration</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <span class="material-icons text-accent mt-1">check_circle</span>
+                            <div>
+                                <h4 class="font-semibold">Banking Relationships</h4>
+                                <p class="text-emerald-200 text-sm">Established relationships with recognized financial institutions</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <span class="material-icons text-accent mt-1">check_circle</span>
+                            <div>
+                                <h4 class="font-semibold">Industry Experience</h4>
+                                <p class="text-emerald-200 text-sm">Background in commodity trading or food manufacturing</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <span class="material-icons text-accent mt-1">check_circle</span>
+                            <div>
+                                <h4 class="font-semibold">Values Alignment</h4>
+                                <p class="text-emerald-200 text-sm">Commitment to integrity, transparency, and ethical business practices</p>
                             </div>
                         </div>
                     </div>
-                    <div class="flex flex-wrap gap-4">
-                        <button
-                            class="bg-secondary text-primary px-8 py-4 rounded-xl font-bold hover:bg-white transition-all flex items-center gap-2">
-                            <span class="material-symbols-outlined">calendar_month</span>
-                            Book 15-min Call
-                        </button>
-                        <button
-                            class="bg-emerald-800/50 border border-emerald-700 px-8 py-4 rounded-xl font-bold hover:bg-emerald-800 transition-all">
-                            Message Marcus
-                        </button>
-                    </div>
-                </div>
-                <div class="md:w-1/2 bg-white/10 p-8 rounded-2xl backdrop-blur-sm">
-                    <h3 class="font-display text-xl font-bold mb-6">Quick Eligibility Check</h3>
-                    <form class="space-y-4">
-                        <div>
-                            <label class="block text-sm font-medium text-emerald-200 mb-1">Estimated Monthly
-                                Volume</label>
-                            <select
-                                class="w-full bg-emerald-900/50 border-emerald-700 rounded-lg text-white focus:ring-secondary focus:border-secondary">
-                                <option>$100k - $500k</option>
-                                <option>$500k - $2M</option>
-                                <option>$2M - $10M</option>
-                                <option>$10M+</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-emerald-200 mb-1">Primary Commodity</label>
-                            <input
-                                class="w-full bg-emerald-900/50 border-emerald-700 rounded-lg text-white placeholder:text-emerald-600 focus:ring-secondary focus:border-secondary"
-                                placeholder="e.g. Copper, Wheat, Crude" type="text" />
-                        </div>
-                        <button
-                            class="w-full py-4 bg-emerald-400 text-emerald-950 rounded-xl font-bold hover:bg-white transition-all"
-                            type="submit">Check Instant Approval</button>
-                        <p class="text-[10px] text-center text-emerald-400/60 uppercase tracking-widest mt-4">Soft
-                            credit check only. Will not affect your score.</p>
-                    </form>
+                    <a href="financing-form.html" class="mt-8 bg-accent text-primary px-8 py-4 rounded-xl font-bold hover:bg-white transition-all inline-flex items-center gap-2 w-full justify-center">
+                        <span class="material-icons">assignment</span>
+                        Begin Pre-Qualification
+                    </a>
                 </div>
             </div>
         </div>
-        <svg class="absolute bottom-0 right-0 h-2/3 w-1/2 text-emerald-900/10 pointer-events-none translate-x-1/4 translate-y-1/4"
-            fill="currentColor" viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="50"></circle>
-        </svg>
     </section>
-    <section class="py-20">
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-white dark:bg-slate-900">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="font-display text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
-            <div class="space-y-4">
-                <details
-                    class="group bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm overflow-hidden"
-                    open="">
-                    <summary
-                        class="flex justify-between items-center p-6 cursor-pointer font-semibold group-open:text-primary dark:group-open:text-emerald-400">
-                        What is the required documentation for Inventory Financing?
-                        <span
-                            class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-4">Frequently Asked Questions</h2>
+                <p class="text-slate-600 dark:text-slate-300">Common questions about our capital and trade finance approach.</p>
+            </div>
+            <div class="space-y-4" data-aos="fade-up" data-aos-delay="100">
+                <details class="group bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden" open>
+                    <summary class="flex justify-between items-center p-6 cursor-pointer font-semibold group-open:text-primary dark:group-open:text-accent">
+                        Why do you require pre-qualification?
+                        <span class="material-icons transition-transform group-open:rotate-180">expand_more</span>
                     </summary>
-                    <div
-                        class="p-6 pt-0 text-slate-600 dark:text-slate-400 text-sm leading-relaxed border-t border-slate-100 dark:border-slate-700">
-                        Typically, we require warehouse receipts from a Tusker-approved collateral manager, current
-                        financial statements (Profit/Loss &amp; Balance Sheet), and valid export/import licenses for the
-                        specific commodity.
+                    <div class="p-6 pt-0 text-slate-600 dark:text-slate-400 text-sm leading-relaxed border-t border-slate-200 dark:border-slate-700">
+                        Pre-qualification ensures mutual fit. We want to work with partners who share our values and
+                        meet our criteria for responsible capital deployment. This process protects both parties and
+                        establishes a foundation of trust from the beginning.
                     </div>
                 </details>
-                <details
-                    class="group bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm overflow-hidden">
-                    <summary
-                        class="flex justify-between items-center p-6 cursor-pointer font-semibold group-open:text-primary dark:group-open:text-emerald-400">
-                        How quickly can I draw down on an approved line?
-                        <span
-                            class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+                <details class="group bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+                    <summary class="flex justify-between items-center p-6 cursor-pointer font-semibold group-open:text-primary dark:group-open:text-accent">
+                        What makes your approach different from traditional lenders?
+                        <span class="material-icons transition-transform group-open:rotate-180">expand_more</span>
                     </summary>
-                    <div
-                        class="p-6 pt-0 text-slate-600 dark:text-slate-400 text-sm leading-relaxed border-t border-slate-100 dark:border-slate-700">
-                        Once the facility is active, individual draw-downs are processed within 24 hours. For automated
-                        trade credit, approval is instantaneous at the point of transaction on our marketplace.
+                    <div class="p-6 pt-0 text-slate-600 dark:text-slate-400 text-sm leading-relaxed border-t border-slate-200 dark:border-slate-700">
+                        We're relationship-first, not transaction-first. We take time to understand your business,
+                        your goals, and your challenges. Our structures are designed for long-term partnership,
+                        not just short-term profit. And our faith-based principles guide every decision we make.
                     </div>
                 </details>
-                <details
-                    class="group bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm overflow-hidden">
-                    <summary
-                        class="flex justify-between items-center p-6 cursor-pointer font-semibold group-open:text-primary dark:group-open:text-emerald-400">
-                        Do you offer multi-currency disbursement?
-                        <span
-                            class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+                <details class="group bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+                    <summary class="flex justify-between items-center p-6 cursor-pointer font-semibold group-open:text-primary dark:group-open:text-accent">
+                        What happens after I complete pre-qualification?
+                        <span class="material-icons transition-transform group-open:rotate-180">expand_more</span>
                     </summary>
-                    <div
-                        class="p-6 pt-0 text-slate-600 dark:text-slate-400 text-sm leading-relaxed border-t border-slate-100 dark:border-slate-700">
-                        Yes, we currently support USD, EUR, GBP, and SGD for financing facilities. We also offer
-                        currency hedging services to protect against exchange rate volatility during the tenure of the
-                        loan.
+                    <div class="p-6 pt-0 text-slate-600 dark:text-slate-400 text-sm leading-relaxed border-t border-slate-200 dark:border-slate-700">
+                        If you meet our initial criteria, you'll be invited to a consultation call with our team.
+                        This is an opportunity for both parties to learn more about each other and explore potential
+                        partnership structures. From there, we'll work together on due diligence and deal structuring.
+                    </div>
+                </details>
+                <details class="group bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+                    <summary class="flex justify-between items-center p-6 cursor-pointer font-semibold group-open:text-primary dark:group-open:text-accent">
+                        Do you work with startups or new businesses?
+                        <span class="material-icons transition-transform group-open:rotate-180">expand_more</span>
+                    </summary>
+                    <div class="p-6 pt-0 text-slate-600 dark:text-slate-400 text-sm leading-relaxed border-t border-slate-200 dark:border-slate-700">
+                        Our financing programs require a minimum of 2 years operational history. However, we're
+                        always open to conversation. If you have a compelling story, strong backing, or unique
+                        circumstances, please reach out to discuss. We evaluate each situation individually.
                     </div>
                 </details>
             </div>
         </div>
     </section>
-    <footer class="bg-primary text-white pt-20 pb-10">
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-slate-50 dark:bg-slate-800/50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
+            <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-6">
+                Ready to Explore Partnership?
+            </h2>
+            <p class="text-xl text-slate-600 dark:text-slate-300 mb-10 max-w-2xl mx-auto">
+                Take the first step toward a values-aligned financing partnership.
+                Our pre-qualification process takes just a few minutes.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="financing-form.html" class="bg-primary text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-secondary hover:shadow-xl transition-all inline-flex items-center gap-2">
+                    <span class="material-icons">assignment</span>
+                    Start Pre-Qualification
+                </a>
+                <a href="contact.html" class="bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 px-10 py-4 rounded-xl font-bold text-lg hover:bg-slate-100 dark:hover:bg-slate-600 transition-all">
+                    Contact Us First
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white pt-16 pb-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                <div class="col-span-1 md:col-span-1">
-                    <div class="flex items-center gap-2 mb-6">
-                        <div class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
-                            <span class="material-symbols-outlined text-white text-sm">tsunami</span>
-                        </div>
-                        <span class="font-display text-xl font-bold tracking-tight">TUSKER</span>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="logo.jpg" alt="Tusker Ventures" class="h-10 w-auto" />
+                        <span class="font-display text-xl font-bold">TUSKER VENTURES</span>
                     </div>
-                    <p class="text-emerald-200/60 text-sm leading-relaxed">
-                        Institutional grade commodity financing and risk management solutions for the modern global
-                        economy.
+                    <p class="text-emerald-200/70 text-sm leading-relaxed">
+                        Faith-based commodity trading and financing, built on principles of stewardship, integrity, and lasting relationships.
                     </p>
                 </div>
                 <div>
                     <h4 class="font-bold mb-6">Financing</h4>
-                    <ul class="space-y-4 text-sm text-emerald-200/60">
+                    <ul class="space-y-3 text-sm text-emerald-200/70">
+                        <li><a class="hover:text-white transition-colors" href="financing-form.html">Pre-Qualification</a></li>
                         <li><a class="hover:text-white transition-colors" href="#">Trade Credit</a></li>
-                        <li><a class="hover:text-white transition-colors" href="#">Inventory Finance</a></li>
-                        <li><a class="hover:text-white transition-colors" href="#">Structured Solutions</a></li>
                         <li><a class="hover:text-white transition-colors" href="#">Letter of Credit</a></li>
+                        <li><a class="hover:text-white transition-colors" href="#">Inventory Finance</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="font-bold mb-6">Company</h4>
-                    <ul class="space-y-4 text-sm text-emerald-200/60">
-                        <li><a class="hover:text-white transition-colors" href="#">About Us</a></li>
-                        <li><a class="hover:text-white transition-colors" href="#">Risk Policy</a></li>
-                        <li><a class="hover:text-white transition-colors" href="#">Global Network</a></li>
-                        <li><a class="hover:text-white transition-colors" href="#">Careers</a></li>
+                    <ul class="space-y-3 text-sm text-emerald-200/70">
+                        <li><a class="hover:text-white transition-colors" href="about.html">About Us</a></li>
+                        <li><a class="hover:text-white transition-colors" href="protection.html">Protection</a></li>
+                        <li><a class="hover:text-white transition-colors" href="markets.html">Africa Markets</a></li>
+                        <li><a class="hover:text-white transition-colors" href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-bold mb-6">Newsletter</h4>
-                    <p class="text-sm text-emerald-200/60 mb-4">Market insights delivered weekly.</p>
-                    <div class="flex gap-2">
-                        <input class="bg-emerald-900 border-none rounded-lg text-sm w-full focus:ring-secondary"
-                            placeholder="Email address" type="email" />
-                        <button class="bg-secondary p-2 rounded-lg text-primary">
-                            <span class="material-symbols-outlined">send</span>
-                        </button>
-                    </div>
+                    <h4 class="font-bold mb-6">Contact</h4>
+                    <ul class="space-y-3 text-sm text-emerald-200/70">
+                        <li class="flex items-center gap-2">
+                            <span class="material-icons text-sm">email</span>
+                            info@tuskerventures.org
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="material-icons text-sm">language</span>
+                            tuskerventures.org
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div
-                class="border-t border-emerald-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-emerald-200/40 uppercase tracking-widest">
-                <p>© 2024 Tusker Ventures Inc. All rights reserved.</p>
-                <div class="flex gap-8">
-                    <a class="hover:text-white" href="#">Privacy Policy</a>
-                    <a class="hover:text-white" href="#">Terms of Service</a>
-                    <a class="hover:text-white" href="#">AML/KYC</a>
+            <div class="border-t border-emerald-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-emerald-200/50">
+                <p>© 2024 Tusker Ventures. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a class="hover:text-white transition-colors" href="compliance.html">Privacy Policy</a>
+                    <a class="hover:text-white transition-colors" href="compliance.html">Terms of Service</a>
                 </div>
             </div>
         </div>

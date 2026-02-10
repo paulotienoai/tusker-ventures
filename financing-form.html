@@ -4,10 +4,9 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Tusker Ventures - Financing Qualification</title>
+    <title>Tusker Ventures - Financing Pre-Qualification</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <script>
         tailwind.config = {
@@ -15,16 +14,15 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: "#064e3b", // Deep Emerald Green
+                        primary: "#1B4332",
+                        secondary: "#2D6A4F",
+                        accent: "#D4A373",
                         "background-light": "#f9fafb",
                         "background-dark": "#0f172a",
-                        accent: "#fbbf24" // Amber/Gold
                     },
                     fontFamily: {
-                        display: ["Inter", "sans-serif"],
-                    },
-                    borderRadius: {
-                        DEFAULT: "0.5rem",
+                        sans: ["Poppins", "sans-serif"],
+                        display: ["Poppins", "sans-serif"],
                     },
                 },
             },
@@ -32,257 +30,527 @@
     </script>
     <style>
         .step-transition {
-            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
         }
-
         .hidden-step {
             display: none;
             opacity: 0;
-            transform: translateY(10px);
+            transform: translateY(20px);
         }
-
         .active-step {
             display: block;
             opacity: 1;
             transform: translateY(0);
         }
+        .option-btn {
+            transition: all 0.2s ease;
+        }
+        .option-btn:hover {
+            transform: translateY(-2px);
+        }
+        .option-btn.selected {
+            border-color: #1B4332 !important;
+            background-color: rgba(27, 67, 50, 0.1) !important;
+        }
     </style>
 </head>
 
-<body
-    class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<body class="font-sans bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+    <!-- Header -->
     <header class="w-full py-6 px-8 flex flex-col items-center">
         <div class="w-full max-w-4xl flex justify-between items-center mb-8">
-            <a href="index.html" class="flex items-center gap-2">
-                <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                    <span class="material-icons text-white">account_balance</span>
-                </div>
-                <span class="text-xl font-bold tracking-tight text-primary dark:text-emerald-400">TUSKER VENTURES</span>
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="logo.jpg" alt="Tusker Ventures" class="h-12 w-auto" />
+                <span class="text-xl font-bold tracking-tight text-primary dark:text-white">TUSKER <span class="text-accent">VENTURES</span></span>
             </a>
             <div class="text-sm font-medium text-slate-500 dark:text-slate-400">
-                Financing Qualification
+                Capital Pre-Qualification
             </div>
         </div>
-        <div class="w-full max-w-xl bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
-            <div class="bg-primary h-full transition-all duration-500 ease-out" id="progress-bar" style="width: 20%;">
+        <!-- Progress Bar -->
+        <div class="w-full max-w-xl">
+            <div class="flex justify-between text-xs text-slate-400 mb-2">
+                <span>Step <span id="current-step-num">1</span> of 7</span>
+                <span id="progress-percent">14%</span>
+            </div>
+            <div class="bg-slate-200 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                <div class="bg-gradient-to-r from-primary to-secondary h-full transition-all duration-500 ease-out" id="progress-bar" style="width: 14%;"></div>
             </div>
         </div>
     </header>
-    <main class="flex-grow flex items-center justify-center px-6">
+
+    <!-- Main Content -->
+    <main class="flex-grow flex items-center justify-center px-6 py-8">
         <div class="w-full max-w-2xl">
             <form id="qualification-form" onsubmit="event.preventDefault();">
+
+                <!-- Step 1: Company Name -->
                 <div class="step-transition active-step" id="step-1">
                     <div class="mb-8">
-                        <span class="text-primary dark:text-emerald-400 font-semibold mb-2 block">01 →</span>
-                        <h1 class="text-3xl md:text-4xl font-bold mb-4">What is the legal name of your company?</h1>
-                        <p class="text-slate-500 dark:text-slate-400 text-lg">We'll use this to start your application
-                            profile.</p>
+                        <span class="text-accent font-semibold mb-2 block text-sm uppercase tracking-wider">01 — Company Information</span>
+                        <h1 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">What is the legal name of your company?</h1>
+                        <p class="text-slate-500 dark:text-slate-400 text-lg">We partner with established businesses committed to integrity and excellence.</p>
                     </div>
                     <div class="relative">
                         <input
-                            class="w-full bg-transparent border-b-2 border-slate-300 dark:border-slate-700 focus:border-primary dark:focus:border-emerald-500 outline-none py-4 text-2xl transition-colors placeholder:text-slate-300 dark:placeholder:text-slate-600"
-                            id="company-name" placeholder="Type your answer here..." type="text" />
+                            class="w-full bg-transparent border-b-2 border-slate-300 dark:border-slate-700 focus:border-primary dark:focus:border-accent outline-none py-4 text-2xl transition-colors placeholder:text-slate-300 dark:placeholder:text-slate-600"
+                            id="company-name" placeholder="Enter your company name..." type="text" required />
                     </div>
                 </div>
+
+                <!-- Step 2: Business Type -->
                 <div class="step-transition hidden-step" id="step-2">
                     <div class="mb-8">
-                        <span class="text-primary dark:text-emerald-400 font-semibold mb-2 block">02 →</span>
-                        <h1 class="text-3xl md:text-4xl font-bold mb-4">What is your estimated annual revenue?</h1>
-                        <p class="text-slate-500 dark:text-slate-400 text-lg">Select the range that best fits your last
-                            fiscal year.</p>
+                        <span class="text-accent font-semibold mb-2 block text-sm uppercase tracking-wider">02 — Business Type</span>
+                        <h1 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">What type of business do you operate?</h1>
+                        <p class="text-slate-500 dark:text-slate-400 text-lg">We work with businesses in the sugar commodity supply chain.</p>
                     </div>
                     <div class="grid grid-cols-1 gap-3">
-                        <button
-                            class="flex items-center justify-between p-4 border-2 border-slate-200 dark:border-slate-800 rounded-xl hover:border-primary dark:hover:border-emerald-500 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-all group"
-                            onclick="nextStep()" type="button">
-                            <span class="text-lg font-medium">Under $500,000</span>
-                            <span
-                                class="px-3 py-1 rounded border border-slate-200 dark:border-slate-700 text-xs font-bold group-hover:bg-primary group-hover:text-white transition-colors">A</span>
+                        <button class="option-btn flex items-center justify-between p-5 border-2 border-slate-200 dark:border-slate-700 rounded-xl hover:border-primary dark:hover:border-accent transition-all group" onclick="selectOption(2, 'manufacturer', true)" type="button" data-value="manufacturer">
+                            <div class="flex items-center gap-4">
+                                <span class="material-icons text-primary dark:text-accent">factory</span>
+                                <span class="text-lg font-medium">Food & Beverage Manufacturer</span>
+                            </div>
+                            <span class="px-3 py-1 rounded border border-slate-200 dark:border-slate-700 text-xs font-bold group-hover:bg-primary group-hover:text-white transition-colors">A</span>
                         </button>
-                        <button
-                            class="flex items-center justify-between p-4 border-2 border-slate-200 dark:border-slate-800 rounded-xl hover:border-primary dark:hover:border-emerald-500 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-all group"
-                            onclick="nextStep()" type="button">
-                            <span class="text-lg font-medium">$500,000 - $2,000,000</span>
-                            <span
-                                class="px-3 py-1 rounded border border-slate-200 dark:border-slate-700 text-xs font-bold group-hover:bg-primary group-hover:text-white transition-colors">B</span>
+                        <button class="option-btn flex items-center justify-between p-5 border-2 border-slate-200 dark:border-slate-700 rounded-xl hover:border-primary dark:hover:border-accent transition-all group" onclick="selectOption(2, 'trader', true)" type="button" data-value="trader">
+                            <div class="flex items-center gap-4">
+                                <span class="material-icons text-primary dark:text-accent">swap_horiz</span>
+                                <span class="text-lg font-medium">Commodity Trader / Distributor</span>
+                            </div>
+                            <span class="px-3 py-1 rounded border border-slate-200 dark:border-slate-700 text-xs font-bold group-hover:bg-primary group-hover:text-white transition-colors">B</span>
                         </button>
-                        <button
-                            class="flex items-center justify-between p-4 border-2 border-slate-200 dark:border-slate-800 rounded-xl hover:border-primary dark:hover:border-emerald-500 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-all group"
-                            onclick="nextStep()" type="button">
-                            <span class="text-lg font-medium">$2,000,000 - $10,000,000</span>
-                            <span
-                                class="px-3 py-1 rounded border border-slate-200 dark:border-slate-700 text-xs font-bold group-hover:bg-primary group-hover:text-white transition-colors">C</span>
+                        <button class="option-btn flex items-center justify-between p-5 border-2 border-slate-200 dark:border-slate-700 rounded-xl hover:border-primary dark:hover:border-accent transition-all group" onclick="selectOption(2, 'confectionery', true)" type="button" data-value="confectionery">
+                            <div class="flex items-center gap-4">
+                                <span class="material-icons text-primary dark:text-accent">cake</span>
+                                <span class="text-lg font-medium">Confectionery / Bakery Business</span>
+                            </div>
+                            <span class="px-3 py-1 rounded border border-slate-200 dark:border-slate-700 text-xs font-bold group-hover:bg-primary group-hover:text-white transition-colors">C</span>
                         </button>
-                        <button
-                            class="flex items-center justify-between p-4 border-2 border-slate-200 dark:border-slate-800 rounded-xl hover:border-primary dark:hover:border-emerald-500 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-all group"
-                            onclick="nextStep()" type="button">
-                            <span class="text-lg font-medium">$10,000,000+</span>
-                            <span
-                                class="px-3 py-1 rounded border border-slate-200 dark:border-slate-700 text-xs font-bold group-hover:bg-primary group-hover:text-white transition-colors">D</span>
+                        <button class="option-btn flex items-center justify-between p-5 border-2 border-slate-200 dark:border-slate-700 rounded-xl hover:border-primary dark:hover:border-accent transition-all group" onclick="selectOption(2, 'other', false)" type="button" data-value="other">
+                            <div class="flex items-center gap-4">
+                                <span class="material-icons text-slate-400">help_outline</span>
+                                <span class="text-lg font-medium">Other / Not in Sugar Industry</span>
+                            </div>
+                            <span class="px-3 py-1 rounded border border-slate-200 dark:border-slate-700 text-xs font-bold group-hover:bg-primary group-hover:text-white transition-colors">D</span>
                         </button>
                     </div>
                 </div>
+
+                <!-- Step 3: Commodity Experience -->
                 <div class="step-transition hidden-step" id="step-3">
                     <div class="mb-8">
-                        <span class="text-primary dark:text-emerald-400 font-semibold mb-2 block">03 →</span>
-                        <h1 class="text-3xl md:text-4xl font-bold mb-4">How much financing are you looking for?</h1>
-                        <p class="text-slate-500 dark:text-slate-400 text-lg">Enter the approximate amount in USD.</p>
-                    </div>
-                    <div class="relative flex items-center">
-                        <span class="text-4xl font-light text-slate-400 absolute left-0">$</span>
-                        <input
-                            class="w-full bg-transparent border-b-2 border-slate-300 dark:border-slate-700 focus:border-primary dark:focus:border-emerald-500 outline-none py-4 pl-8 text-4xl font-light transition-colors placeholder:text-slate-200 dark:placeholder:text-slate-800"
-                            id="loan-amount" placeholder="0.00" type="number" />
-                    </div>
-                </div>
-                <div class="step-transition hidden-step" id="step-4">
-                    <div class="mb-8">
-                        <span class="text-primary dark:text-emerald-400 font-semibold mb-2 block">04 →</span>
-                        <h1 class="text-3xl md:text-4xl font-bold mb-4">How many years has your business been operating?
-                        </h1>
-                        <p class="text-slate-500 dark:text-slate-400 text-lg">We typically work with businesses that
-                            have at least 2 years of history.</p>
+                        <span class="text-accent font-semibold mb-2 block text-sm uppercase tracking-wider">03 — Experience</span>
+                        <h1 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">How long have you been trading commodities?</h1>
+                        <p class="text-slate-500 dark:text-slate-400 text-lg">Experience in commodity markets helps us understand your needs.</p>
                     </div>
                     <div class="grid grid-cols-2 gap-4">
-                        <button
-                            class="p-6 border-2 border-slate-200 dark:border-slate-800 rounded-xl hover:border-primary dark:hover:border-emerald-500 text-center transition-all group"
-                            onclick="nextStep()" type="button">
-                            <div class="text-3xl font-bold mb-1">0 - 1</div>
+                        <button class="option-btn p-6 border-2 border-slate-200 dark:border-slate-700 rounded-xl hover:border-primary dark:hover:border-accent text-center transition-all" onclick="selectOption(3, 'none', false)" type="button" data-value="none">
+                            <div class="text-3xl font-bold mb-1 text-slate-900 dark:text-white">New</div>
+                            <div class="text-sm text-slate-500">No prior experience</div>
+                        </button>
+                        <button class="option-btn p-6 border-2 border-slate-200 dark:border-slate-700 rounded-xl hover:border-primary dark:hover:border-accent text-center transition-all" onclick="selectOption(3, '1-2', false)" type="button" data-value="1-2">
+                            <div class="text-3xl font-bold mb-1 text-slate-900 dark:text-white">1-2</div>
                             <div class="text-sm text-slate-500">Years</div>
                         </button>
-                        <button
-                            class="p-6 border-2 border-slate-200 dark:border-slate-800 rounded-xl hover:border-primary dark:hover:border-emerald-500 text-center transition-all group"
-                            onclick="nextStep()" type="button">
-                            <div class="text-3xl font-bold mb-1">2 - 5</div>
+                        <button class="option-btn p-6 border-2 border-slate-200 dark:border-slate-700 rounded-xl hover:border-primary dark:hover:border-accent text-center transition-all" onclick="selectOption(3, '3-5', true)" type="button" data-value="3-5">
+                            <div class="text-3xl font-bold mb-1 text-slate-900 dark:text-white">3-5</div>
                             <div class="text-sm text-slate-500">Years</div>
                         </button>
-                        <button
-                            class="p-6 border-2 border-slate-200 dark:border-slate-800 rounded-xl hover:border-primary dark:hover:border-emerald-500 text-center transition-all group"
-                            onclick="nextStep()" type="button">
-                            <div class="text-3xl font-bold mb-1">5 - 10</div>
-                            <div class="text-sm text-slate-500">Years</div>
-                        </button>
-                        <button
-                            class="p-6 border-2 border-slate-200 dark:border-slate-800 rounded-xl hover:border-primary dark:hover:border-emerald-500 text-center transition-all group"
-                            onclick="nextStep()" type="button">
-                            <div class="text-3xl font-bold mb-1">10+</div>
+                        <button class="option-btn p-6 border-2 border-slate-200 dark:border-slate-700 rounded-xl hover:border-primary dark:hover:border-accent text-center transition-all" onclick="selectOption(3, '5+', true)" type="button" data-value="5+">
+                            <div class="text-3xl font-bold mb-1 text-slate-900 dark:text-white">5+</div>
                             <div class="text-sm text-slate-500">Years</div>
                         </button>
                     </div>
                 </div>
-                <div class="step-transition hidden-step text-center" id="step-5">
+
+                <!-- Step 4: Annual Revenue -->
+                <div class="step-transition hidden-step" id="step-4">
+                    <div class="mb-8">
+                        <span class="text-accent font-semibold mb-2 block text-sm uppercase tracking-wider">04 — Financial Profile</span>
+                        <h1 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">What is your company's annual revenue?</h1>
+                        <p class="text-slate-500 dark:text-slate-400 text-lg">We work with established businesses with a track record of financial stability.</p>
+                    </div>
+                    <div class="grid grid-cols-1 gap-3">
+                        <button class="option-btn flex items-center justify-between p-5 border-2 border-slate-200 dark:border-slate-700 rounded-xl hover:border-primary dark:hover:border-accent transition-all group" onclick="selectOption(4, 'under500k', false)" type="button" data-value="under500k">
+                            <span class="text-lg font-medium">Under $500,000</span>
+                            <span class="px-3 py-1 rounded border border-slate-200 dark:border-slate-700 text-xs font-bold group-hover:bg-primary group-hover:text-white transition-colors">A</span>
+                        </button>
+                        <button class="option-btn flex items-center justify-between p-5 border-2 border-slate-200 dark:border-slate-700 rounded-xl hover:border-primary dark:hover:border-accent transition-all group" onclick="selectOption(4, '500k-2m', true)" type="button" data-value="500k-2m">
+                            <span class="text-lg font-medium">$500,000 - $2,000,000</span>
+                            <span class="px-3 py-1 rounded border border-slate-200 dark:border-slate-700 text-xs font-bold group-hover:bg-primary group-hover:text-white transition-colors">B</span>
+                        </button>
+                        <button class="option-btn flex items-center justify-between p-5 border-2 border-slate-200 dark:border-slate-700 rounded-xl hover:border-primary dark:hover:border-accent transition-all group" onclick="selectOption(4, '2m-10m', true)" type="button" data-value="2m-10m">
+                            <span class="text-lg font-medium">$2,000,000 - $10,000,000</span>
+                            <span class="px-3 py-1 rounded border border-slate-200 dark:border-slate-700 text-xs font-bold group-hover:bg-primary group-hover:text-white transition-colors">C</span>
+                        </button>
+                        <button class="option-btn flex items-center justify-between p-5 border-2 border-slate-200 dark:border-slate-700 rounded-xl hover:border-primary dark:hover:border-accent transition-all group" onclick="selectOption(4, '10m+', true)" type="button" data-value="10m+">
+                            <span class="text-lg font-medium">$10,000,000+</span>
+                            <span class="px-3 py-1 rounded border border-slate-200 dark:border-slate-700 text-xs font-bold group-hover:bg-primary group-hover:text-white transition-colors">D</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 5: Years in Business -->
+                <div class="step-transition hidden-step" id="step-5">
+                    <div class="mb-8">
+                        <span class="text-accent font-semibold mb-2 block text-sm uppercase tracking-wider">05 — Business History</span>
+                        <h1 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">How long has your business been operating?</h1>
+                        <p class="text-slate-500 dark:text-slate-400 text-lg">We partner with businesses that have demonstrated sustainability over time.</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <button class="option-btn p-6 border-2 border-slate-200 dark:border-slate-700 rounded-xl hover:border-primary dark:hover:border-accent text-center transition-all" onclick="selectOption(5, '0-1', false)" type="button" data-value="0-1">
+                            <div class="text-3xl font-bold mb-1 text-slate-900 dark:text-white">0-1</div>
+                            <div class="text-sm text-slate-500">Years</div>
+                        </button>
+                        <button class="option-btn p-6 border-2 border-slate-200 dark:border-slate-700 rounded-xl hover:border-primary dark:hover:border-accent text-center transition-all" onclick="selectOption(5, '2-5', true)" type="button" data-value="2-5">
+                            <div class="text-3xl font-bold mb-1 text-slate-900 dark:text-white">2-5</div>
+                            <div class="text-sm text-slate-500">Years</div>
+                        </button>
+                        <button class="option-btn p-6 border-2 border-slate-200 dark:border-slate-700 rounded-xl hover:border-primary dark:hover:border-accent text-center transition-all" onclick="selectOption(5, '5-10', true)" type="button" data-value="5-10">
+                            <div class="text-3xl font-bold mb-1 text-slate-900 dark:text-white">5-10</div>
+                            <div class="text-sm text-slate-500">Years</div>
+                        </button>
+                        <button class="option-btn p-6 border-2 border-slate-200 dark:border-slate-700 rounded-xl hover:border-primary dark:hover:border-accent text-center transition-all" onclick="selectOption(5, '10+', true)" type="button" data-value="10+">
+                            <div class="text-3xl font-bold mb-1 text-slate-900 dark:text-white">10+</div>
+                            <div class="text-sm text-slate-500">Years</div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 6: Bank Relationships -->
+                <div class="step-transition hidden-step" id="step-6">
+                    <div class="mb-8">
+                        <span class="text-accent font-semibold mb-2 block text-sm uppercase tracking-wider">06 — Banking</span>
+                        <h1 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">Do you have established banking relationships?</h1>
+                        <p class="text-slate-500 dark:text-slate-400 text-lg">Our financing structures work alongside traditional banking partners.</p>
+                    </div>
+                    <div class="grid grid-cols-1 gap-4">
+                        <button class="option-btn flex items-center justify-between p-5 border-2 border-slate-200 dark:border-slate-700 rounded-xl hover:border-primary dark:hover:border-accent transition-all group" onclick="selectOption(6, 'yes-primary', true)" type="button" data-value="yes-primary">
+                            <div class="flex items-center gap-4">
+                                <span class="material-icons text-primary dark:text-accent">account_balance</span>
+                                <div class="text-left">
+                                    <span class="text-lg font-medium block">Yes, with primary bank</span>
+                                    <span class="text-sm text-slate-500">Active credit facilities or lines</span>
+                                </div>
+                            </div>
+                            <span class="px-3 py-1 rounded border border-slate-200 dark:border-slate-700 text-xs font-bold group-hover:bg-primary group-hover:text-white transition-colors">A</span>
+                        </button>
+                        <button class="option-btn flex items-center justify-between p-5 border-2 border-slate-200 dark:border-slate-700 rounded-xl hover:border-primary dark:hover:border-accent transition-all group" onclick="selectOption(6, 'yes-basic', true)" type="button" data-value="yes-basic">
+                            <div class="flex items-center gap-4">
+                                <span class="material-icons text-primary dark:text-accent">savings</span>
+                                <div class="text-left">
+                                    <span class="text-lg font-medium block">Yes, basic accounts only</span>
+                                    <span class="text-sm text-slate-500">Business checking/savings</span>
+                                </div>
+                            </div>
+                            <span class="px-3 py-1 rounded border border-slate-200 dark:border-slate-700 text-xs font-bold group-hover:bg-primary group-hover:text-white transition-colors">B</span>
+                        </button>
+                        <button class="option-btn flex items-center justify-between p-5 border-2 border-slate-200 dark:border-slate-700 rounded-xl hover:border-primary dark:hover:border-accent transition-all group" onclick="selectOption(6, 'no', false)" type="button" data-value="no">
+                            <div class="flex items-center gap-4">
+                                <span class="material-icons text-slate-400">block</span>
+                                <div class="text-left">
+                                    <span class="text-lg font-medium block">No established relationships</span>
+                                    <span class="text-sm text-slate-500">Looking to establish banking</span>
+                                </div>
+                            </div>
+                            <span class="px-3 py-1 rounded border border-slate-200 dark:border-slate-700 text-xs font-bold group-hover:bg-primary group-hover:text-white transition-colors">C</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 7: Values Alignment -->
+                <div class="step-transition hidden-step" id="step-7">
+                    <div class="mb-8">
+                        <span class="text-accent font-semibold mb-2 block text-sm uppercase tracking-wider">07 — Values Alignment</span>
+                        <h1 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">Tusker Ventures operates on faith-based principles of stewardship and integrity.</h1>
+                        <p class="text-slate-500 dark:text-slate-400 text-lg">Our partnerships are built on shared values of honesty, discipline, and long-term relationship building.</p>
+                    </div>
+                    <div class="grid grid-cols-1 gap-4">
+                        <button class="option-btn flex items-center gap-4 p-5 border-2 border-slate-200 dark:border-slate-700 rounded-xl hover:border-primary dark:hover:border-accent transition-all" onclick="selectOption(7, 'aligned', true)" type="button" data-value="aligned">
+                            <span class="material-icons text-primary dark:text-accent text-3xl">handshake</span>
+                            <div class="text-left">
+                                <span class="text-lg font-medium block">I understand and align with these values</span>
+                                <span class="text-sm text-slate-500">Ready to explore a values-driven partnership</span>
+                            </div>
+                        </button>
+                        <button class="option-btn flex items-center gap-4 p-5 border-2 border-slate-200 dark:border-slate-700 rounded-xl hover:border-primary dark:hover:border-accent transition-all" onclick="selectOption(7, 'not-aligned', false)" type="button" data-value="not-aligned">
+                            <span class="material-icons text-slate-400 text-3xl">close</span>
+                            <div class="text-left">
+                                <span class="text-lg font-medium block">This is not the right fit for me</span>
+                                <span class="text-sm text-slate-500">Looking for conventional financing only</span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 8: Qualified Result -->
+                <div class="step-transition hidden-step text-center" id="step-qualified">
                     <div class="mb-8 flex flex-col items-center">
-                        <div
-                            class="w-20 h-20 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 rounded-full flex items-center justify-center mb-6">
-                            <span class="material-icons text-5xl">check_circle</span>
+                        <div class="w-24 h-24 bg-gradient-to-br from-primary to-secondary text-white rounded-full flex items-center justify-center mb-6 shadow-xl">
+                            <span class="material-icons text-5xl">verified</span>
                         </div>
-                        <h1 class="text-3xl md:text-4xl font-bold mb-4">You're Qualified!</h1>
-                        <p class="text-slate-500 dark:text-slate-400 text-lg max-w-md mx-auto">Based on your answers,
-                            you're eligible for our premium agricultural financing programs. Let's finish your full
-                            application.</p>
+                        <h1 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">You're Pre-Qualified!</h1>
+                        <p class="text-slate-500 dark:text-slate-400 text-lg max-w-lg mx-auto mb-6">
+                            Based on your responses, you meet our initial criteria for partnership. We invite you to explore our Capital & Trade Finance solutions.
+                        </p>
+                        <div class="bg-primary/5 dark:bg-primary/20 border border-primary/20 rounded-xl p-6 max-w-md mb-8">
+                            <p class="text-sm text-slate-600 dark:text-slate-300 italic">
+                                "We don't just finance deals — we steward resources with the intention to build relationships that honor God and serve people."
+                            </p>
+                            <p class="text-xs text-slate-500 mt-2">— Tusker Ventures Leadership</p>
+                        </div>
                     </div>
                     <button
-                        class="bg-primary text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-emerald-800 transition-colors shadow-lg shadow-emerald-900/20"
+                        class="bg-gradient-to-r from-primary to-secondary text-white px-10 py-4 rounded-xl font-bold text-lg hover:shadow-xl hover:shadow-primary/20 transition-all"
                         type="button" onclick="window.location.href='financing.html'">
-                        View Financing Packages
+                        View Capital & Trade Finance Options
+                        <span class="material-icons align-middle ml-2">arrow_forward</span>
                     </button>
                 </div>
+
+                <!-- Step 9: Not Qualified Result -->
+                <div class="step-transition hidden-step text-center" id="step-not-qualified">
+                    <div class="mb-8 flex flex-col items-center">
+                        <div class="w-24 h-24 bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 rounded-full flex items-center justify-center mb-6">
+                            <span class="material-icons text-5xl">schedule</span>
+                        </div>
+                        <h1 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">Not Quite Yet</h1>
+                        <p class="text-slate-500 dark:text-slate-400 text-lg max-w-lg mx-auto mb-6">
+                            Based on your current profile, you don't meet our pre-qualification criteria at this time. This is not a rejection — it's an invitation to grow.
+                        </p>
+                        <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-xl p-6 max-w-lg mb-8 text-left">
+                            <h3 class="font-semibold text-amber-800 dark:text-amber-300 mb-3">What we typically look for:</h3>
+                            <ul class="text-sm text-amber-700 dark:text-amber-400 space-y-2">
+                                <li class="flex items-start gap-2">
+                                    <span class="material-icons text-sm mt-0.5">check</span>
+                                    Businesses operating for 2+ years
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="material-icons text-sm mt-0.5">check</span>
+                                    Annual revenue of $500,000+
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="material-icons text-sm mt-0.5">check</span>
+                                    Experience in commodity trading or food manufacturing
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="material-icons text-sm mt-0.5">check</span>
+                                    Established banking relationships
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="contact.html" class="bg-primary text-white px-8 py-3 rounded-xl font-bold hover:bg-secondary transition-all inline-flex items-center justify-center gap-2">
+                            <span class="material-icons">mail</span>
+                            Contact Us to Discuss
+                        </a>
+                        <a href="index.html" class="border-2 border-slate-300 dark:border-slate-600 px-8 py-3 rounded-xl font-bold hover:bg-slate-100 dark:hover:bg-slate-800 transition-all inline-flex items-center justify-center gap-2">
+                            <span class="material-icons">home</span>
+                            Return Home
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Navigation Controls -->
                 <div class="mt-12 flex items-center gap-4" id="nav-controls">
                     <button
-                        class="flex items-center gap-2 bg-primary text-white px-8 py-3 rounded-lg font-bold hover:bg-emerald-800 transition-all"
+                        class="flex items-center gap-2 bg-primary text-white px-8 py-3 rounded-lg font-bold hover:bg-secondary transition-all"
                         id="next-btn" onclick="nextStep()" type="button">
-                        OK <span class="material-icons text-sm">check</span>
+                        Continue <span class="material-icons text-sm">arrow_forward</span>
                     </button>
-                    <span class="text-xs text-slate-400 hidden md:block">press <strong>ENTER</strong></span>
+                    <span class="text-xs text-slate-400 hidden md:block">press <strong>ENTER ↵</strong></span>
                     <div class="ml-auto flex gap-1">
                         <button
-                            class="p-2 rounded hover:bg-slate-200 dark:hover:bg-slate-800 disabled:opacity-30 disabled:cursor-not-allowed"
-                            id="prev-btn-icon" onclick="prevStep()" type="button">
-                            <span class="material-icons">expand_less</span>
+                            class="p-2 rounded hover:bg-slate-200 dark:hover:bg-slate-800 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                            id="prev-btn-icon" onclick="prevStep()" type="button" disabled>
+                            <span class="material-icons">chevron_left</span>
                         </button>
                         <button
-                            class="p-2 rounded hover:bg-slate-200 dark:hover:bg-slate-800 disabled:opacity-30 disabled:cursor-not-allowed"
+                            class="p-2 rounded hover:bg-slate-200 dark:hover:bg-slate-800 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
                             id="next-btn-icon" onclick="nextStep()" type="button">
-                            <span class="material-icons">expand_more</span>
+                            <span class="material-icons">chevron_right</span>
                         </button>
                     </div>
                 </div>
             </form>
         </div>
     </main>
-    <footer class="w-full py-8 px-8 flex justify-between items-center text-slate-400 text-xs">
-        <div>© 2024 Tusker Ventures Financing</div>
+
+    <!-- Footer -->
+    <footer class="w-full py-6 px-8 flex justify-between items-center text-slate-400 text-xs border-t border-slate-200 dark:border-slate-800">
+        <div>© 2024 Tusker Ventures. All rights reserved.</div>
         <div class="flex gap-4">
-            <a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
-            <a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+            <a class="hover:text-primary transition-colors" href="compliance.html">Privacy Policy</a>
+            <a class="hover:text-primary transition-colors" href="compliance.html">Terms of Service</a>
         </div>
     </footer>
+
     <script>
         let currentStep = 1;
-        const totalSteps = 5;
+        const totalSteps = 7;
+
+        // Qualification tracking
+        let qualificationScore = 0;
+        const responses = {};
+
         function updateUI() {
-            // Update steps visibility
+            // Hide all steps
             for (let i = 1; i <= totalSteps; i++) {
                 const stepEl = document.getElementById(`step-${i}`);
-                if (i === currentStep) {
-                    stepEl.classList.remove('hidden-step');
-                    stepEl.classList.add('active-step');
-                } else {
+                if (stepEl) {
                     stepEl.classList.add('hidden-step');
                     stepEl.classList.remove('active-step');
                 }
             }
+            document.getElementById('step-qualified').classList.add('hidden-step');
+            document.getElementById('step-qualified').classList.remove('active-step');
+            document.getElementById('step-not-qualified').classList.add('hidden-step');
+            document.getElementById('step-not-qualified').classList.remove('active-step');
+
+            // Show current step
+            const currentStepEl = document.getElementById(`step-${currentStep}`);
+            if (currentStepEl) {
+                currentStepEl.classList.remove('hidden-step');
+                currentStepEl.classList.add('active-step');
+            }
+
             // Update Progress Bar
-            const progress = (currentStep / totalSteps) * 100;
+            const progress = Math.round((currentStep / totalSteps) * 100);
             document.getElementById('progress-bar').style.width = `${progress}%`;
+            document.getElementById('progress-percent').textContent = `${progress}%`;
+            document.getElementById('current-step-num').textContent = currentStep;
+
             // Control Navigation visibility
             const navControls = document.getElementById('nav-controls');
             const nextBtn = document.getElementById('next-btn');
             const prevIcon = document.getElementById('prev-btn-icon');
             const nextIcon = document.getElementById('next-btn-icon');
-            if (currentStep === totalSteps) {
+
+            // Hide nav on result steps
+            if (currentStep > totalSteps) {
                 navControls.classList.add('opacity-0', 'pointer-events-none');
             } else {
                 navControls.classList.remove('opacity-0', 'pointer-events-none');
             }
-            // Disable icons if at bounds
+
+            // Disable prev on first step
             prevIcon.disabled = (currentStep === 1);
-            nextIcon.disabled = (currentStep === totalSteps);
-            // Hide/Show Big OK button on selection-only steps (Step 2, 4)
-            if (currentStep === 2 || currentStep === 4) {
+            nextIcon.disabled = (currentStep > totalSteps);
+
+            // Hide OK button on selection steps (2-7)
+            if (currentStep >= 2 && currentStep <= 7) {
                 nextBtn.classList.add('hidden');
             } else {
                 nextBtn.classList.remove('hidden');
             }
         }
+
+        function selectOption(step, value, qualifies) {
+            responses[step] = { value, qualifies };
+
+            // Visual feedback
+            const stepEl = document.getElementById(`step-${step}`);
+            stepEl.querySelectorAll('.option-btn').forEach(btn => {
+                btn.classList.remove('selected');
+                if (btn.dataset.value === value) {
+                    btn.classList.add('selected');
+                }
+            });
+
+            // Update score
+            if (qualifies) {
+                qualificationScore++;
+            }
+
+            // Auto-advance after short delay
+            setTimeout(() => {
+                if (currentStep === totalSteps) {
+                    // Evaluate qualification
+                    evaluateQualification();
+                } else {
+                    nextStep();
+                }
+            }, 300);
+        }
+
+        function evaluateQualification() {
+            // Must have at least 5 qualifying answers out of 6 option-based questions
+            // Critical requirements: revenue, years in business, values alignment
+            const criticalPass =
+                responses[4]?.qualifies && // Revenue $500k+
+                responses[5]?.qualifies && // 2+ years in business
+                responses[7]?.qualifies;   // Values alignment
+
+            const scorePass = qualificationScore >= 4;
+
+            if (criticalPass && scorePass) {
+                showQualified();
+            } else {
+                showNotQualified();
+            }
+        }
+
+        function showQualified() {
+            currentStep = totalSteps + 1;
+            document.getElementById('step-qualified').classList.remove('hidden-step');
+            document.getElementById('step-qualified').classList.add('active-step');
+            document.getElementById('nav-controls').classList.add('opacity-0', 'pointer-events-none');
+            document.getElementById('progress-bar').style.width = '100%';
+            document.getElementById('progress-percent').textContent = '100%';
+        }
+
+        function showNotQualified() {
+            currentStep = totalSteps + 2;
+            document.getElementById('step-not-qualified').classList.remove('hidden-step');
+            document.getElementById('step-not-qualified').classList.add('active-step');
+            document.getElementById('nav-controls').classList.add('opacity-0', 'pointer-events-none');
+            document.getElementById('progress-bar').style.width = '100%';
+            document.getElementById('progress-percent').textContent = '100%';
+        }
+
         function nextStep() {
+            if (currentStep === 1) {
+                // Validate company name
+                const companyName = document.getElementById('company-name').value.trim();
+                if (!companyName) {
+                    document.getElementById('company-name').focus();
+                    return;
+                }
+                responses[1] = { value: companyName, qualifies: true };
+            }
+
             if (currentStep < totalSteps) {
                 currentStep++;
                 updateUI();
-                // Focus input if it's a text/number step
-                setTimeout(() => {
-                    if (currentStep === 1) document.getElementById('company-name').focus();
-                    if (currentStep === 3) document.getElementById('loan-amount').focus();
-                }, 400);
             }
         }
+
         function prevStep() {
             if (currentStep > 1) {
+                // Recalculate score when going back
+                if (responses[currentStep]?.qualifies) {
+                    qualificationScore--;
+                }
+                delete responses[currentStep];
+
                 currentStep--;
                 updateUI();
             }
         }
+
         // Listen for Enter key
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' && currentStep !== 2 && currentStep !== 4 && currentStep !== 5) {
+            if (e.key === 'Enter' && currentStep === 1) {
                 e.preventDefault();
                 nextStep();
             }
         });
+
         // Initialize UI
         updateUI();
     </script>
-
 </body>
 
 </html>
