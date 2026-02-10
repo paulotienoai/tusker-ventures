@@ -116,8 +116,8 @@
     </nav>
     <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img alt="Sugarcane fields at sunset" class="w-full h-full object-cover opacity-10 dark:opacity-20"
-                src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1920&h=1080&fit=crop" />
+            <img alt="Sugarcane plantation at sunrise" class="w-full h-full object-cover opacity-10 dark:opacity-20"
+                src="https://images.unsplash.com/photo-1473973266408-ed4e27abdd47?w=1920&h=1080&fit=crop" />
             <div class="absolute inset-0 bg-gradient-to-b from-transparent to-background-light dark:to-background-dark">
             </div>
         </div>
@@ -159,8 +159,8 @@
                 </div>
                 <div class="relative">
                     <div class="relative rounded-3xl overflow-hidden shadow-2xl" data-aos="fade-left" data-aos-delay="200">
-                        <img alt="Sugar processing facility" class="w-full h-auto aspect-[4/3] object-cover"
-                            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop" />
+                        <img alt="Sugarcane plantation field" class="w-full h-auto aspect-[4/3] object-cover"
+                            src="https://images.unsplash.com/photo-1599940824399-b87987ceb72a?w=800&h=600&fit=crop" />
                         <div class="absolute inset-0 bg-primary/10 mix-blend-multiply"></div>
                     </div>
                     <div
@@ -183,48 +183,146 @@
                 <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Live updates from ICE and global exchanges. Track the pulse of the sugar market in real-time.</p>
             </div>
 
-            <!-- Trading Economics Live Market Charts -->
+            <!-- TradingView Advanced Real-Time Charts -->
             <div class="grid md:grid-cols-3 gap-6 mb-8">
                 <!-- Raw Sugar No. 11 -->
                 <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700 overflow-hidden" data-aos="fade-up" data-aos-delay="0">
-                    <div class="p-4 border-b border-slate-100 dark:border-slate-700">
-                        <p class="text-sm font-semibold text-primary dark:text-accent uppercase tracking-wider">Raw Sugar No. 11</p>
-                        <p class="text-xs text-slate-500">ICE Futures US - Live</p>
-                    </div>
-                    <div style="height: 320px; overflow: hidden;">
-                        <iframe src="https://www.tradingview-widget.com/embed-widget/mini-symbol-overview/?symbol=ICEUS%3ASB1!&locale=en&dateRange=12M&colorTheme=light&isTransparent=false&autosize=true&largeChartUrl=" style="width: 100%; height: 100%; border: none;"></iframe>
+                    <div class="tradingview-widget-container" style="height: 400px;">
+                        <div id="tradingview_sugar11" style="height: 100%;"></div>
                     </div>
                 </div>
 
                 <!-- White Sugar -->
                 <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-                    <div class="p-4 border-b border-slate-100 dark:border-slate-700">
-                        <p class="text-sm font-semibold text-primary dark:text-accent uppercase tracking-wider">White Sugar</p>
-                        <p class="text-xs text-slate-500">ICE Futures Europe - Live</p>
-                    </div>
-                    <div style="height: 320px; overflow: hidden;">
-                        <iframe src="https://www.tradingview-widget.com/embed-widget/mini-symbol-overview/?symbol=ICEEUR%3ASF1!&locale=en&dateRange=12M&colorTheme=light&isTransparent=false&autosize=true&largeChartUrl=" style="width: 100%; height: 100%; border: none;"></iframe>
+                    <div class="tradingview-widget-container" style="height: 400px;">
+                        <div id="tradingview_whiteSugar" style="height: 100%;"></div>
                     </div>
                 </div>
 
                 <!-- Sugar Commodity Index -->
                 <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700 overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-                    <div class="p-4 border-b border-slate-100 dark:border-slate-700">
-                        <p class="text-sm font-semibold text-primary dark:text-accent uppercase tracking-wider">Sugar Index</p>
-                        <p class="text-xs text-slate-500">Global Sugar Price - Live</p>
-                    </div>
-                    <div style="height: 320px; overflow: hidden;">
-                        <iframe src="https://www.tradingview-widget.com/embed-widget/mini-symbol-overview/?symbol=TVC%3ASUGAR&locale=en&dateRange=12M&colorTheme=light&isTransparent=false&autosize=true&largeChartUrl=" style="width: 100%; height: 100%; border: none;"></iframe>
+                    <div class="tradingview-widget-container" style="height: 400px;">
+                        <div id="tradingview_sugarIndex" style="height: 100%;"></div>
                     </div>
                 </div>
             </div>
 
             <!-- Live Market Ticker -->
             <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700 overflow-hidden" data-aos="fade-up" data-aos-delay="300">
-                <iframe src="https://www.tradingview-widget.com/embed-widget/ticker-tape/?symbols=%5B%7B%22proName%22%3A%22ICEUS%3ASB1!%22%2C%22title%22%3A%22Sugar%20%2311%22%7D%2C%7B%22proName%22%3A%22ICEEUR%3ASF1!%22%2C%22title%22%3A%22White%20Sugar%22%7D%2C%7B%22proName%22%3A%22TVC%3ASUGAR%22%2C%22title%22%3A%22Sugar%20Index%22%7D%2C%7B%22proName%22%3A%22TVC%3ACORN%22%2C%22title%22%3A%22Corn%22%7D%2C%7B%22proName%22%3A%22TVC%3AWHEAT%22%2C%22title%22%3A%22Wheat%22%7D%5D&showSymbolLogo=true&colorTheme=light&isTransparent=false&displayMode=adaptive&locale=en" style="width: 100%; height: 78px; border: none;"></iframe>
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+                    {
+                        "symbols": [
+                            {"proName": "ICEUS:SB1!", "title": "Sugar #11"},
+                            {"proName": "ICEEUR:SF1!", "title": "White Sugar"},
+                            {"proName": "TVC:SUGAR", "title": "Sugar Index"},
+                            {"proName": "TVC:COCOA", "title": "Cocoa"},
+                            {"proName": "TVC:COFFEE", "title": "Coffee"}
+                        ],
+                        "showSymbolLogo": true,
+                        "isTransparent": false,
+                        "displayMode": "adaptive",
+                        "colorTheme": "light",
+                        "locale": "en"
+                    }
+                    </script>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- TradingView Widget Scripts -->
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+    <script type="text/javascript">
+        // Initialize TradingView Advanced Charts
+        function initTradingViewCharts() {
+            // Raw Sugar No. 11 Chart
+            new TradingView.widget({
+                "autosize": true,
+                "symbol": "ICEUS:SB1!",
+                "interval": "D",
+                "timezone": "Etc/UTC",
+                "theme": "light",
+                "style": "1",
+                "locale": "en",
+                "toolbar_bg": "#f1f3f6",
+                "enable_publishing": false,
+                "hide_top_toolbar": false,
+                "hide_legend": false,
+                "save_image": false,
+                "container_id": "tradingview_sugar11",
+                "hide_side_toolbar": true,
+                "allow_symbol_change": false,
+                "details": true,
+                "hotlist": false,
+                "calendar": false,
+                "studies": ["RSI@tv-basicstudies"],
+                "show_popup_button": true,
+                "popup_width": "1000",
+                "popup_height": "650"
+            });
+
+            // White Sugar Chart
+            new TradingView.widget({
+                "autosize": true,
+                "symbol": "ICEEUR:SF1!",
+                "interval": "D",
+                "timezone": "Etc/UTC",
+                "theme": "light",
+                "style": "1",
+                "locale": "en",
+                "toolbar_bg": "#f1f3f6",
+                "enable_publishing": false,
+                "hide_top_toolbar": false,
+                "hide_legend": false,
+                "save_image": false,
+                "container_id": "tradingview_whiteSugar",
+                "hide_side_toolbar": true,
+                "allow_symbol_change": false,
+                "details": true,
+                "hotlist": false,
+                "calendar": false,
+                "studies": ["RSI@tv-basicstudies"],
+                "show_popup_button": true,
+                "popup_width": "1000",
+                "popup_height": "650"
+            });
+
+            // Sugar Index Chart
+            new TradingView.widget({
+                "autosize": true,
+                "symbol": "TVC:SUGAR",
+                "interval": "D",
+                "timezone": "Etc/UTC",
+                "theme": "light",
+                "style": "1",
+                "locale": "en",
+                "toolbar_bg": "#f1f3f6",
+                "enable_publishing": false,
+                "hide_top_toolbar": false,
+                "hide_legend": false,
+                "save_image": false,
+                "container_id": "tradingview_sugarIndex",
+                "hide_side_toolbar": true,
+                "allow_symbol_change": false,
+                "details": true,
+                "hotlist": false,
+                "calendar": false,
+                "studies": ["RSI@tv-basicstudies"],
+                "show_popup_button": true,
+                "popup_width": "1000",
+                "popup_height": "650"
+            });
+        }
+
+        // Initialize charts when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initTradingViewCharts);
+        } else {
+            initTradingViewCharts();
+        }
+    </script>
 
     <!-- Trust Gap Section -->
     <section class="py-24 bg-slate-900 text-white">
@@ -453,8 +551,8 @@
                     </div>
                 </div>
                 <div class="relative hidden lg:block">
-                    <img alt="Sugar cubes macro" class="rounded-3xl shadow-2xl rotate-3"
-                        src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop" />
+                    <img alt="Sugarcane harvest in progress" class="rounded-3xl shadow-2xl rotate-3"
+                        src="https://images.unsplash.com/photo-1527847263472-aa5338d178b8?w=600&h=400&fit=crop" />
                     <div
                         class="absolute inset-0 border-2 border-accent/30 rounded-3xl -translate-x-4 -translate-y-4 -z-10">
                     </div>
