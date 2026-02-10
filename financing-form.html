@@ -305,7 +305,6 @@
                         class="bg-gradient-to-r from-primary to-secondary text-white px-10 py-4 rounded-xl font-bold text-lg hover:shadow-xl hover:shadow-primary/20 transition-all"
                         type="button" onclick="window.location.href='financing.html'">
                         View Capital & Trade Finance Options
-                        <span class="material-icons align-middle ml-2">arrow_forward</span>
                     </button>
                 </div>
 
@@ -356,9 +355,9 @@
                 <!-- Navigation Controls -->
                 <div class="mt-12 flex items-center gap-4" id="nav-controls">
                     <button
-                        class="flex items-center gap-2 bg-primary text-white px-8 py-3 rounded-lg font-bold hover:bg-secondary transition-all"
+                        class="bg-primary text-white px-8 py-3 rounded-lg font-bold hover:bg-secondary transition-all"
                         id="next-btn" onclick="nextStep()" type="button">
-                        Continue <span class="material-icons text-sm">arrow_forward</span>
+                        Continue
                     </button>
                     <span class="text-xs text-slate-400 hidden md:block">press <strong>ENTER ↵</strong></span>
                     <div class="ml-auto flex gap-1">
@@ -380,7 +379,7 @@
 
     <!-- Footer -->
     <footer class="w-full py-6 px-8 flex justify-between items-center text-slate-400 text-xs border-t border-slate-200 dark:border-slate-800">
-        <div>© 2024 Tusker Ventures. All rights reserved.</div>
+        <div>© 2026 Tusker Ventures. All rights reserved.</div>
         <div class="flex gap-4">
             <a class="hover:text-primary transition-colors" href="compliance.html">Privacy Policy</a>
             <a class="hover:text-primary transition-colors" href="compliance.html">Terms of Service</a>
@@ -499,6 +498,9 @@
             document.getElementById('nav-controls').classList.add('opacity-0', 'pointer-events-none');
             document.getElementById('progress-bar').style.width = '100%';
             document.getElementById('progress-percent').textContent = '100%';
+
+            // Send qualified submission to Zapier
+            sendToZapier('qualified');
         }
 
         function showNotQualified() {
@@ -508,6 +510,39 @@
             document.getElementById('nav-controls').classList.add('opacity-0', 'pointer-events-none');
             document.getElementById('progress-bar').style.width = '100%';
             document.getElementById('progress-percent').textContent = '100%';
+
+            // Send not-qualified submission to Zapier
+            sendToZapier('not-qualified');
+        }
+
+        // Send form data to Zapier webhook
+        async function sendToZapier(status) {
+            const formData = {
+                formType: 'Financing Pre-Qualification Form',
+                qualificationStatus: status,
+                companyName: responses[1]?.value || '',
+                businessType: responses[2]?.value || '',
+                commodityExperience: responses[3]?.value || '',
+                annualRevenue: responses[4]?.value || '',
+                yearsInBusiness: responses[5]?.value || '',
+                bankingRelationships: responses[6]?.value || '',
+                valuesAlignment: responses[7]?.value || '',
+                qualificationScore: qualificationScore,
+                submittedAt: new Date().toISOString()
+            };
+
+            try {
+                await fetch('https://hooks.zapier.com/hooks/catch/6604274/ues1y2f/', {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+            } catch (error) {
+                console.log('Form data captured for follow-up');
+            }
         }
 
         function nextStep() {

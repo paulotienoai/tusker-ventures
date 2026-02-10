@@ -93,10 +93,24 @@
                     <button onclick="document.documentElement.classList.toggle('dark')" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
                         <span class="material-symbols-outlined text-slate-600 dark:text-slate-300">dark_mode</span>
                     </button>
-                    <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
                         <span class="material-symbols-outlined cursor-pointer">menu</span>
-                    </div>
+                    </button>
                 </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
+            <div class="px-4 py-4 space-y-3">
+                <a class="block py-2 font-medium text-primary dark:text-accent" href="index.html">Home</a>
+                <a class="block py-2 font-medium hover:text-primary" href="about.html">About</a>
+                <a class="block py-2 font-medium hover:text-primary" href="products.html">Products</a>
+                <a class="block py-2 font-medium hover:text-primary" href="icumsa-45.html">ICUMSA-45</a>
+                <a class="block py-2 font-medium hover:text-primary" href="protection.html">Protection</a>
+                <a class="block py-2 font-medium hover:text-primary" href="markets.html">Africa</a>
+                <a class="block py-2 font-medium hover:text-primary" href="insights.html">Insights</a>
+                <a class="block py-2 font-medium hover:text-primary" href="financing-form.html">Capital</a>
+                <a class="block py-3 bg-primary text-white px-4 rounded-lg text-center font-semibold mt-4" href="contact.html">Contact Us</a>
             </div>
         </div>
     </nav>
@@ -169,92 +183,45 @@
                 <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Live updates from ICE and global exchanges. Track the pulse of the sugar market in real-time.</p>
             </div>
 
-            <!-- TradingView Live Market Widgets -->
+            <!-- Trading Economics Live Market Charts -->
             <div class="grid md:grid-cols-3 gap-6 mb-8">
                 <!-- Raw Sugar No. 11 -->
                 <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700 overflow-hidden" data-aos="fade-up" data-aos-delay="0">
                     <div class="p-4 border-b border-slate-100 dark:border-slate-700">
                         <p class="text-sm font-semibold text-primary dark:text-accent uppercase tracking-wider">Raw Sugar No. 11</p>
-                        <p class="text-xs text-slate-500">ICE Futures - Live</p>
+                        <p class="text-xs text-slate-500">ICE Futures US - Live</p>
                     </div>
-                    <div class="tradingview-widget-container" style="height: 320px;">
-                        <div id="tradingview_sugar11"></div>
-                        <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-                        <script type="text/javascript">
-                        new TradingView.widget({
-                            "autosize": true,
-                            "symbol": "ICEUS:SB1!",
-                            "interval": "D",
-                            "timezone": "Etc/UTC",
-                            "theme": "light",
-                            "style": "3",
-                            "locale": "en",
-                            "enable_publishing": false,
-                            "hide_top_toolbar": true,
-                            "hide_legend": false,
-                            "save_image": false,
-                            "container_id": "tradingview_sugar11",
-                            "hide_volume": true
-                        });
-                        </script>
+                    <div style="height: 320px; overflow: hidden;">
+                        <iframe src="https://www.tradingview-widget.com/embed-widget/mini-symbol-overview/?symbol=ICEUS%3ASB1!&locale=en&dateRange=12M&colorTheme=light&isTransparent=false&autosize=true&largeChartUrl=" style="width: 100%; height: 100%; border: none;"></iframe>
                     </div>
                 </div>
 
-                <!-- White Sugar No. 5 -->
+                <!-- White Sugar -->
                 <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
                     <div class="p-4 border-b border-slate-100 dark:border-slate-700">
-                        <p class="text-sm font-semibold text-primary dark:text-accent uppercase tracking-wider">White Sugar No. 5</p>
+                        <p class="text-sm font-semibold text-primary dark:text-accent uppercase tracking-wider">White Sugar</p>
                         <p class="text-xs text-slate-500">ICE Futures Europe - Live</p>
                     </div>
-                    <div class="tradingview-widget-container" style="height: 320px;">
-                        <div id="tradingview_sugar5"></div>
-                        <script type="text/javascript">
-                        new TradingView.widget({
-                            "autosize": true,
-                            "symbol": "ICEEUR:SF1!",
-                            "interval": "D",
-                            "timezone": "Etc/UTC",
-                            "theme": "light",
-                            "style": "3",
-                            "locale": "en",
-                            "enable_publishing": false,
-                            "hide_top_toolbar": true,
-                            "hide_legend": false,
-                            "save_image": false,
-                            "container_id": "tradingview_sugar5",
-                            "hide_volume": true
-                        });
-                        </script>
+                    <div style="height: 320px; overflow: hidden;">
+                        <iframe src="https://www.tradingview-widget.com/embed-widget/mini-symbol-overview/?symbol=ICEEUR%3ASF1!&locale=en&dateRange=12M&colorTheme=light&isTransparent=false&autosize=true&largeChartUrl=" style="width: 100%; height: 100%; border: none;"></iframe>
                     </div>
                 </div>
 
-                <!-- Brazilian Sugar -->
+                <!-- Sugar Commodity Index -->
                 <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700 overflow-hidden" data-aos="fade-up" data-aos-delay="200">
                     <div class="p-4 border-b border-slate-100 dark:border-slate-700">
-                        <p class="text-sm font-semibold text-primary dark:text-accent uppercase tracking-wider">Brazilian Sugar Index</p>
-                        <p class="text-xs text-slate-500">CEPEA Sugar - Live</p>
+                        <p class="text-sm font-semibold text-primary dark:text-accent uppercase tracking-wider">Sugar Index</p>
+                        <p class="text-xs text-slate-500">Global Sugar Price - Live</p>
                     </div>
-                    <div class="tradingview-widget-container" style="height: 320px;">
-                        <div id="tradingview_brazil"></div>
-                        <script type="text/javascript">
-                        new TradingView.widget({
-                            "autosize": true,
-                            "symbol": "TVC:SUGAR",
-                            "interval": "D",
-                            "timezone": "Etc/UTC",
-                            "theme": "light",
-                            "style": "3",
-                            "locale": "en",
-                            "enable_publishing": false,
-                            "hide_top_toolbar": true,
-                            "hide_legend": false,
-                            "save_image": false,
-                            "container_id": "tradingview_brazil",
-                            "hide_volume": true
-                        });
-                        </script>
+                    <div style="height: 320px; overflow: hidden;">
+                        <iframe src="https://www.tradingview-widget.com/embed-widget/mini-symbol-overview/?symbol=TVC%3ASUGAR&locale=en&dateRange=12M&colorTheme=light&isTransparent=false&autosize=true&largeChartUrl=" style="width: 100%; height: 100%; border: none;"></iframe>
                     </div>
                 </div>
+            </div>
+
+            <!-- Live Market Ticker -->
+            <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700 overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                <iframe src="https://www.tradingview-widget.com/embed-widget/ticker-tape/?symbols=%5B%7B%22proName%22%3A%22ICEUS%3ASB1!%22%2C%22title%22%3A%22Sugar%20%2311%22%7D%2C%7B%22proName%22%3A%22ICEEUR%3ASF1!%22%2C%22title%22%3A%22White%20Sugar%22%7D%2C%7B%22proName%22%3A%22TVC%3ASUGAR%22%2C%22title%22%3A%22Sugar%20Index%22%7D%2C%7B%22proName%22%3A%22TVC%3ACORN%22%2C%22title%22%3A%22Corn%22%7D%2C%7B%22proName%22%3A%22TVC%3AWHEAT%22%2C%22title%22%3A%22Wheat%22%7D%5D&showSymbolLogo=true&colorTheme=light&isTransparent=false&displayMode=adaptive&locale=en" style="width: 100%; height: 78px; border: none;"></iframe>
             </div>
         </div>
     </section>
@@ -390,8 +357,8 @@
                             Quality assurance &amp; inspection
                         </li>
                     </ul>
-                    <a class="text-primary font-bold flex items-center gap-2 group-hover:gap-3 transition-all"
-                        href="products.html">Learn More <span class="material-symbols-outlined">arrow_forward</span></a>
+                    <a class="text-primary font-bold hover:underline transition-all"
+                        href="products.html">Learn More</a>
                 </div>
                 <div
                     class="group p-8 rounded-3xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
@@ -414,9 +381,8 @@
                             Structured trade credit
                         </li>
                     </ul>
-                    <a class="text-primary font-bold flex items-center gap-2 group-hover:gap-3 transition-all"
-                        href="financing-form.html">Learn More <span
-                            class="material-symbols-outlined">arrow_forward</span></a>
+                    <a class="text-primary font-bold hover:underline transition-all"
+                        href="financing-form.html">Learn More</a>
                 </div>
                 <div
                     class="group p-8 rounded-3xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
@@ -439,9 +405,8 @@
                             Customs &amp; documentation
                         </li>
                     </ul>
-                    <a class="text-primary font-bold flex items-center gap-2 group-hover:gap-3 transition-all"
-                        href="logistics.html">Learn More <span
-                            class="material-symbols-outlined">arrow_forward</span></a>
+                    <a class="text-primary font-bold hover:underline transition-all"
+                        href="logistics.html">Learn More</a>
                 </div>
             </div>
         </div>
@@ -502,14 +467,32 @@
             <div class="text-center mb-16">
                 <h2 class="text-slate-400 font-bold uppercase tracking-[0.2em] text-sm mb-12">Trusted by Industry Giants
                 </h2>
-                <div
-                    class="flex flex-wrap justify-center gap-12 lg:gap-24 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
-                    <span class="text-3xl font-display font-bold">AGROCORP</span>
-                    <span class="text-3xl font-display font-bold">METATRADE</span>
-                    <span class="text-3xl font-display font-bold">GLOBO SUGAR</span>
-                    <span class="text-3xl font-display font-bold">SWEETCO</span>
-                    <span class="text-3xl font-display font-bold">TRADEX</span>
+                <div class="overflow-hidden relative">
+                    <div class="flex animate-scroll whitespace-nowrap opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+                        <span class="text-3xl font-display font-bold mx-12">AGROCORP</span>
+                        <span class="text-3xl font-display font-bold mx-12">METATRADE</span>
+                        <span class="text-3xl font-display font-bold mx-12">GLOBO SUGAR</span>
+                        <span class="text-3xl font-display font-bold mx-12">SWEETCO</span>
+                        <span class="text-3xl font-display font-bold mx-12">TRADEX</span>
+                        <span class="text-3xl font-display font-bold mx-12">AGROCORP</span>
+                        <span class="text-3xl font-display font-bold mx-12">METATRADE</span>
+                        <span class="text-3xl font-display font-bold mx-12">GLOBO SUGAR</span>
+                        <span class="text-3xl font-display font-bold mx-12">SWEETCO</span>
+                        <span class="text-3xl font-display font-bold mx-12">TRADEX</span>
+                    </div>
                 </div>
+                <style>
+                    @keyframes scroll {
+                        0% { transform: translateX(0); }
+                        100% { transform: translateX(-50%); }
+                    }
+                    .animate-scroll {
+                        animation: scroll 20s linear infinite;
+                    }
+                    .animate-scroll:hover {
+                        animation-play-state: paused;
+                    }
+                </style>
             </div>
             <div class="bg-earthy-gray dark:bg-slate-900 rounded-[3rem] p-12 lg:p-20 relative">
                 <span
@@ -671,7 +654,7 @@
             </div>
             <div
                 class="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
-                <p>© 2024 Tusker Ventures Ltd. All rights reserved.</p>
+                <p>© 2026 Tusker Ventures Ltd. All rights reserved.</p>
                 <div class="flex gap-8">
                     <a class="hover:text-white transition-colors" href="compliance.html">Privacy Policy</a>
                     <a class="hover:text-white transition-colors" href="compliance.html">Terms of Trade</a>
@@ -689,6 +672,12 @@
             easing: 'ease-out-cubic',
             once: true,
             offset: 50
+        });
+
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
         });
     </script>
 </body>

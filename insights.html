@@ -47,9 +47,26 @@
                     <a href="insights.html" class="text-primary dark:text-accent font-semibold">Insights</a>
                     <a href="contact.html" class="bg-primary hover:bg-secondary text-white px-6 py-2.5 rounded-full font-medium transition-all hover:shadow-lg">Contact Us</a>
                 </div>
-                <button id="darkModeToggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
-                    <span class="material-icons text-gray-600 dark:text-gray-300">dark_mode</span>
-                </button>
+                <div class="flex items-center gap-2">
+                    <button id="darkModeToggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                        <span class="material-icons text-gray-600 dark:text-gray-300">dark_mode</span>
+                    </button>
+                    <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
+                        <span class="material-icons">menu</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
+            <div class="px-4 py-4 space-y-3">
+                <a class="block py-2 font-medium hover:text-primary" href="index.html">Home</a>
+                <a class="block py-2 font-medium hover:text-primary" href="about.html">About</a>
+                <a class="block py-2 font-medium hover:text-primary" href="products.html">Products</a>
+                <a class="block py-2 font-medium hover:text-primary" href="protection.html">Protection</a>
+                <a class="block py-2 font-medium text-primary font-semibold" href="insights.html">Insights</a>
+                <a class="block py-2 font-medium hover:text-primary" href="financing-form.html">Capital</a>
+                <a class="block py-3 bg-primary text-white px-4 rounded-lg text-center font-semibold mt-4" href="contact.html">Contact Us</a>
             </div>
         </div>
     </nav>
@@ -104,9 +121,8 @@
                         <span class="text-gray-400 dark:text-gray-500">|</span>
                         <span class="text-sm text-gray-500 dark:text-gray-400">Dec 15, 2024</span>
                     </div>
-                    <a href="#" class="inline-flex items-center text-primary dark:text-accent font-semibold hover:underline">
+                    <a href="#" onclick="openArticleModal('featured'); return false;" class="text-primary dark:text-accent font-semibold hover:underline">
                         Read Full Article
-                        <span class="material-icons ml-2">arrow_forward</span>
                     </a>
                 </div>
             </div>
@@ -141,7 +157,7 @@
                         </p>
                         <div class="flex items-center justify-between text-sm">
                             <span class="text-gray-500 dark:text-gray-400">Dec 10, 2024</span>
-                            <a href="#" class="text-primary dark:text-accent font-semibold hover:underline">Read More</a>
+                            <a href="#" onclick="openArticleModal('article1'); return false;" class="text-primary dark:text-accent font-semibold hover:underline">Read More</a>
                         </div>
                     </div>
                 </article>
@@ -163,7 +179,7 @@
                         </p>
                         <div class="flex items-center justify-between text-sm">
                             <span class="text-gray-500 dark:text-gray-400">Dec 5, 2024</span>
-                            <a href="#" class="text-primary dark:text-accent font-semibold hover:underline">Read More</a>
+                            <a href="#" onclick="openArticleModal('article2'); return false;" class="text-primary dark:text-accent font-semibold hover:underline">Read More</a>
                         </div>
                     </div>
                 </article>
@@ -185,7 +201,7 @@
                         </p>
                         <div class="flex items-center justify-between text-sm">
                             <span class="text-gray-500 dark:text-gray-400">Nov 28, 2024</span>
-                            <a href="#" class="text-primary dark:text-accent font-semibold hover:underline">Read More</a>
+                            <a href="#" onclick="openArticleModal('article3'); return false;" class="text-primary dark:text-accent font-semibold hover:underline">Read More</a>
                         </div>
                     </div>
                 </article>
@@ -207,7 +223,7 @@
                         </p>
                         <div class="flex items-center justify-between text-sm">
                             <span class="text-gray-500 dark:text-gray-400">Nov 20, 2024</span>
-                            <a href="#" class="text-primary dark:text-accent font-semibold hover:underline">Read More</a>
+                            <a href="#" onclick="openArticleModal('article4'); return false;" class="text-primary dark:text-accent font-semibold hover:underline">Read More</a>
                         </div>
                     </div>
                 </article>
@@ -229,7 +245,7 @@
                         </p>
                         <div class="flex items-center justify-between text-sm">
                             <span class="text-gray-500 dark:text-gray-400">Nov 15, 2024</span>
-                            <a href="#" class="text-primary dark:text-accent font-semibold hover:underline">Read More</a>
+                            <a href="#" onclick="openArticleModal('article5'); return false;" class="text-primary dark:text-accent font-semibold hover:underline">Read More</a>
                         </div>
                     </div>
                 </article>
@@ -251,7 +267,7 @@
                         </p>
                         <div class="flex items-center justify-between text-sm">
                             <span class="text-gray-500 dark:text-gray-400">Nov 8, 2024</span>
-                            <a href="#" class="text-primary dark:text-accent font-semibold hover:underline">Read More</a>
+                            <a href="#" onclick="openArticleModal('article6'); return false;" class="text-primary dark:text-accent font-semibold hover:underline">Read More</a>
                         </div>
                     </div>
                 </article>
@@ -389,18 +405,29 @@
                             <span class="material-icons text-sm">email</span>
                             <span>info@tuskerventures.org</span>
                         </li>
-                        <li class="flex items-center space-x-2">
-                            <span class="material-icons text-sm">phone</span>
-                            <span>+1 (800) 555-SUGAR</span>
-                        </li>
                     </ul>
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
-                <p>&copy; 2024 Tusker Ventures. All rights reserved.</p>
+                <p>&copy; 2026 Tusker Ventures. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+    <!-- Article Modal -->
+    <div id="articleModal" class="fixed inset-0 z-[100] hidden">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeArticleModal()"></div>
+        <div class="absolute inset-0 flex items-center justify-center p-4 overflow-y-auto">
+            <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative my-8">
+                <button onclick="closeArticleModal()" class="absolute top-4 right-4 p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors z-10">
+                    <span class="material-icons">close</span>
+                </button>
+                <div id="articleContent" class="p-8">
+                    <!-- Article content will be injected here -->
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -416,6 +443,195 @@
         const darkModeToggle = document.getElementById('darkModeToggle');
         darkModeToggle.addEventListener('click', () => {
             document.documentElement.classList.toggle('dark');
+        });
+
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Article content data
+        const articles = {
+            featured: {
+                title: "2024 Global Sugar Market Outlook: Africa's Growing Role",
+                category: "Market Analysis",
+                author: "Vonzell Pittman",
+                role: "CEO, Tusker Ventures",
+                date: "Dec 15, 2024",
+                image: "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=800&h=400&fit=crop",
+                content: `<p class="text-lg mb-6">As global sugar consumption patterns shift, Africa emerges as both a growing demand center and potential production hub. This comprehensive analysis explores the key trends shaping the continent's sugar trade landscape.</p>
+                    <h3 class="text-xl font-bold mb-4">Growing Consumer Demand</h3>
+                    <p class="mb-4">Africa's population is projected to reach 2.5 billion by 2050, driving unprecedented demand for sugar and sugar-based products. Urbanization and rising middle-class incomes are accelerating consumption patterns, particularly in West and East African markets.</p>
+                    <h3 class="text-xl font-bold mb-4">Supply Chain Evolution</h3>
+                    <p class="mb-4">Traditional supply routes from Brazil and India remain dominant, but new trade corridors are emerging. The African Continental Free Trade Area (AfCFTA) is reshaping intra-continental sugar flows, creating opportunities for regional producers.</p>
+                    <h3 class="text-xl font-bold mb-4">Investment Opportunities</h3>
+                    <p class="mb-4">From modernizing existing mills to developing new production capacity, the African sugar sector presents significant investment opportunities. Key areas include irrigation infrastructure, processing technology, and logistics networks.</p>
+                    <h3 class="text-xl font-bold mb-4">Key Takeaways</h3>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li class="mb-2">African sugar imports expected to grow 4% annually through 2030</li>
+                        <li class="mb-2">Egypt, Nigeria, and Ghana remain top importing nations</li>
+                        <li class="mb-2">Regional trade agreements opening new market access</li>
+                        <li class="mb-2">Quality standards increasingly aligned with international benchmarks</li>
+                    </ul>`
+            },
+            article1: {
+                title: "Understanding ICUMSA Ratings: A Buyer's Guide",
+                category: "Market Trends",
+                author: "Tusker Ventures Research",
+                role: "Research Team",
+                date: "Dec 10, 2024",
+                image: "https://images.unsplash.com/photo-1473773386757-42bbe7288351?w=800&h=400&fit=crop",
+                content: `<p class="text-lg mb-6">ICUMSA (International Commission for Uniform Methods of Sugar Analysis) ratings are the global standard for measuring sugar quality. Understanding these ratings is essential for making informed purchasing decisions.</p>
+                    <h3 class="text-xl font-bold mb-4">What is ICUMSA?</h3>
+                    <p class="mb-4">The ICUMSA rating measures the purity and color of sugar. Lower numbers indicate higher purity and whiter color. The scale typically ranges from 45 (highest purity) to 1200+ (raw sugar).</p>
+                    <h3 class="text-xl font-bold mb-4">Common ICUMSA Grades</h3>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li class="mb-2"><strong>ICUMSA 45:</strong> Premium refined white sugar, ideal for direct consumption and beverages</li>
+                        <li class="mb-2"><strong>ICUMSA 100-150:</strong> High-quality refined sugar for food manufacturing</li>
+                        <li class="mb-2"><strong>ICUMSA 600-1200:</strong> VHP (Very High Polarization) raw sugar for refining</li>
+                    </ul>
+                    <h3 class="text-xl font-bold mb-4">Choosing the Right Grade</h3>
+                    <p class="mb-4">Your ICUMSA selection depends on your end use. Beverage manufacturers typically require ICUMSA 45 for clarity, while industrial users may opt for higher ICUMSA grades for cost efficiency.</p>`
+            },
+            article2: {
+                title: "Navigating African Port Infrastructure",
+                category: "Logistics",
+                author: "Tusker Ventures Logistics",
+                role: "Operations Team",
+                date: "Dec 5, 2024",
+                image: "https://images.unsplash.com/photo-1578357078586-491adf1aa5ba?w=800&h=400&fit=crop",
+                content: `<p class="text-lg mb-6">Successful sugar importing into Africa requires understanding the continent's port infrastructure, capabilities, and operational nuances. This guide covers key considerations for importers.</p>
+                    <h3 class="text-xl font-bold mb-4">Major Import Ports</h3>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li class="mb-2"><strong>Durban, South Africa:</strong> Africa's busiest port with modern facilities</li>
+                        <li class="mb-2"><strong>Lagos (Apapa), Nigeria:</strong> West Africa's gateway, handles 65% of regional imports</li>
+                        <li class="mb-2"><strong>Mombasa, Kenya:</strong> East Africa's primary hub serving 5+ landlocked nations</li>
+                        <li class="mb-2"><strong>Alexandria, Egypt:</strong> North Africa's main entry point</li>
+                    </ul>
+                    <h3 class="text-xl font-bold mb-4">Key Considerations</h3>
+                    <p class="mb-4">Port congestion, customs clearance timelines, and storage facilities vary significantly. Working with experienced clearing agents and understanding seasonal patterns can prevent costly delays.</p>`
+            },
+            article3: {
+                title: "Avoiding Common Commodity Trading Scams",
+                category: "Security",
+                author: "Tusker Ventures Compliance",
+                role: "Risk Management",
+                date: "Nov 28, 2024",
+                image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&h=400&fit=crop",
+                content: `<p class="text-lg mb-6">The sugar commodity market unfortunately attracts fraudsters. Understanding common scams and red flags can protect your business from significant losses.</p>
+                    <h3 class="text-xl font-bold mb-4">Common Red Flags</h3>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li class="mb-2">Prices significantly below market rates</li>
+                        <li class="mb-2">Requests for upfront fees before verification</li>
+                        <li class="mb-2">Unverifiable company registrations or references</li>
+                        <li class="mb-2">Pressure to skip due diligence steps</li>
+                        <li class="mb-2">Documents that cannot be independently verified</li>
+                    </ul>
+                    <h3 class="text-xl font-bold mb-4">Protection Measures</h3>
+                    <p class="mb-4">Always verify counterparties through independent channels, use escrow services for initial transactions, and work with established trade finance providers. Never send funds without proper documentation and verification.</p>
+                    <h3 class="text-xl font-bold mb-4">Our Commitment</h3>
+                    <p class="mb-4">At Tusker Ventures, our 4-layer protection framework ensures every transaction is verified and secure. We operate with complete transparency and never compromise on due diligence.</p>`
+            },
+            article4: {
+                title: "Trade Finance Options for Sugar Importers",
+                category: "Finance",
+                author: "Tusker Ventures Capital",
+                role: "Finance Team",
+                date: "Nov 20, 2024",
+                image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800&h=400&fit=crop",
+                content: `<p class="text-lg mb-6">Understanding trade finance instruments is crucial for successful sugar importing. This guide explains the most common financing options and when to use each.</p>
+                    <h3 class="text-xl font-bold mb-4">Letters of Credit (LC)</h3>
+                    <p class="mb-4">The most common instrument in sugar trade, LCs provide payment security for both parties. Irrevocable, confirmed LCs from top-tier banks are the industry standard for large transactions.</p>
+                    <h3 class="text-xl font-bold mb-4">Standby Letters of Credit (SBLC)</h3>
+                    <p class="mb-4">SBLCs serve as backup payment guarantees and are often used for repeat transactions between established trading partners.</p>
+                    <h3 class="text-xl font-bold mb-4">Trade Credit</h3>
+                    <p class="mb-4">Some established relationships allow for deferred payment terms. This is typically available only after a proven track record and often requires additional security.</p>
+                    <h3 class="text-xl font-bold mb-4">Our Approach</h3>
+                    <p class="mb-4">Tusker Ventures offers purpose-driven capital solutions built on stewardship principles. We help qualified partners structure compliant, scalable trade finance solutions.</p>`
+            },
+            article5: {
+                title: "Brazil's 2024 Sugar Harvest: Impact on Global Prices",
+                category: "Supply Chain",
+                author: "Tusker Ventures Research",
+                role: "Research Team",
+                date: "Nov 15, 2024",
+                image: "https://images.unsplash.com/photo-1599658880436-c61792e70672?w=800&h=400&fit=crop",
+                content: `<p class="text-lg mb-6">Brazil's sugar harvest significantly influences global prices and supply availability. The 2024 harvest presents both opportunities and challenges for African importers.</p>
+                    <h3 class="text-xl font-bold mb-4">Harvest Overview</h3>
+                    <p class="mb-4">Brazil's Center-South region, responsible for 90% of the country's sugar production, is projected to produce a record harvest. Favorable weather conditions and expanded cane area contribute to the strong output.</p>
+                    <h3 class="text-xl font-bold mb-4">Price Implications</h3>
+                    <p class="mb-4">Increased supply has created downward pressure on global prices, benefiting importers. However, ethanol pricing and currency fluctuations continue to influence export availability.</p>
+                    <h3 class="text-xl font-bold mb-4">What This Means for Africa</h3>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li class="mb-2">More competitive pricing for ICUMSA 45 imports</li>
+                        <li class="mb-2">Improved vessel availability and shorter lead times</li>
+                        <li class="mb-2">Opportunity to secure forward contracts at favorable rates</li>
+                    </ul>`
+            },
+            article6: {
+                title: "AfCFTA: Opportunities for Intra-African Sugar Trade",
+                category: "Regulation",
+                author: "Tusker Ventures Policy",
+                role: "Policy Team",
+                date: "Nov 8, 2024",
+                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=400&fit=crop",
+                content: `<p class="text-lg mb-6">The African Continental Free Trade Area (AfCFTA) is transforming commodity flows across the continent. For sugar traders, this presents new opportunities and considerations.</p>
+                    <h3 class="text-xl font-bold mb-4">What is AfCFTA?</h3>
+                    <p class="mb-4">AfCFTA is the world's largest free trade area by number of participating countries, covering 54 African nations. It aims to reduce tariffs, eliminate trade barriers, and boost intra-African trade.</p>
+                    <h3 class="text-xl font-bold mb-4">Impact on Sugar Trade</h3>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li class="mb-2">Reduced tariffs on sugar traded between member nations</li>
+                        <li class="mb-2">Simplified customs procedures at land borders</li>
+                        <li class="mb-2">Harmonized quality and safety standards</li>
+                        <li class="mb-2">Improved payment and currency settlement mechanisms</li>
+                    </ul>
+                    <h3 class="text-xl font-bold mb-4">Regional Producers</h3>
+                    <p class="mb-4">Countries like South Africa, Eswatini, and Mauritius are positioned to increase exports to neighboring markets. This creates competition with traditional import sources but also new partnership opportunities.</p>`
+            }
+        };
+
+        function openArticleModal(articleId) {
+            const article = articles[articleId];
+            if (!article) return;
+
+            const content = `
+                <div class="relative h-64 -mx-8 -mt-8 mb-8 overflow-hidden rounded-t-3xl">
+                    <img src="${article.image}" alt="${article.title}" class="w-full h-full object-cover" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                    <div class="absolute bottom-6 left-8 right-8">
+                        <span class="px-3 py-1 bg-accent text-dark text-xs font-semibold rounded-full">${article.category}</span>
+                        <h2 class="text-2xl md:text-3xl font-bold text-white mt-3">${article.title}</h2>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4 mb-8 pb-6 border-b border-gray-200 dark:border-gray-700">
+                    <div>
+                        <p class="font-semibold text-gray-900 dark:text-white">${article.author}</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">${article.role} | ${article.date}</p>
+                    </div>
+                </div>
+                <div class="prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+                    ${article.content}
+                </div>
+                <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700 flex justify-between items-center">
+                    <a href="contact.html" class="bg-primary hover:bg-secondary text-white px-6 py-3 rounded-full font-semibold transition-all">Contact Us to Learn More</a>
+                    <button onclick="closeArticleModal()" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 font-medium">Close Article</button>
+                </div>
+            `;
+
+            document.getElementById('articleContent').innerHTML = content;
+            document.getElementById('articleModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeArticleModal() {
+            document.getElementById('articleModal').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeArticleModal();
         });
     </script>
 </body>
