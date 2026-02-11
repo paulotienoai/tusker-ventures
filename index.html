@@ -16,6 +16,14 @@
         rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
     <script>
+        // Apply theme immediately to prevent flash
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+    <script>
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -49,20 +57,19 @@
         .dark .glass-header {
             background: rgba(15, 23, 42, 0.8);
         }
-        .stat-counter::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: theme('colors.primary');
-            transform: scaleX(0);
-            transform-origin: left;
-            animation: grow-line 1.5s ease-out forwards;
+        /* Count-up animation for numbers */
+        .count-up {
+            display: inline-block;
         }
-        @keyframes grow-line {
-            to { transform: scaleX(1); }
+        /* Chart animation on scroll */
+        .chart-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .chart-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -70,7 +77,7 @@
 <body class="font-sans antialiased text-slate-800 dark:text-slate-200 bg-background-light dark:bg-background-dark">
     <nav class="fixed top-0 w-full z-50 glass-header border-b border-slate-200 dark:border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
+            <div class="flex justify-between items-center h-16">
                 <a href="index.html" class="flex items-center gap-3">
                     <img src="logo.jpg" alt="Tusker Ventures" class="h-12 w-auto" />
                     <span
@@ -90,10 +97,7 @@
                         href="contact.html">Contact Us</a>
                 </div>
                 <div class="flex items-center gap-2">
-                    <button onclick="document.documentElement.classList.toggle('dark')" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
-                        <span class="material-symbols-outlined text-slate-600 dark:text-slate-300">dark_mode</span>
-                    </button>
-                    <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+                    <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-slate-100">
                         <span class="material-symbols-outlined cursor-pointer">menu</span>
                     </button>
                 </div>
@@ -114,63 +118,62 @@
             </div>
         </div>
     </nav>
-    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+    <section class="relative pt-28 pb-16 lg:pt-36 lg:pb-24 overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img alt="Sugarcane plantation at sunrise" class="w-full h-full object-cover opacity-10 dark:opacity-20"
-                src="https://images.unsplash.com/photo-1473973266408-ed4e27abdd47?w=1920&h=1080&fit=crop" />
+            <img alt="Large sugarcane plantation farm" class="w-full h-full object-cover opacity-15 dark:opacity-20"
+                src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1920&h=1080&fit=crop" />
             <div class="absolute inset-0 bg-gradient-to-b from-transparent to-background-light dark:to-background-dark">
             </div>
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="grid lg:grid-cols-2 gap-10 items-center">
                 <div>
                     <span
-                        class="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-wider text-primary uppercase bg-primary/10 rounded-full" data-aos="fade-right">Africa's Trusted Sugar Partner</span>
+                        class="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-primary uppercase bg-primary/10 rounded-full" data-aos="fade-right">Africa's Trusted Sugar Partner</span>
                     <h1
-                        class="text-5xl lg:text-7xl font-display font-bold leading-tight mb-6 text-slate-900 dark:text-white" data-aos="fade-right" data-aos-delay="100">
+                        class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-display font-bold leading-tight mb-4 text-slate-900 dark:text-white" data-aos="fade-right" data-aos-delay="100">
                         Premium <span class="text-primary">ICUMSA-45</span> for Africa.
                     </h1>
-                    <p class="text-xl text-slate-600 dark:text-slate-400 mb-8 max-w-lg leading-relaxed">
+                    <p class="text-base lg:text-lg text-slate-600 dark:text-slate-400 mb-6 max-w-lg leading-relaxed">
                         We deliver world-class refined sugar to buyers across Africa with integrity, protection, and
                         transparent trade practices. Built on faith-based values.
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a class="px-8 py-4 bg-primary text-white text-lg font-semibold rounded-xl hover:scale-105 transition-transform text-center shadow-lg shadow-primary/20"
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a class="px-6 py-3 bg-primary text-white text-base font-semibold rounded-xl hover:scale-105 transition-transform text-center shadow-lg shadow-primary/20"
                             href="#services">Our Services</a>
-                        <a class="px-8 py-4 border-2 border-slate-200 dark:border-slate-700 text-lg font-semibold rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-center"
-                            href="#market">Live Market View</a>
+                        <a class="px-6 py-3 border-2 border-slate-200 dark:border-slate-700 text-base font-semibold rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-center"
+                            href="#market">Market Dashboard</a>
                     </div>
-                    <div class="mt-12 flex items-center gap-8">
+                    <div class="mt-8 flex items-center gap-6" id="hero-stats">
                         <div class="relative">
-                            <p class="text-3xl font-bold text-primary stat-counter" data-animate-count="50000">50k+</p>
-                            <p class="text-[10px] text-primary/60 font-medium uppercase tracking-tighter mt-1">Animated
-                                Counter Active</p>
-                            <p class="text-sm text-slate-500 uppercase tracking-wide">Tons Traded</p>
+                            <p class="text-2xl lg:text-3xl font-bold text-primary"><span class="count-up" data-target="50">0</span>k+</p>
+                            <p class="text-xs text-slate-500 uppercase tracking-wide">Tons Traded</p>
                         </div>
-                        <div class="h-10 w-[1px] bg-slate-200 dark:bg-slate-700"></div>
+                        <div class="h-8 w-[1px] bg-slate-200 dark:bg-slate-700"></div>
                         <div class="relative">
-                            <p class="text-3xl font-bold text-primary stat-counter" data-animate-count="120000000">
-                                $120M+</p>
-                            <p class="text-[10px] text-primary/60 font-medium uppercase tracking-tighter mt-1">Animated
-                                Counter Active</p>
-                            <p class="text-sm text-slate-500 uppercase tracking-wide">Financed</p>
+                            <p class="text-2xl lg:text-3xl font-bold text-primary">$<span class="count-up" data-target="120">0</span>M+</p>
+                            <p class="text-xs text-slate-500 uppercase tracking-wide">Financed</p>
+                        </div>
+                        <div class="h-8 w-[1px] bg-slate-200 dark:bg-slate-700"></div>
+                        <div class="relative">
+                            <p class="text-2xl lg:text-3xl font-bold text-primary"><span class="count-up" data-target="40">0</span>+</p>
+                            <p class="text-xs text-slate-500 uppercase tracking-wide">Countries</p>
                         </div>
                     </div>
                 </div>
                 <div class="relative">
-                    <div class="relative rounded-3xl overflow-hidden shadow-2xl" data-aos="fade-left" data-aos-delay="200">
-                        <img alt="Sugarcane plantation field" class="w-full h-auto aspect-[4/3] object-cover"
-                            src="https://images.unsplash.com/photo-1599940824399-b87987ceb72a?w=800&h=600&fit=crop" />
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl" data-aos="fade-left" data-aos-delay="200">
+                        <img alt="Premium sugar commodity trading" class="w-full h-auto aspect-[4/3] object-cover"
+                            src="hero title image.jpg" />
                         <div class="absolute inset-0 bg-primary/10 mix-blend-multiply"></div>
                     </div>
                     <div
-                        class="absolute -bottom-6 -left-6 bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-xl max-w-xs border border-slate-100 dark:border-slate-700">
-                        <div class="flex items-center gap-4 mb-3">
-                            <span class="material-symbols-outlined text-accent text-3xl">trending_up</span>
-                            <span class="font-bold text-lg">Market Volatility</span>
+                        class="absolute -bottom-4 -left-4 bg-white dark:bg-slate-800 p-4 rounded-xl shadow-xl max-w-[200px] border border-slate-100 dark:border-slate-700 hidden sm:block">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="material-symbols-outlined text-accent text-2xl">trending_up</span>
+                            <span class="font-bold text-sm">Market Ready</span>
                         </div>
-                        <p class="text-sm text-slate-500">Real-time hedging strategies to protect your margins against
-                            fluctuating global prices.</p>
+                        <p class="text-xs text-slate-500">Real-time hedging strategies for price protection.</p>
                     </div>
                 </div>
             </div>
@@ -185,102 +188,41 @@
             </div>
 
             <!-- Chart.js Visualizations -->
-            <div class="grid lg:grid-cols-2 gap-8 mb-10">
+            <div class="grid lg:grid-cols-3 gap-6 mb-10">
                 <!-- Sugar Price Trends - Line Chart -->
-                <div class="lg:col-span-2 bg-white dark:bg-slate-800 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-700 overflow-hidden" data-aos="fade-up">
-                    <div class="p-6 border-b border-slate-100 dark:border-slate-700 flex items-center justify-between">
+                <div class="lg:col-span-2 bg-white dark:bg-slate-800 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700 overflow-hidden chart-animate" data-aos="fade-up">
+                    <div class="p-5 border-b border-slate-100 dark:border-slate-700 flex items-center justify-between">
                         <div>
-                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Sugar Price Trends (2024-2025)</h3>
-                            <p class="text-sm text-slate-500 dark:text-slate-400">Raw Sugar #11 & White Sugar #5 - USD per lb</p>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white">Sugar Price Trends (2024-2025)</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Raw Sugar #11 & White Sugar #5</p>
                         </div>
                         <span class="px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full">ICE Futures</span>
                     </div>
-                    <div class="p-6">
-                        <canvas id="priceChart" height="280"></canvas>
-                    </div>
-                </div>
-
-                <!-- Global Production - Doughnut Chart -->
-                <div class="bg-white dark:bg-slate-800 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-700 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-                    <div class="p-5 border-b border-slate-100 dark:border-slate-700">
-                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">Global Sugar Production</h3>
-                        <p class="text-xs text-slate-500 dark:text-slate-400">Top Producing Countries (2024/25)</p>
-                    </div>
-                    <div class="p-6 flex items-center justify-center">
-                        <div class="w-full max-w-[320px]">
-                            <canvas id="productionChart" height="280"></canvas>
-                        </div>
-                    </div>
-                    <div class="px-6 pb-6">
-                        <div class="grid grid-cols-2 gap-3 text-xs">
-                            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-[#1b4332]"></span> Brazil - 42.1M MT</div>
-                            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-[#2d6a4f]"></span> India - 32.8M MT</div>
-                            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-[#40916c]"></span> Thailand - 10.5M MT</div>
-                            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-[#52b788]"></span> China - 9.8M MT</div>
-                            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-[#74c69d]"></span> USA - 8.2M MT</div>
-                            <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-[#95d5b2]"></span> Others - 77.6M MT</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- African Imports - Bar Chart -->
-                <div class="bg-white dark:bg-slate-800 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-700 overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-                    <div class="p-5 border-b border-slate-100 dark:border-slate-700">
-                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">African Sugar Imports by Country</h3>
-                        <p class="text-xs text-slate-500 dark:text-slate-400">Top Importing Nations (Million MT)</p>
-                    </div>
-                    <div class="p-6">
-                        <canvas id="africanImportsChart" height="280"></canvas>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Second Row - More Charts -->
-            <div class="grid lg:grid-cols-3 gap-8 mb-10">
-                <!-- ICUMSA Grades Comparison -->
-                <div class="bg-white dark:bg-slate-800 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-700 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-                    <div class="p-5 border-b border-slate-100 dark:border-slate-700">
-                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">ICUMSA Grade Pricing</h3>
-                        <p class="text-xs text-slate-500 dark:text-slate-400">Price Premium by Grade (USD/MT)</p>
-                    </div>
-                    <div class="p-6">
-                        <canvas id="icumsaChart" height="220"></canvas>
-                    </div>
-                </div>
-
-                <!-- Sugar Trade Flow -->
-                <div class="bg-white dark:bg-slate-800 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-700 overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-                    <div class="p-5 border-b border-slate-100 dark:border-slate-700">
-                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">Export Sources to Africa</h3>
-                        <p class="text-xs text-slate-500 dark:text-slate-400">Sugar Origin Countries (%)</p>
-                    </div>
-                    <div class="p-6 flex items-center justify-center">
-                        <div class="w-full max-w-[240px]">
-                            <canvas id="exportSourcesChart" height="220"></canvas>
-                        </div>
+                    <div class="p-5">
+                        <canvas id="priceChart" height="240"></canvas>
                     </div>
                 </div>
 
                 <!-- Market Stats Panel -->
-                <div class="bg-gradient-to-br from-primary to-emerald-700 rounded-3xl shadow-xl overflow-hidden text-white" data-aos="fade-up" data-aos-delay="300">
+                <div class="bg-gradient-to-br from-primary to-emerald-700 rounded-2xl shadow-xl overflow-hidden text-white chart-animate" data-aos="fade-up" data-aos-delay="100">
                     <div class="p-5 border-b border-white/10">
                         <h3 class="text-lg font-bold">Market Snapshot</h3>
                         <p class="text-xs text-white/70">Key Industry Metrics</p>
                     </div>
-                    <div class="p-6 space-y-5">
+                    <div class="p-5 space-y-4">
                         <div class="flex justify-between items-center">
                             <span class="text-white/80 text-sm">Raw Sugar #11</span>
                             <span class="font-bold text-lg">$0.218/lb</span>
                         </div>
-                        <div class="w-full bg-white/20 rounded-full h-1.5">
-                            <div class="bg-accent h-1.5 rounded-full" style="width: 72%"></div>
+                        <div class="w-full bg-white/20 rounded-full h-1.5 overflow-hidden">
+                            <div class="bg-accent h-1.5 rounded-full progress-bar" data-width="72" style="width: 0%"></div>
                         </div>
                         <div class="flex justify-between items-center">
                             <span class="text-white/80 text-sm">White Sugar #5</span>
                             <span class="font-bold text-lg">$582/MT</span>
                         </div>
-                        <div class="w-full bg-white/20 rounded-full h-1.5">
-                            <div class="bg-white h-1.5 rounded-full" style="width: 65%"></div>
+                        <div class="w-full bg-white/20 rounded-full h-1.5 overflow-hidden">
+                            <div class="bg-white h-1.5 rounded-full progress-bar" data-width="65" style="width: 0%"></div>
                         </div>
                         <div class="flex justify-between items-center">
                             <span class="text-white/80 text-sm">Global Demand</span>
@@ -290,41 +232,68 @@
                             <span class="text-white/80 text-sm">Africa Import Growth</span>
                             <span class="font-bold text-lg text-accent">+4.3%</span>
                         </div>
-                        <div class="pt-4 border-t border-white/10">
+                        <div class="pt-3 border-t border-white/10">
                             <p class="text-xs text-white/60">Data: ICE Futures, USDA, ISO</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Market Stats Cards -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10" data-aos="fade-up" data-aos-delay="300">
-                <div class="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-slate-100 dark:border-slate-700 text-center">
+            <!-- Second Row - Charts with better color balance -->
+            <div class="grid lg:grid-cols-2 gap-6 mb-10">
+                <!-- ICUMSA Grades Comparison -->
+                <div class="bg-gradient-to-br from-primary/5 to-emerald-50 dark:from-slate-800 dark:to-slate-800 rounded-2xl shadow-xl border border-primary/10 dark:border-slate-700 overflow-hidden chart-animate" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-5 border-b border-primary/10 dark:border-slate-700">
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">ICUMSA Grade Pricing</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Price Premium by Grade (USD/MT)</p>
+                    </div>
+                    <div class="p-5">
+                        <canvas id="icumsaChart" height="200"></canvas>
+                    </div>
+                </div>
+
+                <!-- Sugar Trade Flow -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700 overflow-hidden chart-animate" data-aos="fade-up" data-aos-delay="200">
+                    <div class="p-5 border-b border-slate-100 dark:border-slate-700">
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">Export Sources to Africa</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Sugar Origin Countries (%)</p>
+                    </div>
+                    <div class="p-5 flex items-center justify-center">
+                        <div class="w-full max-w-[220px]">
+                            <canvas id="exportSourcesChart" height="200"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Market Stats Cards with Count Animation -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10" id="market-stats" data-aos="fade-up" data-aos-delay="300">
+                <div class="bg-gradient-to-br from-primary/5 to-emerald-50 dark:from-slate-800 dark:to-slate-800 rounded-2xl p-5 border border-primary/10 dark:border-slate-700 text-center">
                     <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-3">
                         <span class="material-symbols-outlined text-primary text-2xl">show_chart</span>
                     </div>
-                    <p class="text-2xl font-bold text-slate-900 dark:text-white">181M</p>
+                    <p class="text-2xl font-bold text-slate-900 dark:text-white"><span class="count-up" data-target="181">0</span>M</p>
                     <p class="text-xs text-slate-500 dark:text-slate-400">MT Global Production</p>
                 </div>
                 <div class="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-slate-100 dark:border-slate-700 text-center">
                     <div class="w-12 h-12 bg-accent/20 rounded-xl flex items-center justify-center mx-auto mb-3">
                         <span class="material-symbols-outlined text-accent text-2xl">public</span>
                     </div>
-                    <p class="text-2xl font-bold text-slate-900 dark:text-white">65M</p>
+                    <p class="text-2xl font-bold text-slate-900 dark:text-white"><span class="count-up" data-target="65">0</span>M</p>
                     <p class="text-xs text-slate-500 dark:text-slate-400">MT Global Exports</p>
                 </div>
-                <div class="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-slate-100 dark:border-slate-700 text-center">
+                <div class="bg-gradient-to-br from-primary/5 to-emerald-50 dark:from-slate-800 dark:to-slate-800 rounded-2xl p-5 border border-primary/10 dark:border-slate-700 text-center">
                     <div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center mx-auto mb-3">
                         <span class="material-symbols-outlined text-green-600 dark:text-green-400 text-2xl">trending_up</span>
                     </div>
-                    <p class="text-2xl font-bold text-slate-900 dark:text-white">15.2M</p>
+                    <p class="text-2xl font-bold text-slate-900 dark:text-white"><span class="count-up" data-target="15" data-decimal=".2">0</span>M</p>
                     <p class="text-xs text-slate-500 dark:text-slate-400">MT African Imports</p>
                 </div>
                 <div class="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-slate-100 dark:border-slate-700 text-center">
                     <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mx-auto mb-3">
                         <span class="material-symbols-outlined text-blue-600 dark:text-blue-400 text-2xl">schedule</span>
                     </div>
-                    <p class="text-2xl font-bold text-slate-900 dark:text-white">42%</p>
+                    <p class="text-2xl font-bold text-slate-900 dark:text-white"><span class="count-up" data-target="42">0</span>%</p>
                     <p class="text-xs text-slate-500 dark:text-slate-400">Brazil Market Share</p>
                 </div>
             </div>
@@ -350,19 +319,91 @@
     <!-- Chart.js Library -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
+        // Count-up animation function
+        function animateCountUp(element) {
+            const target = parseInt(element.dataset.target);
+            const decimal = element.dataset.decimal || '';
+            const duration = 1500;
+            const start = performance.now();
+
+            function update(currentTime) {
+                const elapsed = currentTime - start;
+                const progress = Math.min(elapsed / duration, 1);
+                const easeOut = 1 - Math.pow(1 - progress, 3);
+                const current = Math.floor(easeOut * target);
+                element.textContent = current + decimal;
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                } else {
+                    element.textContent = target + decimal;
+                }
+            }
+            requestAnimationFrame(update);
+        }
+
+        // Intersection Observer for scroll animations
+        function setupScrollAnimations() {
+            const observerOptions = { threshold: 0.3, rootMargin: '0px 0px -50px 0px' };
+
+            // Count-up observer
+            const countObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counters = entry.target.querySelectorAll('.count-up');
+                        counters.forEach(counter => {
+                            if (!counter.dataset.animated) {
+                                counter.dataset.animated = 'true';
+                                animateCountUp(counter);
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            // Observe hero stats and market stats
+            document.querySelectorAll('#hero-stats, #market-stats').forEach(el => countObserver.observe(el));
+
+            // Progress bar animation
+            const progressObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const bars = entry.target.querySelectorAll('.progress-bar');
+                        bars.forEach(bar => {
+                            setTimeout(() => {
+                                bar.style.transition = 'width 1.2s ease-out';
+                                bar.style.width = bar.dataset.width + '%';
+                            }, 200);
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.chart-animate').forEach(el => progressObserver.observe(el));
+        }
+
         // Initialize Charts when DOM is ready
         document.addEventListener('DOMContentLoaded', function() {
+            setupScrollAnimations();
+
             // Color palette
             const primaryGreen = '#1b4332';
             const greenShades = ['#1b4332', '#2d6a4f', '#40916c', '#52b788', '#74c69d', '#95d5b2'];
             const accentOrange = '#f59e0b';
+
+            // Chart animation config
+            const chartAnimation = {
+                duration: 1500,
+                easing: 'easeOutQuart',
+                delay: (context) => context.dataIndex * 100
+            };
 
             // 1. Sugar Price Trends - Line Chart
             const priceCtx = document.getElementById('priceChart').getContext('2d');
             new Chart(priceCtx, {
                 type: 'line',
                 data: {
-                    labels: ['Jan 24', 'Feb 24', 'Mar 24', 'Apr 24', 'May 24', 'Jun 24', 'Jul 24', 'Aug 24', 'Sep 24', 'Oct 24', 'Nov 24', 'Dec 24', 'Jan 25'],
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan'],
                     datasets: [{
                         label: 'Raw Sugar #11 (¢/lb)',
                         data: [23.5, 22.8, 21.9, 22.4, 19.2, 18.8, 19.5, 18.2, 22.1, 21.8, 20.9, 21.5, 21.8],
@@ -370,8 +411,8 @@
                         backgroundColor: 'rgba(27, 67, 50, 0.1)',
                         fill: true,
                         tension: 0.4,
-                        pointRadius: 4,
-                        pointHoverRadius: 6
+                        pointRadius: 3,
+                        pointHoverRadius: 5
                     }, {
                         label: 'White Sugar #5 ($/MT)',
                         data: [650, 635, 610, 625, 548, 535, 555, 520, 605, 590, 575, 585, 582],
@@ -379,89 +420,40 @@
                         backgroundColor: 'rgba(245, 158, 11, 0.1)',
                         fill: true,
                         tension: 0.4,
-                        pointRadius: 4,
-                        pointHoverRadius: 6,
+                        pointRadius: 3,
+                        pointHoverRadius: 5,
                         yAxisID: 'y1'
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
+                    animation: chartAnimation,
                     interaction: { mode: 'index', intersect: false },
                     plugins: {
-                        legend: { position: 'top', labels: { usePointStyle: true, padding: 20 } }
+                        legend: { position: 'top', labels: { usePointStyle: true, padding: 15, font: { size: 11 } } }
                     },
                     scales: {
                         y: {
                             type: 'linear',
                             position: 'left',
-                            title: { display: true, text: 'Raw Sugar (¢/lb)' },
-                            grid: { color: 'rgba(0,0,0,0.05)' }
+                            title: { display: true, text: '¢/lb', font: { size: 10 } },
+                            grid: { color: 'rgba(0,0,0,0.05)' },
+                            ticks: { font: { size: 10 } }
                         },
                         y1: {
                             type: 'linear',
                             position: 'right',
-                            title: { display: true, text: 'White Sugar ($/MT)' },
-                            grid: { drawOnChartArea: false }
+                            title: { display: true, text: '$/MT', font: { size: 10 } },
+                            grid: { drawOnChartArea: false },
+                            ticks: { font: { size: 10 } }
                         },
-                        x: { grid: { display: false } }
+                        x: { grid: { display: false }, ticks: { font: { size: 10 } } }
                     }
                 }
             });
 
-            // 2. Global Production - Doughnut Chart
-            const productionCtx = document.getElementById('productionChart').getContext('2d');
-            new Chart(productionCtx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['Brazil', 'India', 'Thailand', 'China', 'USA', 'Others'],
-                    datasets: [{
-                        data: [42.1, 32.8, 10.5, 9.8, 8.2, 77.6],
-                        backgroundColor: greenShades,
-                        borderWidth: 0,
-                        hoverOffset: 10
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    cutout: '65%',
-                    plugins: {
-                        legend: { display: false }
-                    }
-                }
-            });
-
-            // 3. African Imports by Country - Bar Chart
-            const africanCtx = document.getElementById('africanImportsChart').getContext('2d');
-            new Chart(africanCtx, {
-                type: 'bar',
-                data: {
-                    labels: ['Egypt', 'Algeria', 'Nigeria', 'Morocco', 'Sudan', 'Kenya', 'Ghana', 'Ethiopia'],
-                    datasets: [{
-                        label: 'Imports (Million MT)',
-                        data: [3.2, 2.1, 1.8, 1.5, 1.2, 0.9, 0.7, 0.6],
-                        backgroundColor: greenShades[1],
-                        borderRadius: 8,
-                        barThickness: 24
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    indexAxis: 'y',
-                    plugins: { legend: { display: false } },
-                    scales: {
-                        x: {
-                            grid: { color: 'rgba(0,0,0,0.05)' },
-                            title: { display: true, text: 'Million Metric Tonnes' }
-                        },
-                        y: { grid: { display: false } }
-                    }
-                }
-            });
-
-            // 4. ICUMSA Grades Pricing - Bar Chart
+            // 2. ICUMSA Grades Pricing - Bar Chart with animation
             const icumsaCtx = document.getElementById('icumsaChart').getContext('2d');
             new Chart(icumsaCtx, {
                 type: 'bar',
@@ -472,26 +464,28 @@
                         data: [580, 520, 480, 420, 380],
                         backgroundColor: [greenShades[0], greenShades[1], greenShades[2], greenShades[3], greenShades[4]],
                         borderRadius: 6,
-                        barThickness: 32
+                        barThickness: 28
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
+                    animation: chartAnimation,
                     plugins: { legend: { display: false } },
                     scales: {
                         y: {
                             beginAtZero: false,
                             min: 300,
                             grid: { color: 'rgba(0,0,0,0.05)' },
-                            title: { display: true, text: 'USD/MT' }
+                            title: { display: true, text: 'USD/MT', font: { size: 10 } },
+                            ticks: { font: { size: 10 } }
                         },
-                        x: { grid: { display: false } }
+                        x: { grid: { display: false }, ticks: { font: { size: 10 } } }
                     }
                 }
             });
 
-            // 5. Export Sources to Africa - Pie Chart
+            // 3. Export Sources to Africa - Pie Chart with animation
             const exportCtx = document.getElementById('exportSourcesChart').getContext('2d');
             new Chart(exportCtx, {
                 type: 'pie',
@@ -507,10 +501,11 @@
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
+                    animation: chartAnimation,
                     plugins: {
                         legend: {
                             position: 'bottom',
-                            labels: { usePointStyle: true, padding: 12, font: { size: 11 } }
+                            labels: { usePointStyle: true, padding: 10, font: { size: 10 } }
                         }
                     }
                 }
@@ -571,44 +566,44 @@
     </section>
 
     <!-- Three Pillars Section -->
-    <section class="py-24 bg-earthy-gray dark:bg-slate-800/50">
+    <section class="py-20 bg-earthy-gray dark:bg-slate-800/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
+            <div class="text-center mb-12" data-aos="fade-up">
                 <span class="text-primary font-semibold text-sm uppercase tracking-wider">Our Foundation</span>
-                <h2 class="text-4xl font-bold text-slate-900 dark:text-white mt-2 mb-4">Built on Three Pillars</h2>
-                <p class="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
+                <h2 class="text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white mt-2 mb-4">Built on Three Pillars</h2>
+                <p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
                     Every transaction we facilitate is grounded in our core values.
                 </p>
             </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div data-aos="fade-up" data-aos-delay="100" class="text-center p-8 bg-white dark:bg-slate-800 rounded-3xl shadow-xl">
-                    <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <span class="material-symbols-outlined text-primary text-4xl">favorite</span>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div data-aos="fade-up" data-aos-delay="100" class="text-center p-6 bg-gradient-to-br from-primary to-emerald-700 rounded-2xl shadow-xl text-white">
+                    <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-5">
+                        <span class="material-symbols-outlined text-white text-3xl">favorite</span>
                     </div>
-                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Integrity</h3>
-                    <p class="text-slate-600 dark:text-slate-300">
+                    <h3 class="text-xl font-bold mb-3">Integrity</h3>
+                    <p class="text-white/80 text-sm">
                         We operate with unwavering honesty. If a deal doesn't meet our standards, we walk away.
-                        Our word is our bond, backed by transparent actions.
+                        Our word is our bond.
                     </p>
                 </div>
-                <div data-aos="fade-up" data-aos-delay="200" class="text-center p-8 bg-white dark:bg-slate-800 rounded-3xl shadow-xl">
-                    <div class="w-20 h-20 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <span class="material-symbols-outlined text-accent text-4xl">shield</span>
+                <div data-aos="fade-up" data-aos-delay="200" class="text-center p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700">
+                    <div class="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-5">
+                        <span class="material-symbols-outlined text-accent text-3xl">shield</span>
                     </div>
-                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Protection</h3>
-                    <p class="text-slate-600 dark:text-slate-300">
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Protection</h3>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm">
                         Your capital deserves safeguarding at every step. We've built systems that protect
-                        before problems occur, not after.
+                        before problems occur.
                     </p>
                 </div>
-                <div data-aos="fade-up" data-aos-delay="300" class="text-center p-8 bg-white dark:bg-slate-800 rounded-3xl shadow-xl">
-                    <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <span class="material-symbols-outlined text-primary text-4xl">handshake</span>
+                <div data-aos="fade-up" data-aos-delay="300" class="text-center p-6 bg-gradient-to-br from-primary to-emerald-700 rounded-2xl shadow-xl text-white">
+                    <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-5">
+                        <span class="material-symbols-outlined text-white text-3xl">handshake</span>
                     </div>
-                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Relationships</h3>
-                    <p class="text-slate-600 dark:text-slate-300">
+                    <h3 class="text-xl font-bold mb-3">Relationships</h3>
+                    <p class="text-white/80 text-sm">
                         We invest in long-term partnerships, not one-time transactions. Our success is
-                        measured by the success of our clients.
+                        measured by your success.
                     </p>
                 </div>
             </div>

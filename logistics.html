@@ -66,11 +66,10 @@
     <nav
         class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
+            <div class="flex justify-between items-center h-16">
                 <a href="index.html" class="flex items-center gap-3">
                     <img src="logo.jpg" alt="Tusker Ventures" class="h-12 w-auto" />
-                    <span class="text-2xl font-bold tracking-tight text-primary dark:text-white">TUSKER<span
-                            class="font-light">VENTURES</span></span>
+                    <span class="text-2xl font-bold tracking-tight text-primary dark:text-white">Tusker<span class="text-accent">Ventures</span></span>
                 </a>
                 <div class="hidden md:flex space-x-6 items-center">
                     <a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-accent font-medium transition-colors"
@@ -89,9 +88,6 @@
                         href="insights.html">Insights</a>
                     <a class="bg-primary text-white px-6 py-2.5 rounded-full font-semibold hover:bg-opacity-90 transition-all"
                         href="contact.html">Contact Us</a>
-                    <button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800" id="theme-toggle">
-                        <span class="material-icons-outlined text-slate-600 dark:text-slate-400">dark_mode</span>
-                    </button>
                 </div>
             </div>
         </div>
@@ -451,13 +447,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-4 gap-12 mb-16">
                 <div class="col-span-1 md:col-span-2">
-                    <div class="flex items-center gap-2 mb-6">
-                        <div class="w-8 h-8 bg-primary flex items-center justify-center rounded-lg">
-                            <span class="material-icons-outlined text-white text-sm">local_shipping</span>
-                        </div>
-                        <span class="text-xl font-bold text-white tracking-tight">TUSKER<span
-                                class="font-light">VENTURES</span></span>
-                    </div>
+                    <a href="index.html" class="flex items-center gap-3 mb-6">
+                        <img src="logo.jpg" alt="Tusker Ventures" class="h-10 w-auto brightness-0 invert" />
+                        <span class="text-xl font-bold tracking-tight text-white">Tusker<span class="text-accent">Ventures</span></span>
+                    </a>
                     <p class="max-w-xs leading-relaxed">Redefining global logistics through innovation, transparency,
                         and a relentless focus on quality control and reliability.</p>
                 </div>
@@ -489,25 +482,6 @@
             </div>
         </div>
     </footer>
-    <script>
-        const themeToggle = document.getElementById('theme-toggle');
-        const html = document.documentElement;
-        themeToggle.addEventListener('click', () => {
-            if (html.classList.contains('dark')) {
-                html.classList.remove('dark');
-                themeToggle.innerHTML = '<span class="material-icons-outlined text-slate-600">dark_mode</span>';
-            } else {
-                html.classList.add('dark');
-                themeToggle.innerHTML = '<span class="material-icons-outlined text-slate-400">light_mode</span>';
-            }
-        });
-        // Initialize theme based on preference or system
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            html.classList.add('dark');
-            themeToggle.innerHTML = '<span class="material-icons-outlined text-slate-400">light_mode</span>';
-        }
-    </script>
-
     <!-- AOS Animation Library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
