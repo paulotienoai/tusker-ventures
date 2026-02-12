@@ -16,14 +16,6 @@
         rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
     <script>
-        // Apply theme immediately to prevent flash
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-    </script>
-    <script>
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -901,10 +893,6 @@
                         <a class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors text-white"
                             href="#">
                             <span class="material-symbols-outlined text-sm">mail</span>
-                        </a>
-                        <a class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors text-white"
-                            href="#">
-                            <span class="material-symbols-outlined text-sm">phone</span>
                         </a>
                     </div>
                 </div>

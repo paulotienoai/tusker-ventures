@@ -48,6 +48,23 @@
                     <a href="markets.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-accent transition-colors">Africa Markets</a>
                     <a href="contact.html" class="bg-primary hover:bg-secondary text-white px-6 py-2.5 rounded-full font-medium transition-all hover:shadow-lg">Contact Us</a>
                 </div>
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-slate-100">
+                    <span class="material-icons">menu</span>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-200">
+            <div class="px-4 py-4 space-y-3">
+                <a class="block py-2 font-medium hover:text-primary" href="index.html">Home</a>
+                <a class="block py-2 font-medium hover:text-primary" href="about.html">About</a>
+                <a class="block py-2 font-medium hover:text-primary" href="products.html">Products</a>
+                <a class="block py-2 font-medium hover:text-primary" href="icumsa-45.html">ICUMSA-45</a>
+                <a class="block py-2 font-medium text-primary" href="protection.html">Protection</a>
+                <a class="block py-2 font-medium hover:text-primary" href="markets.html">Africa</a>
+                <a class="block py-2 font-medium hover:text-primary" href="insights.html">Insights</a>
+                <a class="block py-2 font-medium hover:text-primary" href="financing.html">Capital</a>
+                <a class="block py-2 mt-2 text-center bg-primary text-white rounded-full font-semibold" href="contact.html">Contact Us</a>
             </div>
         </div>
     </nav>
@@ -399,10 +416,6 @@
                             <span class="material-icons text-sm">email</span>
                             <span>info@tuskerventures.org</span>
                         </li>
-                        <li class="flex items-center space-x-2">
-                            <span class="material-icons text-sm">phone</span>
-                            <span>+1 (800) 555-SUGAR</span>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -422,6 +435,11 @@
             offset: 50
         });
 
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
     </script>
 </body>
 </html>

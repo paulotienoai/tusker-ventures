@@ -72,9 +72,23 @@
           <a class="px-6 py-2.5 bg-primary text-white rounded-full font-semibold hover:opacity-90 transition-all shadow-lg shadow-primary/20"
             href="contact.html">Contact Us</a>
         </div>
-        <button class="md:hidden p-2">
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-slate-100">
           <span class="material-symbols-outlined">menu</span>
         </button>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-200">
+      <div class="px-4 py-4 space-y-3">
+        <a class="block py-2 font-medium hover:text-primary" href="index.html">Home</a>
+        <a class="block py-2 font-medium text-primary" href="about.html">About</a>
+        <a class="block py-2 font-medium hover:text-primary" href="products.html">Products</a>
+        <a class="block py-2 font-medium hover:text-primary" href="icumsa-45.html">ICUMSA-45</a>
+        <a class="block py-2 font-medium hover:text-primary" href="protection.html">Protection</a>
+        <a class="block py-2 font-medium hover:text-primary" href="markets.html">Africa</a>
+        <a class="block py-2 font-medium hover:text-primary" href="insights.html">Insights</a>
+        <a class="block py-2 font-medium hover:text-primary" href="financing.html">Capital</a>
+        <a class="block py-2 mt-2 text-center bg-primary text-white rounded-full font-semibold" href="contact.html">Contact Us</a>
       </div>
     </div>
   </nav>
@@ -224,16 +238,16 @@
       </div>
       <div class="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
         <div class="group text-center" data-aos="fade-up">
-          <div class="w-24 h-24 bg-primary/10 dark:bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6">
-            <span class="material-symbols-outlined text-5xl text-primary dark:text-accent">person</span>
+          <div class="w-32 h-32 rounded-full overflow-hidden mx-auto mb-6 shadow-lg">
+            <img src="Vonzell Pitmann.jpg" alt="Vonzell Pittman" class="w-full h-full object-cover" />
           </div>
           <h5 class="text-xl font-bold">Vonzell Pittman</h5>
           <p class="text-primary dark:text-accent font-semibold text-sm">Chief Financial Officer</p>
           <p class="text-slate-600 dark:text-slate-400 text-sm mt-3 italic">"Everything we do must bring glory to God. Our work is designed to expand Kingdom impact through honest business."</p>
         </div>
         <div class="group text-center" data-aos="fade-up" data-aos-delay="100">
-          <div class="w-24 h-24 bg-primary/10 dark:bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6">
-            <span class="material-symbols-outlined text-5xl text-primary dark:text-accent">person</span>
+          <div class="w-32 h-32 rounded-full overflow-hidden mx-auto mb-6 shadow-lg">
+            <img src="Enoch Glover.avif" alt="Enoch Glover" class="w-full h-full object-cover" />
           </div>
           <h5 class="text-xl font-bold">Enoch Glover</h5>
           <p class="text-primary dark:text-accent font-semibold text-sm">Chief Operating Officer</p>
@@ -319,6 +333,12 @@
       easing: 'ease-out-cubic',
       once: true,
       offset: 50
+    });
+
+    // Mobile Menu Toggle
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
     });
   </script>
 </body>
